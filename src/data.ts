@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: 1,
     title: 'AgendaFácil',
-    image: '/Imagens/AgendaFacil.jpeg',
+    image: 'Imagens/AgendaFacil.jpeg',
     link: 'https://github.com/DevAndreNarcizo/Agenda_Facil',
     tags: ['React', 'API', 'Dashboard', 'Agenda', 'SaaS'],
     description: 'AgendaFácil is a micro SaaS web application designed for small and medium-sized businesses like beauty clinics, hair salons, barbershops, and pet shops. It provides electronic scheduling, financial management, and time management features to help businesses manage customer appointments and operations with greater control through a simple and intuitive interface.'
