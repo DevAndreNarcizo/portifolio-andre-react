@@ -13,6 +13,14 @@ export const projects: Project[] = [
   },
   {
     id: 2,
+    title: 'Fin-Assist',
+    image: '/Imagens/Fin-Assist.jpg',
+    link: 'https://github.com/DevAndreNarcizo/Fin-Assist',
+    tags: ['Python', 'Flask', 'Finance'],
+    description: 'AI-powered financial assistant system for expense tracking'
+  },
+  {
+    id: 3,
     title: 'Sanctuary of Faith',
     image: '/Imagens/Santuario da fe.png',
     link: 'https://github.com/DevAndreNarcizo/santuario-app',
@@ -20,20 +28,12 @@ export const projects: Project[] = [
     description: 'Complete institutional website with modern and responsive design'
   },
   {
-    id: 3,
+    id: 4,
     title: 'Recipes Landing Page',
     image: '/Imagens/Landing Page Receitas.png',
     link: 'https://github.com/DevAndreNarcizo/Landing-Page-de-Receitas',
     tags: ['HTML/CSS', 'UI/UX', 'Responsive'],
     description: 'Elegant and responsive landing page for recipes with smooth animations'
-  },
-  {
-    id: 4,
-    title: 'Fin-Assist',
-    image: '/Imagens/Fin-Assist.jpg',
-    link: 'https://github.com/DevAndreNarcizo/Fin-Assist',
-    tags: ['Python', 'Flask', 'Finance'],
-    description: 'AI-powered financial assistant system for expense tracking'
   },
   {
     id: 5,
