@@ -12,22 +12,22 @@ const Hero = () => {
         <div className="hero-content">
           <div className="hero-text">
             <h1>
-              Olá, sou <span>André</span>
+              Hello, I'm <span>André</span>
             </h1>
             <p className="hero-subtitle">
-              Desenvolvedor Full Stack | Front-end especializado
+              Full Stack Developer | Front-end Specialist
             </p>
             <p className="hero-description">
-              Crio soluções web completas, do design à implementação, com foco em experiências 
-              digitais excepcionais. Especializado em React, TypeScript e Node.js, transformo 
-              ideias em produtos funcionais e escaláveis.
+              I create complete web solutions, from design to implementation, focused on exceptional
+              digital experiences. Specialized in React, TypeScript, and Node.js, I transform
+              ideas into functional and scalable products.
             </p>
             <div className="hero-cta">
               <button className="btn btn-primary" onClick={() => scrollTo('projetos')}>
-                Ver Projetos
+                View Projects
               </button>
               <button className="btn btn-secondary" onClick={() => scrollTo('contato')}>
-                Entre em Contato
+                Contact Me
               </button>
             </div>
           </div>

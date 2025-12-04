@@ -3,19 +3,19 @@ import type { Project, Skill } from './types';
 export const projects: Project[] = [
   {
     id: 1,
-    title: 'MeteoLive Dashboard',
-    image: '/Imagens/MeteoLive Dashboard.png',
-    link: 'https://github.com/DevAndreNarcizo/MeteoLive-Dashboard',
-    tags: ['React', 'API', 'Dashboard', 'Weather'],
-    description: 'Dashboard interativo de clima em tempo real com integração de API e visualizações dinâmicas'
+    title: 'AgendaFácil',
+    image: 'Imagens/AgendaFacil.jpeg',
+    link: 'https://github.com/DevAndreNarcizo/Agenda_Facil',
+    tags: ['React', 'API', 'Dashboard', 'Agenda', 'SaaS'],
+    description: 'AgendaFácil is a micro SaaS web application designed for small and medium-sized businesses like beauty clinics, hair salons, barbershops, and pet shops. It provides electronic scheduling, financial management, and time management features to help businesses manage customer appointments and operations with greater control through a simple and intuitive interface.'
   },
   {
     id: 2,
-    title: 'Landing Page Receitas',
-    image: '/Imagens/Landing Page Receitas.png',
-    link: 'https://github.com/DevAndreNarcizo/Landing-Page-de-Receitas',
-    tags: ['HTML/CSS', 'UI/UX', 'Responsive'],
-    description: 'Landing page elegante e responsiva para receitas com animações suaves'
+    title: 'Sanctuary of Faith',
+    image: '/Imagens/Santuario da fe.png',
+    link: 'https://github.com/DevAndreNarcizo/santuario-app',
+    tags: ['React', 'TypeScript', 'Responsive'],
+    description: 'Complete institutional website with modern and responsive design'
   },
   {
     id: 3,
@@ -23,53 +23,61 @@ export const projects: Project[] = [
     image: '/Imagens/Fin-Assist.jpg',
     link: 'https://github.com/DevAndreNarcizo/Fin-Assist',
     tags: ['Python', 'Flask', 'Finance'],
-    description: 'Sistema de assistente financeiro com IA para controle de gastos'
+    description: 'AI-powered financial assistant system for expense tracking'
   },
   {
     id: 4,
-    title: 'Criptografia AES',
-    image: '/Imagens/Criptografia AES.png',
-    link: 'https://github.com/DevAndreNarcizo/TECNICAS-CRIPTOGRAFICAS-AES',
-    tags: ['Python', 'Cryptography', 'Backend'],
-    description: 'Sistema robusto de criptografia AES com interface web moderna'
-  },
-  {
-    id: 5,
-    title: 'Identificação por Imagens',
-    image: '/Imagens/Identificação por Imagens.png',
-    link: 'https://github.com/DevAndreNarcizo/Sistema-de-identificacao-e-autenticacao-atraves-de-reconhecimento-de-imagens',
-    tags: ['Python', 'Computer Vision', 'Image Processing'],
-    description: 'Sistema inteligente de identificação e classificação de imagens usando IA'
-  },
-  {
-    id: 6,
-    title: 'Syndata em Vídeo',
+    title: 'Syndata in Video',
     image: '/Imagens/Syndata em Video.png',
     link: 'https://github.com/DevAndreNarcizo/Syndata-em-Video',
     tags: ['Data Visualization', 'HTML / CSS', 'JavaScript'],
-    description: 'Plataforma de visualização de dados com representações em vídeo'
+    description: 'Data visualization platform with video representations'
+  },
+  {
+    id: 5,
+    title: 'AES Encryption',
+    image: '/Imagens/Criptografia AES.png',
+    link: 'https://github.com/DevAndreNarcizo/TECNICAS-CRIPTOGRAFICAS-AES',
+    tags: ['Python', 'Cryptography', 'Backend'],
+    description: 'Robust AES encryption system with modern web interface'
+  },
+  {
+    id: 6,
+    title: 'Image Identification',
+    image: '/Imagens/Identificação por Imagens.png',
+    link: 'https://github.com/DevAndreNarcizo/Sistema-de-identificacao-e-autenticacao-atraves-de-reconhecimento-de-imagens',
+    tags: ['Python', 'Computer Vision', 'Image Processing'],
+    description: 'Intelligent image identification and classification system using AI'
   },
   {
     id: 7,
-    title: 'Santuário da Fé',
-    image: '/Imagens/Santuario da fe.png',
-    link: 'https://github.com/DevAndreNarcizo/santuario-app',
-    tags: ['React', 'TypeScript', 'Responsive'],
-    description: 'Site institucional completo com design moderno e responsivo'
+    title: 'Syndata in Video',
+    image: '/Imagens/Syndata em Video.png',
+    link: 'https://github.com/DevAndreNarcizo/Syndata-em-Video',
+    tags: ['Data Visualization', 'HTML / CSS', 'JavaScript'],
+    description: 'Data visualization platform with video representations'
+  },
+  {
+    id: 7,
+    title: 'Recipes Landing Page',
+    image: '/Imagens/Landing Page Receitas.png',
+    link: 'https://github.com/DevAndreNarcizo/Landing-Page-de-Receitas',
+    tags: ['HTML/CSS', 'UI/UX', 'Responsive'],
+    description: 'Elegant and responsive landing page for recipes with smooth animations'
   },
 ];
 
 export const skills: Skill[] = [
   { name: 'React', level: 78 },
   { name: 'TypeScript', level: 70 },
-  { name: 'JavaScript', level: 98 },
+  { name: 'JavaScript', level: 79 },
   { name: 'HTML/CSS', level: 99 },
   { name: 'Node.js', level: 85 },
-  { name: 'Express', level: 80 },
-  { name: 'Python', level: 85 },
+  { name: 'Express', level: 65 },
+  { name: 'Python', level: 76 },
   { name: 'Pytorch', level: 55 },
   { name: 'PostgreSQL', level: 72 },
-  { name: 'Git & GitHub', level: 90 },
+  { name: 'Git & GitHub', level: 85 },
   { name: 'Flask', level: 55 },
   { name: 'Pandas', level: 50 },
   { name: 'OpenCV', level: 80 },
@@ -83,10 +91,9 @@ export const skills: Skill[] = [
 ];
 
 export const aboutText = `
-  Desenvolvedor Full Stack especializado em Front-end, apaixonado por criar 
-  experiências digitais excepcionais. Com sólida experiência em React e TypeScript, 
-  transformo designs em interfaces modernas, responsivas e performáticas. Também domino 
-  tecnologias back-end como Node.js, Express e Python, permitindo-me desenvolver 
-  soluções completas e integradas.
+  Full Stack Developer specialized in Front-end, passionate about creating 
+  exceptional digital experiences. With solid experience in React and TypeScript, 
+  I transform designs into modern, responsive, and performant interfaces. I also master 
+  back-end technologies like Node.js, Java, and Python, allowing me to develop 
+  complete and integrated solutions.
 `;
-

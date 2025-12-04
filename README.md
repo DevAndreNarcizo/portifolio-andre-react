@@ -1,75 +1,75 @@
-# Portfólio André - React
+# André Portfolio - React
 
-Portfólio profissional moderno e minimalista construído com React + TypeScript + Vite.
+Modern and minimalist professional portfolio built with React + TypeScript + Vite.
 
-## 🚀 Tecnologias
+## 🚀 Technologies
 
-- **React 19** - Framework JavaScript
-- **TypeScript** - Linguagem com tipagem estática
-- **Vite** - Build tool rápida
-- **CSS Moderno** - Variáveis CSS, animações e design responsivo
+- **React 19** - JavaScript Framework
+- **TypeScript** - Statically typed language
+- **Vite** - Fast build tool
+- **Modern CSS** - CSS Variables, animations, and responsive design
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 src/
-├── components/         # Componentes React
-│   ├── Header.tsx     # Cabeçalho com navegação
-│   ├── Hero.tsx       # Seção inicial
-│   ├── About.tsx      # Seção sobre
-│   ├── Skills.tsx     # Habilidades
-│   ├── Projects.tsx   # Grid de projetos
-│   ├── ProjectCard.tsx # Card individual
-│   ├── Contact.tsx    # Contato
-│   └── Footer.tsx     # Rodapé
-├── data.ts            # Dados dos projetos e habilidades
-├── types.ts           # Definições TypeScript
-├── App.tsx            # Componente principal
+├── components/         # React Components
+│   ├── Header.tsx     # Header with navigation
+│   ├── Hero.tsx       # Hero section
+│   ├── About.tsx      # About section
+│   ├── Skills.tsx     # Skills
+│   ├── Projects.tsx   # Projects grid
+│   ├── ProjectCard.tsx # Individual card
+│   ├── Contact.tsx    # Contact
+│   └── Footer.tsx     # Footer
+├── data.ts            # Projects and skills data
+├── types.ts           # TypeScript definitions
+├── App.tsx            # Main component
 └── main.tsx           # Entry point
 ```
 
-## 🛠️ Instalação e Uso
+## 🛠️ Installation and Usage
 
-1. **Instale as dependências:**
+1. **Install dependencies:**
 ```bash
 npm install
 ```
 
-2. **Copie as imagens para public/Imagens/**
-Copie manualmente a pasta `Imagens` do projeto antigo para `public/Imagens/`.
+2. **Copy images to public/Imagens/**
+Manually copy the `Imagens` folder from the old project to `public/Imagens/`.
 
-3. **Inicie o servidor de desenvolvimento:**
+3. **Start development server:**
 ```bash
 npm run dev
 ```
 
-4. **Acesse:**
+4. **Access:**
 ```
 http://localhost:5173
 ```
 
-## 📝 Personalização
+## 📝 Customization
 
-### Editar Dados dos Projetos
+### Edit Project Data
 
-Edite o arquivo `src/data.ts`:
+Edit the file `src/data.ts`:
 ```typescript
 export const projects: Project[] = [
   {
     id: 1,
-    title: 'Nome do Projeto',
-    image: '/Imagens/imagem.png',
+    title: 'Project Name',
+    image: '/Imagens/image.png',
     link: 'https://...',
     tags: ['React', 'TypeScript'],
-    description: 'Descrição do projeto'
+    description: 'Project description'
   },
   // ...
 ];
 ```
 
-### Editar Habilidades
+### Edit Skills
 
-No mesmo arquivo:
+In the same file:
 ```typescript
 export const skills: Skill[] = [
   { name: 'React', level: 90 },
@@ -77,29 +77,29 @@ export const skills: Skill[] = [
 ];
 ```
 
-### Personalizar Links de Contato
+### Customize Contact Links
 
-Edite `src/components/Contact.tsx`:
+Edit `src/components/Contact.tsx`:
 ```typescript
-<a href="mailto:SEU_EMAIL" className="contact-link">
-<a href="https://github.com/SEU_USUARIO" className="contact-link">
-<a href="https://linkedin.com/in/SEU_USUARIO" className="contact-link">
+<a href="mailto:YOUR_EMAIL" className="contact-link">
+<a href="https://github.com/YOUR_USER" className="contact-link">
+<a href="https://linkedin.com/in/YOUR_USER" className="contact-link">
 ```
 
-## 🎨 Customização de Estilos
+## 🎨 Style Customization
 
-Os estilos são organizados em arquivos CSS separados por componente:
-- `src/components/*.css` - Estilos específicos de cada componente
-- `src/App.css` - Estilos globais do app
-- `src/index.css` - Reset e variáveis CSS
+Styles are organized in separate CSS files per component:
+- `src/components/*.css` - Component-specific styles
+- `src/App.css` - Global app styles
+- `src/index.css` - Reset and CSS variables
 
-## 📦 Build para Produção
+## 📦 Production Build
 
 ```bash
 npm run build
 ```
 
-O build será gerado na pasta `dist/`.
+The build will be generated in the `dist/` folder.
 
 ## 🌐 Deploy
 
@@ -115,21 +115,21 @@ npm install -g netlify-cli
 netlify deploy
 ```
 
-## 📄 Scripts Disponíveis
+## 📄 Available Scripts
 
-- `npm run dev` - Inicia servidor de desenvolvimento
-- `npm run build` - Build para produção
-- `npm run preview` - Preview do build
-- `npm run lint` - Executa ESLint
+- `npm run dev` - Starts development server
+- `npm run build` - Production build
+- `npm run preview` - Build preview
+- `npm run lint` - Runs ESLint
 
-## 🎯 Próximos Passos
+## 🎯 Next Steps
 
-- [ ] Adicionar animações mais sofisticadas
-- [ ] Implementar modo escuro/claro
-- [ ] Adicionar blog ou seção de artigos
-- [ ] Implementar internacionalização (i18n)
-- [ ] Adicionar testes unitários
+- [ ] Add more sophisticated animations
+- [ ] Implement dark/light mode
+- [ ] Add blog or articles section
+- [ ] Implement internationalization (i18n)
+- [ ] Add unit tests
 
-## 📞 Contato
+## 📞 Contact
 
-Para dúvidas ou sugestões, entre em contato através dos links no portfólio!
+For questions or suggestions, get in touch via the links in the portfolio!

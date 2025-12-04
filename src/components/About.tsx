@@ -5,19 +5,19 @@ const About = () => {
   return (
     <section id="sobre" className="section">
       <div className="container">
-        <h2 className="section-title">Sobre Mim</h2>
+        <h2 className="section-title">About Me</h2>
         <div className="about-content">
           <div className="about-text">
             <p>{aboutText}</p>
             <p>
-              Acredito que a excelência técnica anda de mãos dadas com a experiência do usuário. 
-              Meu código é sempre limpo, bem documentado e pensado para escalabilidade. 
-              Valorizo a colaboração e o trabalho em equipe, sempre buscando as melhores soluções.
+              I believe that technical excellence goes hand in hand with user experience.
+              My code is always clean, well-documented, and designed for scalability.
+              I value collaboration and teamwork, always seeking the best solutions.
             </p>
             <p>
-              Estou constantemente estudando novas tecnologias, explorando tendências do mercado 
-              e contribuindo para projetos open-source. Acredito no compartilhamento de conhecimento 
-              e em ajudar outros desenvolvedores a evoluírem.
+              I am constantly studying new technologies, exploring market trends,
+              and contributing to open-source projects. I believe in knowledge sharing
+              and helping other developers evolve.
             </p>
           </div>
         </div>

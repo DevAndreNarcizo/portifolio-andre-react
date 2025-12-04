@@ -4,11 +4,11 @@ const Contact = () => {
   return (
     <section id="contato" className="section">
       <div className="container">
-        <h2 className="section-title">Vamos Conversar?</h2>
+        <h2 className="section-title">Let's Talk?</h2>
         <div className="contact-content">
           <p className="contact-description">
-            Estou sempre aberto a novas oportunidades e projetos interessantes. 
-            Se você tem uma ideia ou quer discutir como posso ajudar, entre em contato!
+            I am always open to new opportunities and interesting projects.
+            If you have an idea or want to discuss how I can help, get in touch!
           </p>
           <div className="contact-links">
             <a href="mailto:dev.andrenarcizo@gmail.com" className="contact-link">

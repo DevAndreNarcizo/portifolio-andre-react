@@ -24,10 +24,10 @@ const Header = () => {
           André
         </a>
         <ul className="menu">
-          <li><a href="#sobre" onClick={(e) => { e.preventDefault(); scrollTo('sobre'); }}>Sobre</a></li>
-          <li><a href="#projetos" onClick={(e) => { e.preventDefault(); scrollTo('projetos'); }}>Projetos</a></li>
+          <li><a href="#sobre" onClick={(e) => { e.preventDefault(); scrollTo('sobre'); }}>About</a></li>
+          <li><a href="#projetos" onClick={(e) => { e.preventDefault(); scrollTo('projetos'); }}>Projects</a></li>
           <li><a href="#skills" onClick={(e) => { e.preventDefault(); scrollTo('skills'); }}>Skills</a></li>
-          <li><a href="#contato" onClick={(e) => { e.preventDefault(); scrollTo('contato'); }}>Contato</a></li>
+          <li><a href="#contato" onClick={(e) => { e.preventDefault(); scrollTo('contato'); }}>Contact</a></li>
         </ul>
       </nav>
     </header>
