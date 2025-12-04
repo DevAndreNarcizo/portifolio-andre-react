@@ -29,6 +29,14 @@ export const projects: Project[] = [
   },
   {
     id: 4,
+    title: 'Syndata in Video',
+    image: '/Imagens/Syndata em Video.png',
+    link: 'https://github.com/DevAndreNarcizo/Syndata-em-Video',
+    tags: ['Data Visualization', 'HTML / CSS', 'JavaScript'],
+    description: 'Data visualization platform with video representations'
+  },
+  {
+    id: 5,
     title: 'Recipes Landing Page',
     image: '/Imagens/Landing Page Receitas.png',
     link: 'https://github.com/DevAndreNarcizo/Landing-Page-de-Receitas',
@@ -36,7 +44,7 @@ export const projects: Project[] = [
     description: 'Elegant and responsive landing page for recipes with smooth animations'
   },
   {
-    id: 5,
+    id: 6,
     title: 'AES Encryption',
     image: '/Imagens/Criptografia AES.png',
     link: 'https://github.com/DevAndreNarcizo/TECNICAS-CRIPTOGRAFICAS-AES',
@@ -44,20 +52,12 @@ export const projects: Project[] = [
     description: 'Robust AES encryption system with modern web interface'
   },
   {
-    id: 6,
+    id: 7,
     title: 'Image Identification',
     image: '/Imagens/Identificação por Imagens.png',
     link: 'https://github.com/DevAndreNarcizo/Sistema-de-identificacao-e-autenticacao-atraves-de-reconhecimento-de-imagens',
     tags: ['Python', 'Computer Vision', 'Image Processing'],
     description: 'Intelligent image identification and classification system using AI'
-  },
-  {
-    id: 7,
-    title: 'Syndata in Video',
-    image: '/Imagens/Syndata em Video.png',
-    link: 'https://github.com/DevAndreNarcizo/Syndata-em-Video',
-    tags: ['Data Visualization', 'HTML / CSS', 'JavaScript'],
-    description: 'Data visualization platform with video representations'
   },
 ];
 
