@@ -1,6 +1,32 @@
+import { useState } from 'react';
 import './Contact.css';
 
 const Contact = () => {
+  // State to manage email copy feedback
+  const [emailCopied, setEmailCopied] = useState(false);
+  const email = 'dev.andrenarcizo@gmail.com';
+
+  // Handle email click - copy to clipboard and show feedback
+  const handleEmailClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    
+    try {
+      await navigator.clipboard.writeText(email);
+      setEmailCopied(true);
+      
+      // Reset feedback after 2 seconds
+      setTimeout(() => {
+        setEmailCopied(false);
+      }, 2000);
+      
+      // Also try to open email client
+      window.location.href = `mailto:${email}`;
+    } catch (err) {
+      // Fallback: just open email client
+      window.location.href = `mailto:${email}`;
+    }
+  };
+
   return (
     <section id="contato" className="section">
       <div className="container">
@@ -11,12 +37,17 @@ const Contact = () => {
             If you have an idea or want to discuss how I can help, get in touch!
           </p>
           <div className="contact-links">
-            <a href="mailto:dev.andrenarcizo@gmail.com" className="contact-link">
+            <a 
+              href={`mailto:${email}`} 
+              className="contact-link"
+              onClick={handleEmailClick}
+              title="Click to copy email and open email client"
+            >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
-              Email
+              {emailCopied ? 'Email Copied! ✓' : 'Email'}
             </a>
             <a href="https://github.com/DevAndreNarcizo" target="_blank" rel="noreferrer" className="contact-link">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
