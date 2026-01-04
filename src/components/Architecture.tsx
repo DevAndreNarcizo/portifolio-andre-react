@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calendar, Tag, FileText } from 'lucide-react';
+import { Calendar, FileText } from 'lucide-react';
 import { adrs } from '../adrs-data';
 import './Architecture.css';
 

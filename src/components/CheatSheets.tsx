@@ -83,8 +83,8 @@ const CheatSheets = () => {
             key={command.id}
             command={command.command}
             description={command.description}
-            example={command.example}
-            warning={command.warning}
+            example={(command as any).example}
+            warning={(command as any).warning}
             tags={command.tags}
           />
         ))}

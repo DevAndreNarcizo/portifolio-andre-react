@@ -1,4 +1,4 @@
-import { Command, Tool, RoadmapItem, Snippet, CheatSheet } from './knowledge-types';
+import type { Command, Tool, RoadmapItem, Snippet, CheatSheet } from './knowledge-types';
 
 export const gitCommands: Command[] = [
   {
