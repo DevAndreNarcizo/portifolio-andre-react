@@ -1,0 +1,218 @@
+.cheatsheets {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: 6rem 0 4rem;
+}
+
+.cheatsheets-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+
+.cheatsheets-header h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.cheatsheets-header p {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--color-text-secondary);
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
+}
+
+.search-box {
+  position: relative;
+  max-width: 500px;
+}
+
+.search-box svg {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-secondary);
+}
+
+.search-box input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.search-box input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.category-btn {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text-secondary);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.category-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.category-btn.active {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.commands-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--color-text-secondary);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.no-results p {
+  font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+  .cheatsheets {
+    padding: 5rem 0 3rem;
+  }
+  
+  .cheatsheets-header {
+    padding: 0 1rem;
+  }
+  
+  .filters {
+    padding: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .search-box {
+    max-width: none;
+  }
+  
+  .category-filters {
+    justify-content: center;
+  }
+  
+  .commands-grid {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filters {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .commands-grid {
+    padding: 0 0.5rem;
+  }
+}
+.sheet-selector {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+
+.sheet-btn {
+  padding: 1rem 2rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 120px;
+}
+
+.sheet-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.sheet-btn.active {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+@media (max-width: 768px) {
+  .sheet-selector {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  
+  .sheet-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}

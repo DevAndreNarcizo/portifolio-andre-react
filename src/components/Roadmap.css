@@ -1,0 +1,235 @@
+.roadmap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.roadmap-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.roadmap-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 0.5rem;
+}
+
+.roadmap-header p {
+  font-size: 1.125rem;
+  color: #6c757d;
+}
+
+.roadmap-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.category-section {
+  margin-bottom: 3rem;
+}
+
+.category-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e9ecef;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -2rem;
+  top: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 1;
+}
+
+.timeline-content {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-left: 1rem;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.item-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+}
+
+.item-status {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.item-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.item-dates {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress-text {
+  font-weight: 600;
+}
+
+.item-resources {
+  font-size: 0.875rem;
+}
+
+.item-resources strong {
+  color: #495057;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.resources-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.resource-link {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #007bff;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.resource-link:hover {
+  background: #007bff;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .roadmap {
+    padding: 1rem;
+  }
+  
+  .roadmap-header h1 {
+    font-size: 2rem;
+  }
+  
+  .roadmap-stats {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .timeline {
+    padding-left: 1.5rem;
+  }
+  
+  .timeline-marker {
+    left: -1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .timeline-content {
+    margin-left: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .item-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .item-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
