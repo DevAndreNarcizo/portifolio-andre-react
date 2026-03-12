@@ -112,10 +112,11 @@ const Contact = () => {
                     value={formData.budget}
                     onChange={(e) => setFormData({...formData, budget: e.target.value})}
                   >
-                    <option value="R$ 2k - 5k">R$ 2k - 5k</option>
-                    <option value="R$ 5k - 10k">R$ 5k - 10k</option>
-                    <option value="R$ 10k - 20k">R$ 10k - 20k</option>
-                    <option value="Acima de R$ 20k">Acima de R$ 20k</option>
+                    <option value="R$ 500,00 - R$ 2.000,00">R$ 500,00 - R$ 2.000,00</option>
+                    <option value="R$ 2.000,00 - R$ 5.000,00">R$ 2.000,00 - R$ 5.000,00</option>
+                    <option value="R$ 5.000,00 - R$ 10.000,00">R$ 5.000,00 - R$ 10.000,00</option>
+                    <option value="R$ 10.000,00 - R$ 20.000,00">R$ 10.000,00 - R$ 20.000,00</option>
+                    <option value="Acima de R$ 20.000,00">Acima de R$ 20.000,00</option>
                   </select>
                 </div>
               </div>
