@@ -1,58 +1,102 @@
-.section {
-  padding: 8rem 0;
+.about-wrapper {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 6rem;
+  align-items: center;
 }
 
-.section-title {
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.about-image-side {
+  position: relative;
+}
+
+.about-image-container {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.about-image-container:hover .about-photo {
+  transform: scale(1.05);
+}
+
+.about-image-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, var(--color-accent-dim) 0%, transparent 70%);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.about-title {
+  font-size: 2.5rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
 }
 
-.about-content {
-  max-width: 900px;
-  margin: 0 auto;
+.about-text-content p {
+  font-size: 1.125rem;
+  color: var(--color-text-dim);
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
 }
 
-.about-text p {
-  font-size: 1.1rem;
-  line-height: 1.85;
-  color: var(--color-text-secondary);
-  margin-bottom: 1.75rem;
-  padding: 0.5rem 0;
+.about-badges {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
-.about-text p:first-child {
-  font-weight: 500;
+.about-badge {
+  padding: 0.5rem 1rem;
+  background: var(--color-surface-hover);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
   color: var(--color-text);
 }
 
-@media (max-width: 768px) {
-  .section {
-    padding: 6rem 0;
-  }
-  
-  .section-title {
-    font-size: 2.25rem;
-  }
-  
-  .about-text p {
-    font-size: 1rem;
-  }
+.about-quote {
+  padding: 3rem;
+  position: relative;
 }
 
-@media (max-width: 480px) {
-  .section {
-    padding: 4rem 0;
-  }
-  
-  .section-title {
-    font-size: 1.875rem;
-  }
+.about-quote blockquote {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--color-text);
 }
 
+.about-quote blockquote::before {
+  content: '"';
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  font-size: 4rem;
+  color: var(--color-accent);
+  opacity: 0.3;
+}
+
+@media (max-width: 992px) {
+  .about-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}

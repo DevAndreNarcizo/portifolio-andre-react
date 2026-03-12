@@ -3,22 +3,29 @@ import './About.css';
 
 const About = () => {
   return (
-    <section id="sobre" className="section">
+    <section id="sobre" className="section bg-alt">
       <div className="container">
-        <h2 className="section-title">About Me</h2>
-        <div className="about-content">
-          <div className="about-text">
-            <p>{aboutText}</p>
-            <p>
-              I believe that technical excellence goes hand in hand with user experience.
-              My code is always clean, well-documented, and designed for scalability.
-              I value collaboration and teamwork, always seeking the best solutions.
-            </p>
-            <p>
-              I am constantly studying new technologies, exploring market trends,
-              and contributing to open-source projects. I believe in knowledge sharing
-              and helping other developers evolve.
-            </p>
+        <div className="about-wrapper">
+          <div className="about-image-side">
+            <div className="about-image-container glass-card">
+              <img src="/Imagens/Foto.webp" alt="André Narcizo" className="about-photo" />
+              <div className="about-image-glow"></div>
+            </div>
+          </div>
+
+          <div className="about-content">
+            <h2 className="about-title">Autoridade & Mentalidade de Engenharia</h2>
+            <div className="about-text-content">
+              {aboutText.split('\n\n').map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+            
+            <div className="about-badges">
+              <span className="about-badge">Full Stack Developer</span>
+              <span className="about-badge">Ciência da Computação (8º P)</span>
+              <span className="about-badge">Visão Estratégica</span>
+            </div>
           </div>
         </div>
       </div>
@@ -27,4 +34,3 @@ const About = () => {
 };
 
 export default About;
-

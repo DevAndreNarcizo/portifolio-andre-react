@@ -1,25 +1,24 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
+import Differences from './components/Differences';
+import Services from './components/Services';
 import Projects from './components/Projects';
+import TechStack from './components/TechStack';
+import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import KnowledgeHome from './components/KnowledgeHome';
-import CheatSheets from './components/CheatSheets';
-import Tools from './components/Tools';
-import Roadmap from './components/Roadmap';
-import Snippets from './components/Snippets';
-import Architecture from './components/Architecture';
+import WhatsAppFloating from './components/WhatsAppFloating';
 import './App.css';
 
 const HomePage = () => (
   <>
     <Hero />
-    <About />
-    <Skills />
+    <Differences />
+    <Services />
     <Projects />
+    <TechStack />
+    <About />
     <Contact />
   </>
 );
@@ -32,15 +31,10 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/knowledge" element={<KnowledgeHome />} />
-            <Route path="/knowledge/cheatsheets" element={<CheatSheets />} />
-            <Route path="/knowledge/tools" element={<Tools />} />
-            <Route path="/knowledge/roadmap" element={<Roadmap />} />
-            <Route path="/knowledge/snippets" element={<Snippets />} />
-            <Route path="/knowledge/architecture" element={<Architecture />} />
           </Routes>
         </main>
         <Footer />
+        <WhatsAppFloating />
       </div>
     </Router>
   );

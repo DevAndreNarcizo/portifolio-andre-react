@@ -1,68 +1,129 @@
+import { Mail, Github, Linkedin, Instagram, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import { contactInfo } from '../data';
 import './Contact.css';
 
 const Contact = () => {
-  // State to manage email copy feedback
-  const [emailCopied, setEmailCopied] = useState(false);
-  const email = 'dev.andrenarcizo@gmail.com';
+  const [formData, setFormData] = useState({
+    name: '',
+    project: '',
+    stage: 'ideia',
+    budget: 'R$ 2k - 5k'
+  });
 
-  // Handle email click - copy to clipboard and show feedback
-  const handleEmailClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const handleEmailClick = async (e: React.MouseEvent) => {
     e.preventDefault();
-    
-    try {
-      await navigator.clipboard.writeText(email);
-      setEmailCopied(true);
-      
-      // Reset feedback after 2 seconds
-      setTimeout(() => {
-        setEmailCopied(false);
-      }, 2000);
-      
-      // Also try to open email client
-      window.location.href = `mailto:${email}`;
-    } catch (err) {
-      // Fallback: just open email client
-      window.location.href = `mailto:${email}`;
-    }
+    await navigator.clipboard.writeText(contactInfo.email);
+    setEmailCopied(true);
+    setTimeout(() => setEmailCopied(false), 2000);
+  };
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const message = encodeURIComponent(
+      `Olá André!\n\nMeu nome é *${formData.name}*.\nQuero falar sobre meu projeto: _${formData.project}_\n\n*Estágio atual:* ${formData.stage}\n*Orçamento estimado:* ${formData.budget}`
+    );
+    window.open(`https://wa.me/5562993382881?text=${message}`, '_blank');
   };
 
   return (
     <section id="contato" className="section">
       <div className="container">
-        <h2 className="section-title">Let's Talk?</h2>
-        <div className="contact-content">
-          <p className="contact-description">
-            I am always open to new opportunities and interesting projects.
-            If you have an idea or want to discuss how I can help, get in touch!
-          </p>
-          <div className="contact-links">
-            <a 
-              href={`mailto:${email}`} 
-              className="contact-link"
-              onClick={handleEmailClick}
-              title="Click to copy email and open email client"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              {emailCopied ? 'Email Copied! ✓' : 'Email'}
-            </a>
-            <a href="https://github.com/DevAndreNarcizo" target="_blank" rel="noreferrer" className="contact-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-              GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/andr%C3%A9-narcizo/" target="_blank" rel="noreferrer" className="contact-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-              LinkedIn
-            </a>
+        <div className="contact-grid">
+          <div className="contact-info-side">
+            <h2 className="contact-title">Vamos impulsionar seu produto?</h2>
+            <p className="contact-description">
+              Se você busca um parceiro estratégico para transformar sua ideia em realidade técnica de alto nível, entre em contato.
+            </p>
+            
+            <div className="contact-methods">
+              <a href={contactInfo.whatsappLink} target="_blank" rel="noreferrer" className="contact-method-card glass-card">
+                <img 
+                  src="/Imagens/whatsapp.png" 
+                  alt="WhatsApp" 
+                  width="32" 
+                  height="32" 
+                  className="method-icon"
+                  style={{ borderRadius: '50%' }}
+                />
+                <div>
+                  <span className="method-label">WhatsApp</span>
+                  <span className="method-value">{contactInfo.whatsapp}</span>
+                </div>
+              </a>
+              <a href={`mailto:${contactInfo.email}`} onClick={handleEmailClick} className="contact-method-card glass-card">
+                <Mail size={24} className="method-icon" />
+                <div>
+                  <span className="method-label">Email</span>
+                  <span className="method-value">{emailCopied ? 'Copiado para o clipboard!' : contactInfo.email}</span>
+                </div>
+              </a>
+            </div>
+
+            <div className="contact-social-links">
+              <a href={contactInfo.linkedin} target="_blank" rel="noreferrer"><Linkedin size={20} /></a>
+              <a href={contactInfo.github} target="_blank" rel="noreferrer"><Github size={20} /></a>
+              <a href={contactInfo.instagram} target="_blank" rel="noreferrer"><Instagram size={20} /></a>
+            </div>
+          </div>
+
+          <div className="contact-form-side glass-card">
+            <h3 className="form-title">Qualificação de Projeto</h3>
+            <form className="contact-form" onSubmit={handleFormSubmit}>
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Seu Nome</label>
+                  <input 
+                    type="text" 
+                    placeholder="Como devo te chamar?" 
+                    required 
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  />
+                </div>
+              </div>
+              <div className="form-group">
+                <label>Sobre o Projeto</label>
+                <textarea 
+                  placeholder="Descreva brevemente seu desafio técnico..." 
+                  rows={4} 
+                  required
+                  value={formData.project}
+                  onChange={(e) => setFormData({...formData, project: e.target.value})}
+                ></textarea>
+              </div>
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Estágio Atual</label>
+                  <select 
+                    value={formData.stage}
+                    onChange={(e) => setFormData({...formData, stage: e.target.value})}
+                  >
+                    <option value="ideia">Apenas Ideia</option>
+                    <option value="mvp">MVP em andamento</option>
+                    <option value="operacao">Produto em operação</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label>Orçamento Estimado</label>
+                  <select 
+                    value={formData.budget}
+                    onChange={(e) => setFormData({...formData, budget: e.target.value})}
+                  >
+                    <option value="R$ 2k - 5k">R$ 2k - 5k</option>
+                    <option value="R$ 5k - 10k">R$ 5k - 10k</option>
+                    <option value="R$ 10k - 20k">R$ 10k - 20k</option>
+                    <option value="Acima de R$ 20k">Acima de R$ 20k</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" className="btn btn-primary btn-block">
+                Enviar via WhatsApp
+                <ArrowRight size={18} style={{ marginLeft: 8 }} />
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -71,4 +132,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

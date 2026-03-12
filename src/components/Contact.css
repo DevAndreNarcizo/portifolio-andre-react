@@ -1,94 +1,159 @@
-.contact-content {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.contact-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  letter-spacing: -0.04em;
 }
 
 .contact-description {
-  font-size: 1.15rem;
-  color: var(--color-text-secondary);
-  line-height: 1.85;
-  margin-bottom: 4rem;
+  font-size: 1.125rem;
+  color: var(--color-text-dim);
+  margin-bottom: 3rem;
+  line-height: 1.7;
 }
 
-.contact-links {
+.contact-methods {
   display: flex;
+  flex-direction: column;
   gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  margin-bottom: 3rem;
 }
 
-.contact-link {
+.contact-method-card {
   display: flex;
   align-items: center;
-  gap: 0.875rem;
-  padding: 1.25rem 2.5rem;
-  background: var(--color-bg-secondary);
-  border: 2px solid var(--color-border);
-  border-radius: 16px;
-  color: var(--color-text);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  transition: var(--transition-fast);
   text-decoration: none;
+}
+
+.contact-method-card:hover {
+  border-color: var(--color-accent);
+  transform: translateX(10px);
+}
+
+.method-icon {
+  color: var(--color-accent);
+}
+
+.method-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.method-value {
   font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
+  color: var(--color-text);
 }
 
-.contact-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
+.contact-social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.contact-social-links a {
+  color: var(--color-text-dim);
+  transition: var(--transition-fast);
+}
+
+.contact-social-links a:hover {
+  color: var(--color-accent);
+}
+
+.contact-form-side {
+  padding: 3.5rem;
+}
+
+.form-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form-group input, 
+.form-group textarea, 
+.form-group select {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  color: var(--color-text);
+  font-family: inherit;
+  transition: var(--transition-fast);
+}
+
+body.light-mode .form-group input,
+body.light-mode .form-group textarea,
+body.light-mode .form-group select {
+  background: #fff;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus, 
+.form-group select:focus {
+  border-color: var(--color-accent);
+  outline: none;
+  background: rgba(var(--color-accent), 0.05);
+}
+
+.form-group select option {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+}
+
+.btn-block {
   width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  transition: left 0.3s ease;
-  z-index: 0;
 }
 
-.contact-link > * {
-  position: relative;
-  z-index: 1;
-}
-
-.contact-link svg {
-  width: 24px;
-  height: 24px;
-  stroke: var(--color-primary);
-  transition: stroke 0.3s ease;
-}
-
-.contact-link:hover {
-  border-color: transparent;
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.3);
-}
-
-.contact-link:hover::before {
-  left: 0;
-}
-
-.contact-link:hover svg {
-  stroke: white;
-}
-
-.contact-link:hover {
-  color: white;
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .contact-links {
-    flex-direction: column;
-    align-items: stretch;
+  .form-row {
+    grid-template-columns: 1fr;
   }
-  
-  .contact-link {
-    justify-content: center;
-    padding: 1rem 2rem;
-  }
-  
-  .contact-description {
-    font-size: 1rem;
-    margin-bottom: 3rem;
+  .contact-form-side {
+    padding: 2rem;
   }
 }
