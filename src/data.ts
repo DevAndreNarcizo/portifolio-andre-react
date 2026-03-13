@@ -102,6 +102,15 @@ export const services: Service[] = [
 export const projects: Project[] = [
   {
     id: 1,
+    title: 'Clínica Thaysa Medeiros',
+    image: '/Imagens/ClinicaThaysa.png',
+    liveLink: 'https://clinica-thaysamedeiros.vercel.app/',
+    githubLink: 'https://github.com/DevAndreNarcizo/Clinica-Thaysa-Medeiros',
+    tags: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
+    description: 'Problema: Falta de autoridade digital e dificuldade de conversão no site antigo. Solução: Interface premium institucional focada em luxo e conversão direta. Resultado: Posicionamento de marca elevado e jornada de agendamento mobile-first otimizada.'
+  },
+  {
+    id: 2,
     title: 'Plataforma Nutrifit (Case)',
     image: '/Imagens/Nutricionista.png',
     liveLink: 'https://site-institucional-para-nutricionis.vercel.app/',
@@ -110,7 +119,7 @@ export const projects: Project[] = [
     description: 'Problema: Baixo agendamento via site antigo. Solução: Redesign focado em autoridade e jornada de agendamento em 3 cliques. Resultado: Interface ultra-rápida preparada para aumento de conversão.'
   },
   {
-    id: 2,
+    id: 3,
     title: 'Luz da Aurora E-commerce',
     image: '/Imagens/Luz da Aurora.png',
     liveLink: 'https://luzdaaurora.shop/',
@@ -119,7 +128,7 @@ export const projects: Project[] = [
     description: 'E-commerce desenvolvido do zero para suportar a escala e ambição de crescimento da marca. Solução: Migração de sistema legado para uma stack moderna com checkout otimizado. Resultado: Aumento real na taxa de conversão e zero gargalos de performance.'
   },
   {
-    id: 3,
+    id: 4,
     title: 'Santuário da Fé',
     image: '/Imagens/Santuario.png',
     liveLink: 'https://santurariodafe.netlify.app/',
@@ -128,7 +137,7 @@ export const projects: Project[] = [
     description: 'Problema: Dificuldade de comunicação e engajamento com membros. Solução: Portal moderno com gestão de eventos e conteúdos integrados. Resultado: Aumento no engajamento da comunidade e facilidade de acesso a informações.'
   },
   {
-    id: 4,
+    id: 5,
     title: 'Syndata em Vídeo',
     image: '/Imagens/Syndata.png',
     liveLink: 'https://syndata-video.netlify.app/',
