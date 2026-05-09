@@ -103,7 +103,7 @@ export const projects: Project[] = [
   {
     id: 1,
     title: 'Agenda-Fácil',
-    image: '/Imagens/AgendaFacil.jpeg',
+    image: '/Imagens/AgendaFacil-new.png',
     liveLink: 'https://agenda-facil.vercel.app/',
     githubLink: 'https://github.com/DevAndreNarcizo/Agenda_Facil',
     tags: ['React 19', 'Supabase', 'TypeScript'],
