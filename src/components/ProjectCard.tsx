@@ -7,28 +7,42 @@ interface ProjectCardProps {
   liveLink?: string;
   githubLink?: string;
   tags: string[];
-  description?: string;
+  summary?: string;
+  stack?: string;
+  role?: string;
+  problem?: string;
+  solution?: string;
+  result?: string;
 }
 
-const ProjectCard = ({ title, image, liveLink, githubLink, tags, description }: ProjectCardProps) => {
-  // Parse description for Problem, Solution, Result
-  const parts = description ? description.split(/\s*(?:Problema:|Solução:|Resultado:)\s*/).filter(Boolean) : [];
-  
+const ProjectCard = ({
+  title,
+  image,
+  liveLink,
+  githubLink,
+  tags,
+  summary,
+  stack,
+  role,
+  problem,
+  solution,
+  result
+}: ProjectCardProps) => {
   return (
-    <div className="project-card glass-card">
+    <div className="project-card">
       <div className="project-image-container">
         <img src={image} alt={title} className="project-image" />
         <div className="project-overlay">
           <div className="project-actions">
             {liveLink && (
               <a href={liveLink} target="_blank" rel="noreferrer" className="project-action-btn primary" title="Acessar o Site">
-                <ExternalLink size={20} />
+                <ExternalLink size={18} />
                 <span>Site</span>
               </a>
             )}
             {githubLink && (
               <a href={githubLink} target="_blank" rel="noreferrer" className="project-action-btn secondary" title="Ver no GitHub">
-                <Github size={20} />
+                <Github size={18} />
                 <span>GitHub</span>
               </a>
             )}
@@ -44,24 +58,38 @@ const ProjectCard = ({ title, image, liveLink, githubLink, tags, description }: 
         </div>
         <h3 className="project-card-title">{title}</h3>
         
+        {summary && <p className="project-summary">{summary}</p>}
+        
         <div className="project-details">
-          {parts.length >= 3 ? (
-            <>
-              <div className="detail-item">
-                <span className="detail-label">Problema:</span>
-                <p>{parts[0]}</p>
-              </div>
-              <div className="detail-item">
-                <span className="detail-label">Solução:</span>
-                <p>{parts[1]}</p>
-              </div>
-              <div className="detail-item">
-                <span className="detail-label result">Resultado:</span>
-                <p>{parts[2]}</p>
-              </div>
-            </>
-          ) : (
-            <p className="project-fallback-desc">{description}</p>
+          {stack && (
+            <div className="detail-item">
+              <span className="detail-label">Stack:</span>
+              <p>{stack}</p>
+            </div>
+          )}
+          {role && (
+            <div className="detail-item">
+              <span className="detail-label">Meu papel:</span>
+              <p>{role}</p>
+            </div>
+          )}
+          {problem && (
+            <div className="detail-item">
+              <span className="detail-label">Problema:</span>
+              <p>{problem}</p>
+            </div>
+          )}
+          {solution && (
+            <div className="detail-item">
+              <span className="detail-label">Solução:</span>
+              <p>{solution}</p>
+            </div>
+          )}
+          {result && (
+            <div className="detail-item">
+              <span className="detail-label result">Aprendizado:</span>
+              <p>{result}</p>
+            </div>
           )}
         </div>
       </div>

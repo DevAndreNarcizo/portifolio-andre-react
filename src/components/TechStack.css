@@ -1,81 +1,39 @@
-.tech-benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+#stack {
+  position: relative;
+}
+
+.stack-list {
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
-  margin-top: 4rem;
 }
 
-.tech-benefit-card {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  transition: transform 0.3s ease;
+.stack-group {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.tech-benefit-card:hover {
-  transform: translateY(-5px);
+.stack-group:last-child {
+  border-bottom: none;
 }
 
-.benefit-header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.benefit-tag {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--color-accent);
-  font-weight: 700;
-}
-
-.benefit-name {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--color-text);
-  letter-spacing: -0.02em;
-}
-
-.benefit-text {
-  font-size: 1.1rem;
-  color: var(--color-text-dim);
-  line-height: 1.6;
-  flex-grow: 1;
-}
-
-.benefit-footer {
-  padding-top: 1rem;
-  border-top: 1px solid var(--color-border);
-}
-
-.benefit-status {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.85rem;
-  color: var(--color-text-dim);
+.stack-category {
+  font-size: 0.875rem;
   font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.pulse-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--color-accent);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--color-accent);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.2); }
-  100% { opacity: 1; transform: scale(1); }
+.stack-items {
+  font-size: 1.0625rem;
+  color: var(--color-text);
+  line-height: 1.5;
 }
 
 @media (max-width: 768px) {
-  .tech-benefits-grid {
-    grid-template-columns: 1fr;
+  .stack-group {
+    padding: 1.25rem 0;
   }
 }

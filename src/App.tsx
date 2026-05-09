@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Differences from './components/Differences';
-import Services from './components/Services';
 import Projects from './components/Projects';
+import Services from './components/Services';
 import TechStack from './components/TechStack';
+import Notes from './components/Notes';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -14,10 +14,10 @@ import './App.css';
 const HomePage = () => (
   <>
     <Hero />
-    <Differences />
-    <Services />
     <Projects />
+    <Services />
     <TechStack />
+    <Notes />
     <About />
     <Contact />
   </>

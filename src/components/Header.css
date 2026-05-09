@@ -4,19 +4,19 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1.5rem 0;
+  padding: 1.25rem 0;
   transition: var(--transition-fast);
 }
 
 .site-header.scrolled {
-  padding: 1rem 0;
-  background: rgba(13, 13, 13, 0.8);
+  padding: 0.875rem 0;
+  background: rgba(11, 15, 20, 0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
 }
 
 body.light-mode .site-header.scrolled {
-  background: rgba(248, 249, 250, 0.8);
+  background: rgba(248, 249, 250, 0.85);
 }
 
 .site-header nav {
@@ -28,26 +28,26 @@ body.light-mode .site-header.scrolled {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 
 .logo {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--color-text);
   text-decoration: none;
 }
 
 .menu {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: center;
 }
 
 .menu a {
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-dim);
   transition: var(--transition-fast);
@@ -57,20 +57,40 @@ body.light-mode .site-header.scrolled {
   color: var(--color-accent);
 }
 
-.knowledge-link {
-  padding: 0.5rem 1rem;
-  background: var(--color-accent-dim);
-  color: var(--color-accent) !important;
-  border-radius: 6px;
-  font-weight: 600 !important;
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 0.25rem;
 }
 
 @media (max-width: 768px) {
-  .nav-right {
-    gap: 1rem;
+  .mobile-menu-toggle {
+    display: block;
   }
   
   .menu {
-    display: none; /* Mobile menu needed later, keeping it simple for now */
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .menu.open {
+    display: flex;
+  }
+  
+  .menu a {
+    font-size: 1rem;
+    padding: 0.5rem 0;
   }
 }

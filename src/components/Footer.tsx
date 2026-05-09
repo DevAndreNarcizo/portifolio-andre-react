@@ -8,15 +8,13 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-left">
-            <span className="footer-logo">
-              <span style={{ color: 'var(--color-accent)' }}>Dev.</span> André Narcizo
-            </span>
-            <p>Construindo produtos digitais com engenharia de alto nível.</p>
+            <span className="footer-logo">André Narcizo</span>
+            <p>Full-Stack Developer em Goiânia-GO.</p>
           </div>
           
           <div className="footer-right">
-            <p>© {year} André Narcizo. Todos os direitos reservados.</p>
-            <p className="footer-location">Goiânia, Brasil 🇧🇷</p>
+            <p>© {year} André Narcizo</p>
+            <p className="footer-location">Goiânia, Brasil</p>
           </div>
         </div>
       </div>
