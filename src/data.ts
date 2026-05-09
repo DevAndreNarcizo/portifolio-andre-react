@@ -198,7 +198,7 @@ export const stackGroups: StackGroup[] = [
   },
   {
     category: 'Mobile',
-    items: 'Flutter, Dart, React Native'
+    items: 'Flutter, Dart'
   },
   {
     category: 'Dados',
