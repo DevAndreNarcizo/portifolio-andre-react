@@ -116,20 +116,6 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: 'Nobus Assistente Financeiro',
-    image: '/Imagens/Syndata.png',
-    liveLink: '',
-    githubLink: '',
-    tags: ['Laravel', 'Angular', 'React'],
-    summary: 'Sistema com regras de negócio, backend, frontend e organização modular.',
-    stack: 'Laravel, Angular, React, PostgreSQL',
-    role: 'Full stack, arquitetura de módulos e regras de negócio',
-    problem: 'Gestão financeira pessoal e familiar sem centralização de dados.',
-    solution: 'Sistema modular com backend Laravel, frontend Angular/React e banco relacional.',
-    result: 'Consolidação de práticas de separação de concerns, services e controllers finos.'
-  },
-  {
-    id: 3,
     title: 'Fin-Assist',
     image: '/Imagens/Fin-Assist.jpg',
     liveLink: '',
@@ -143,7 +129,7 @@ export const projects: Project[] = [
     result: 'Conexão entre TCC, Python e visão de produto financeiro com dados reais.'
   },
   {
-    id: 4,
+    id: 3,
     title: 'Ecommerce Luz da Aurora',
     image: '/Imagens/Luz da Aurora.png',
     liveLink: 'https://luzdaaurora.shop/',
@@ -157,18 +143,46 @@ export const projects: Project[] = [
     result: 'Entrega de loja funcional com aprendizado em fluxo de vendas online.'
   },
   {
+    id: 4,
+    title: 'Clínica Thaysa Medeiros',
+    image: '/Imagens/ClinicaThaysa.png',
+    liveLink: '',
+    githubLink: 'https://github.com/DevAndreNarcizo/Clinica-Thaysa-Medeiros',
+    tags: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
+    summary: 'Site institucional premium para clínica de estética e bem-estar.',
+    stack: 'Next.js, Tailwind CSS, Framer Motion',
+    role: 'Design, frontend, animações e deploy',
+    problem: 'Clínica precisava de autoridade digital e conversão de novos clientes.',
+    solution: 'Interface premium com foco em luxo, serviços e jornada de agendamento.',
+    result: 'Posicionamento de marca elevado e site otimizado para mobile.'
+  },
+  {
     id: 5,
-    title: 'Site Profissional Nail/Lash/Estética',
-    image: '/Imagens/Nutricionista.png',
-    liveLink: 'https://site-institucional-para-nutricionis.vercel.app/',
-    githubLink: '',
-    tags: ['React', 'Tailwind', 'Express'],
-    summary: 'Presença digital para serviços locais de beleza e bem-estar.',
-    stack: 'React, Tailwind CSS, Express',
+    title: 'Thais Sousa - Nail Designer',
+    image: '/Imagens/ThaisSousa.png',
+    liveLink: '',
+    githubLink: 'https://github.com/DevAndreNarcizo/ThaisSousa-NailDesigner',
+    tags: ['React', 'Tailwind CSS', 'Responsive'],
+    summary: 'Landing page para nail designer com portfólio e agendamento.',
+    stack: 'React, Tailwind CSS, Vite',
     role: 'Design, frontend e deploy',
-    problem: 'Profissionais autônomos sem site para converter visitantes em clientes.',
-    solution: 'Landing page rápida, responsiva e com foco em conversão para agendamento.',
-    result: 'Template reutilizável para nicho de beleza e serviços locais.'
+    problem: 'Profissional autônoma sem presença digital para atrair clientes.',
+    solution: 'Landing page visual com galeria de trabalhos e foco em conversão.',
+    result: 'Template reutilizável para profissionais de beleza e estética.'
+  },
+  {
+    id: 6,
+    title: 'Karen Bianca - Lash Designer',
+    image: '/Imagens/KarenBianca.png',
+    liveLink: '',
+    githubLink: 'https://github.com/DevAndreNarcizo/KarenBianca-LashDesigner',
+    tags: ['React', 'Tailwind CSS', 'Responsive'],
+    summary: 'Site profissional para lash designer com portfólio e contato.',
+    stack: 'React, Tailwind CSS, Vite',
+    role: 'Design, frontend e deploy',
+    problem: 'Lash designer precisava de site para mostrar trabalhos e receber agendamentos.',
+    solution: 'Página elegante com galeria, depoimentos e CTA para WhatsApp.',
+    result: 'Presença digital que converte visitantes em clientes agendados.'
   }
 ];
 
@@ -203,76 +217,90 @@ Minha atuação combina frontend, backend, mobile, dados e integrações. Tenho 
 
 Meu objetivo para 2026 é consolidar minha evolução para Desenvolvedor Pleno e, no longo prazo, construir uma carreira sólida rumo à Arquitetura de Software.`;
 
-// Notes - seção de aprendizados técnicos
+// Notes - seção de aprendizados técnicos (uma nota por dia)
 export const notes: Note[] = [
   {
     id: 1,
-    title: 'Como estou evoluindo de Full Stack para Arquiteto',
-    date: '2026-05-09',
-    summary: 'Deixar de ser apenas executor e começar a pensar em decisões estruturais que sobrevivem a mudanças de equipe.',
+    title: 'Meu plano para evoluir de Júnior para Pleno em 2026',
+    date: '2026-05-04',
+    summary: 'Autonomia, qualidade e comunicação são os três pilares que estou trabalhando para deixar o nível Júnior.',
     content: [
-      'Comecei a documentar decisões de arquitetura antes de escrever código. Isso evita retrabalho e alinha expectativas.',
-      'Controllers finos e services com responsabilidade única tornam APIs mais fáceis de manter e testar.',
-      'Aprender a dizer não para requisitos mal definidos é parte do crescimento técnico.',
-      'Automações com IA são ferramentas, não substitutos para raciocínio.'
+      'Mapeei lacunas reais nas minhas stacks principais: Flutter, PHP, Laravel e Angular. Não adianta estudar tudo — preciso de profundidade onde trabalho todo dia.',
+      'Criei uma rotina semanal com 2 blocos de estudo manual e 1 revisão de tarefa entregue. Praticar código sem IA é obrigatório.',
+      'Comecei a pedir feedback objetivo para liderança sobre o que falta para virar Pleno. Advinha: não é só técnica.',
+      'Uso IA para explicar conceitos e revisar PRs, mas nunca para substituir o raciocínio próprio.'
     ],
-    learning: 'Arquitetura começa com documentação e termina com código limpo.',
-    nextStep: 'Aplicar padrões de projeto em mais projetos reais e documentar os trade-offs.'
+    learning: 'Evolução de carreira precisa de evidências mensuráveis, não só de boa vontade.',
+    nextStep: 'Criar exemplos próprios em Flutter e Laravel até agosto, com testes e documentação.'
   },
   {
     id: 2,
-    title: 'Angular, Laravel e Flutter: minha stack de trabalho em 2026',
-    date: '2026-05-09',
-    summary: 'Por que escolhi essas três tecnologias como base e como elas se complementam no dia a dia.',
+    title: 'Controllers finos e Services com responsabilidade única',
+    date: '2026-05-05',
+    summary: 'Quando parei de colocar regra de negócio nos controllers, meu código ficou testável pela primeira vez.',
     content: [
-      'Angular para sistemas corporativos: tipagem forte, estrutura clara e manutenção previsível.',
-      'Laravel para APIs rápidas: ecossistema maduro, Eloquent eficiente e deploy simples.',
-      'Flutter para mobile: uma base de código para iOS e Android, com performance nativa.',
-      'Python entra como complemento para automações, dados e integrações com IA.'
+      'Controllers devem apenas orquestrar entrada e saída HTTP. Regras de negócio ficam em Services ou UseCases, com dependências explícitas.',
+      'Lógica diretamente no controller entrega mais rápido no início, mas vira dívida técnica em semanas.',
+      'Services genéricos grandes centralizam regras, mas podem virar classes inchadas. Prefiro UseCases por fluxo relevante.',
+      'Validação de input acontece antes da execução da regra, seja com Requests, DTOs ou validators equivalentes por stack.'
     ],
-    learning: 'Stack real é aquela que resolve o problema do cliente, não a mais hypada.',
-    nextStep: 'Aprofundar em arquitetura limpa no Laravel e state management avançado no Angular.'
+    learning: 'Testes unitários ficam simples quando a regra de negócio está isolada do framework.',
+    nextStep: 'Aplicar ADR (Action-Domain-Responder) no próximo projeto Laravel do zero.'
   },
   {
     id: 3,
-    title: 'Agenda-Fácil: aprendizados criando um micro-SaaS de agendamento',
-    date: '2026-05-09',
-    summary: 'Construir um produto completo sozinho ensina mais do que qualquer tutorial.',
+    title: 'Padrão de resposta JSON que uso em todas as APIs',
+    date: '2026-05-06',
+    summary: 'Um formato de resposta padronizado elimina dúvidas entre frontend e backend, além de facilitar debug.',
     content: [
-      'Modelagem de banco relacional para fluxos recorrentes é mais complexa do que parece.',
-      'Autenticação com Supabase acelera o MVP, mas exige entender RLS e políticas de segurança.',
-      'UX de agendamento precisa ser intuitiva: o usuário não deve pensar para marcar um horário.',
-      'Freelance e produto próprio exigem visão de negócio, não só técnica.'
+      'Adotei a estrutura { success, data, error, meta } em todos os projetos. O frontend nunca precisa adivinhar onde está o payload.',
+      'Erros retornam código legível (ex: USER_NOT_FOUND) e mensagem clara, nunca stack trace em produção.',
+      'Status HTTP corretos: 201 para criação, 422 para validação, 409 para conflito. Não devolvo 200 para tudo.',
+      'Listagens paginadas incluem meta com current_page, per_page, total e last_page. Nenhuma tabela sem paginação.'
     ],
-    learning: 'Um micro-SaaS é a melhor forma de aprender produto, backend, frontend e deploy ao mesmo tempo.',
-    nextStep: 'Adicionar pagamentos e notificações push para validar monetização.'
+    learning: 'APIs previsíveis reduzem retrabalho entre equipes mais do que qualquer framework.',
+    nextStep: 'Documentar todas as APIs públicas com OpenAPI/Swagger antes do deploy.'
   },
   {
     id: 4,
-    title: 'Por que controllers finos deixam APIs mais fáceis de manter',
-    date: '2026-05-09',
-    summary: 'Separação de responsabilidades não é teoria: é prática que economiza horas de debug.',
+    title: 'Clean Code na prática: o que realmente muda no dia a dia',
+    date: '2026-05-07',
+    summary: 'Nomes claros, funções pequenas e tratamento de erros adequado são 80% do Clean Code que aplico.',
     content: [
-      'Controllers devem apenas receber requests, chamar services e retornar responses.',
-      'Lógica de negócio vive em services ou use cases, não espalhada nos controllers.',
-      'Isso facilita testes unitários, mock de dependências e troca de frameworks.',
-      'Padrão de resposta padronizado (ex: { success, data, message }) reduz fricção no frontend.'
+      'Nomes revelam intenção: isPasswordValid() é melhor que proc(). Se preciso de comentário para explicar o nome, o nome está errado.',
+      'Funções fazem uma coisa só. Máximo 20 linhas, ideal 10. Mais de 3 parâmetros viram DTO.',
+      'Nunca retorno null para indicar erro. Uso exceções específicas de domínio (UserNotFoundException) ou objetos Result.',
+      'Comentários explicam WHY, não WHAT. Código comentado é deletado — o git guarda histórico.'
     ],
-    learning: 'Código que separa responsabilidades envelhece melhor.',
-    nextStep: 'Implementar ADR (Action-Domain-Responder) em projetos Laravel novos.'
+    learning: 'Código limpo não é sobre perfeição, é sobre ser óbvio para quem lê depois.',
+    nextStep: 'Criar checklist de code review próprio e aplicar em PRs pessoais antes de abrir.'
   },
   {
     id: 5,
-    title: 'Como uso IA sem perder raciocínio técnico',
-    date: '2026-05-09',
-    summary: 'IA é acelerador, não substituto. A regra é: entender antes de aceitar.',
+    title: 'Como uso IA no workflow sem criar dependência',
+    date: '2026-05-08',
+    summary: 'IA é acelerador, não piloto automático. A regra é: entender antes de aceitar, documentar antes de esquecer.',
     content: [
-      'Uso IA para gerar boilerplate, refatorar e explicar conceitos novos rapidamente.',
-      'Nunca aceito código gerado sem ler e entender cada linha.',
-      'Prompts bem estruturados geram resultados melhores do que prompts vagos.',
-      'Documentar o que a IA sugeriu e por que aceitei é parte do aprendizado.'
+      'Toda IA inicia pelo INDEX do Segundo Cérebro e carrega apenas o contexto necessário. Skills são ativadas por demanda.',
+      'Uso IA para explicar conceitos, gerar boilerplate e revisar PRs — nunca para entregar solução pronta sem entender.',
+      'Sempre leio e entendo cada linha gerada antes de aceitar. Se não consigo explicar, não uso.',
+      'Documento o que a IA sugeriu e por que aceitei. Isso vira aprendizado real, não atalho.'
     ],
     learning: 'Quem usa IA sem entender o código se torna dependente; quem entende, multiplica produtividade.',
-    nextStep: 'Criar templates de prompts para tarefas recorrentes no workflow de desenvolvimento.'
+    nextStep: 'Criar templates de prompts para tarefas recorrentes (CRUD, testes, refatoração).'
+  },
+  {
+    id: 6,
+    title: 'Angular, Laravel e Flutter: minha stack de trabalho em 2026',
+    date: '2026-05-09',
+    summary: 'Stack real é aquela que resolve o problema do cliente. Escolhi tecnologias que uso no trabalho e no freelance.',
+    content: [
+      'Angular para sistemas corporativos: tipagem forte, estrutura clara e manutenção previsível. Ideal para dashboards e CRUDs complexos.',
+      'Laravel para APIs rápidas: ecossistema maduro, Eloquent eficiente e deploy simples. Meu backend padrão para web e mobile.',
+      'Flutter para mobile: uma base de código para iOS e Android, com performance nativa. Prioridade do Plano Pleno 2026.',
+      'Python entra como complemento para automações, dados e integrações com IA. Fin-Assist prova que dá para unir TCC e produto.'
+    ],
+    learning: 'Aprofundar 4 stacks bem vale mais do que conhecer 10 superficialmente.',
+    nextStep: 'Criar exemplos próprios em Flutter e Laravel com arquitetura limpa até setembro.'
   }
 ];
