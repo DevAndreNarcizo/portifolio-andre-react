@@ -202,7 +202,7 @@ export const stackGroups: StackGroup[] = [
   },
   {
     category: 'Dados',
-    items: 'PostgreSQL, MySQL, MongoDB, Redis, Supabase'
+    items: 'PostgreSQL, MySQL, Redis, Supabase'
   },
   {
     category: 'Infra e qualidade',
