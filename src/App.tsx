@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
+import ArchitectureSection from './components/ArchitectureSection';
 import Services from './components/Services';
 import TechStack from './components/TechStack';
 import Notes from './components/Notes';
@@ -15,6 +16,7 @@ const HomePage = () => (
   <>
     <Hero />
     <Projects />
+    <ArchitectureSection />
     <Services />
     <TechStack />
     <Notes />

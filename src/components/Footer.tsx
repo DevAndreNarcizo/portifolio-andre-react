@@ -8,13 +8,13 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-left">
-            <span className="footer-logo">André Narcizo</span>
-            <p>Full-Stack Developer em Goiânia-GO.</p>
+            <span className="footer-logo">Andre Narcizo</span>
+            <p>Full-Stack Developer — Goiania, Brazil</p>
           </div>
-          
+
           <div className="footer-right">
-            <p>© {year} André Narcizo</p>
-            <p className="footer-location">Goiânia, Brasil</p>
+            <p>&copy; {year} Andre Narcizo</p>
+            <p className="footer-stack">Laravel &middot; Angular &middot; React &middot; Flutter &middot; Docker</p>
           </div>
         </div>
       </div>

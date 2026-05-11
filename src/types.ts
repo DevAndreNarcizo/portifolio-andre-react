@@ -1,3 +1,5 @@
+export type ProjectTier = 'enterprise' | 'saas' | 'web' | 'landing';
+
 export interface Project {
   id: number;
   title: string;
@@ -5,30 +7,27 @@ export interface Project {
   liveLink?: string;
   githubLink?: string;
   tags: string[];
+  tier: ProjectTier;
   description?: string;
-  /** Short summary for the card */
   summary?: string;
-  /** Stack used in the project */
   stack?: string;
-  /** André's role in the project */
   role?: string;
-  /** Problem solved */
   problem?: string;
-  /** Solution implemented */
   solution?: string;
-  /** Result or learning */
   result?: string;
 }
 
 export interface Skill {
   name: string;
-  level: number; // 0-100
+  level: number;
 }
 
 export interface Service {
   id: number;
   title: string;
+  titleEn: string;
   description: string;
+  descriptionEn: string;
   icon: string;
 }
 
@@ -40,4 +39,16 @@ export interface Note {
   content: string[];
   learning: string;
   nextStep: string;
+}
+
+export interface ArchitecturePrinciple {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface StackGroup {
+  category: string;
+  items: string;
+  icon: string;
 }

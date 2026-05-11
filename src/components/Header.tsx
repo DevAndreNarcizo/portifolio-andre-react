@@ -23,19 +23,20 @@ const Header = () => {
   };
 
   const navItems = [
-    { label: 'Projetos', id: 'projetos' },
-    { label: 'Notas', id: 'notas' },
+    { label: 'Projects', id: 'projetos' },
+    { label: 'Architecture', id: 'architecture' },
+    { label: 'Notes', id: 'notas' },
     { label: 'Stack', id: 'stack' },
-    { label: 'Contato', id: 'contato' },
+    { label: 'Contact', id: 'contato' },
   ];
 
   return (
     <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="container">
         <Link to="/" className="logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          André Narcizo
+          Andre Narcizo
         </Link>
-        
+
         <div className="nav-right">
           <ul className={`menu ${mobileOpen ? 'open' : ''}`}>
             {navItems.map((item) => (
@@ -46,11 +47,11 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          
+
           <ThemeToggle />
-          
-          <button 
-            className="mobile-menu-toggle" 
+
+          <button
+            className="mobile-menu-toggle"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menu"
           >

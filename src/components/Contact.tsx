@@ -18,13 +18,12 @@ const Contact = () => {
       <div className="container">
         <div className="contact-grid">
           <div className="contact-info-side">
-            <h2 className="section-title">Contato</h2>
+            <h2 className="section-title">Let's work together</h2>
             <p className="contact-description">
-              Tem uma ideia, sistema ou processo que precisa sair do improviso?
-              Me chame para conversar. Posso ajudar a transformar o problema em escopo,
-              arquitetura e entrega.
+              Got an idea, system, or process that needs to move beyond spreadsheets and guesswork?
+              I can help turn the problem into scope, architecture, and delivery.
             </p>
-            
+
             <div className="contact-methods">
               <a href={contactInfo.whatsappLink} target="_blank" rel="noreferrer" className="contact-method-card">
                 <span className="method-label">WhatsApp</span>
@@ -32,7 +31,7 @@ const Contact = () => {
               </a>
               <a href={`mailto:${contactInfo.email}`} onClick={handleEmailClick} className="contact-method-card">
                 <span className="method-label">Email</span>
-                <span className="method-value">{emailCopied ? 'Copiado!' : contactInfo.email}</span>
+                <span className="method-value">{emailCopied ? 'Copied!' : contactInfo.email}</span>
               </a>
             </div>
 
@@ -51,11 +50,11 @@ const Contact = () => {
 
           <div className="contact-cta-side">
             <a href={contactInfo.whatsappLink} target="_blank" rel="noreferrer" className="btn btn-primary btn-large">
-              Falar sobre um projeto
+              Let's talk about a project
               <ArrowRight size={18} style={{ marginLeft: 8 }} />
             </a>
             <p className="cta-hint">
-              Respondo em até 24h durante a semana.
+              I usually respond within 24h on weekdays.
             </p>
           </div>
         </div>

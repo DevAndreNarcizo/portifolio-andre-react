@@ -1,104 +1,76 @@
-# André Narcizo - Desenvolvedor Full Stack Profissional
+# Andre Narcizo — Full-Stack Developer
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Netlify](https://img.shields.io/badge/deployed-Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white)](https://dev-andrenarcizo.netlify.app)
+[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](./LICENSE)
 
-Especialista em Ciência da Computação e Desenvolvedor Full Stack focado na criação de soluções digitais de alta performance para empresas e empreendedores. Este portfólio demonstra competência técnica em arquitetura moderna, design premium e conversão de leads.
+**Full-Stack Developer from Goiania, Brazil** — building production-grade backends, APIs, and full-stack systems with Laravel, Angular, React, Flutter, and Docker.
 
-## 🌟 Diferenciais Técnicos para Clientes
+Currently at **Sysout Tecnologia**, delivering enterprise Angular + Laravel applications. Evolving toward Software Architecture with Clean Architecture, SOLID, event-driven patterns, and comprehensive testing.
 
-- **Arquitetura Escalável**: Projetos preparados para crescer junto com o seu negócio.
-- **Design de Alta Conversão**: Interfaces modernas com foco em usabilidade e experiência do usuário (UX).
-- **Integração de Contato Inteligente**: Funil direto para WhatsApp e E-mail para facilitar o fechamento de negócios.
-- **Performance Otimizada**: Aplicações rápidas e responsivas para qualquer dispositivo.
+---
 
-## 🚀 Tecnologias
+## Portfolio Sections
 
-- **React 19**: Interfaces dinâmicas e fluidas.
-- **TypeScript**: Segurança de dados e código livre de erros comuns.
-- **Vanilla CSS (Modern)**: Estilização premium sem sobrecarregar o carregamento do site.
-- **Lucide React**: Ícones profissionais e minimalistas.
-- **Vite**: Velocidade máxima no desenvolvimento e carregamento final.
+- **Engineering Portfolio** — Filterable projects by tier (Featured, Architecture & APIs, SaaS, Web Apps, Client Sites)
+- **Engineering Principles** — Clean Architecture, SOLID, TDD, Event-Driven, IaC, API Design First
+- **Tech Stack** — Backend, Frontend, Mobile, Data, DevOps, Architecture practices
+- **Engineering Notes** — Technical decisions and architecture insights
+- **Bilingual About** — EN + PT content
 
-## 📁 Estrutura do Projeto
+---
 
-```bash
-src/
-├── components/         # Componentes focados em conversão e branding
-│   ├── Header.tsx     # Navegação com suporte a temas dinâmicos
-│   ├── Hero.tsx       # Primeiro contato impactante com o cliente
-│   ├── Contact.tsx    # Formulário de qualificação de projetos
-│   └── Shared/        # Elementos reutilizáveis (Cards, Botões)
-├── data.ts            # Gerenciamento Centralizado de Conteúdo (Projetos e Skills)
-├── index.css          # Identidade Visual e Temas (Light/Dark)
-├── App.tsx            # Estrutura principal da aplicação
-└── main.tsx           # Ponto de entrada
-```
+## Tech Stack (Portfolio)
 
-## 🛠️ Instalação para Desenvolvedores
+| Layer | Technologies |
+|-------|-------------|
+| Framework | React 19, TypeScript 5.9, Vite 7 |
+| Routing | React Router 7 |
+| Styling | CSS Custom Properties, Dark/Light mode |
+| Icons | Lucide React |
 
-```bash
-git clone https://github.com/DevAndreNarcizo/portifolio-andre-react.git
-npm install
-npm run dev
-```
+---
 
-## 🎨 Design System e Temas
+## Getting Started
 
-A interface adapta-se automaticamente à preferência do usuário ou via alternador manual:
-- **Dark Mode**: Foco em sofisticação e redução de fadiga visual.
-- **Light Mode**: Máxima clareza para leitura e apresentação de dados.
-
-## 📈 Roadmap de Evolução (Foco Freelance)
-
-- [x] Suporte a Temas Dark/Light (Acessibilidade)
-- [x] Feedback de Cópia de E-mail (UX)
-- [ ] Blog de Estudos de Caso (Demonstração de Autoridade Técnica)
-- [ ] Testes de Fluxo de Contato (Garantia de que você nunca perderá um lead)
-- [ ] Versão Multi-idioma (Expansão para Clientes Internacionais)
-
-## 🛠️ Instalação e Desenvolvimento
-
-1. **Clone e Instale:**
 ```bash
 git clone https://github.com/DevAndreNarcizo/portifolio-andre-react.git
 cd portifolio-andre-react
 npm install
-```
-
-2. **Execute o Ambiente de Desenvolvimento:**
-```bash
 npm run dev
 ```
 
-3. **Build para Produção:**
+### Production Build
+
 ```bash
 npm run build
+npm run preview
 ```
 
-## 🎨 Customização de Temas
+---
 
-A aplicação utiliza um sistema de temas baseado em classes no `body`. As cores são controladas via variáveis CSS no `src/index.css`:
+## My Core Stack (what I actually use)
 
-- **Modo Dark (Default)**: Grafite (#0D0D0D) & Dark Orange (#FF6B35).
-- **Modo Light**: Cinza Suave (#F8F9FA) & Vibrant Orange.
+| Category | Technologies |
+|----------|-------------|
+| **Backend & APIs** | Laravel, PHP, Node.js, Express, NestJS, Python, FastAPI |
+| **Frontend** | React, Next.js, Angular, TypeScript, Vite, Tailwind CSS |
+| **Mobile** | Flutter, Dart |
+| **Data & Cache** | PostgreSQL, MySQL, MongoDB, Redis, Supabase |
+| **DevOps & Quality** | Docker, Docker Compose, GitHub Actions, CI/CD, Azure DevOps |
+| **Architecture** | Clean Architecture, SOLID, DDD, TDD, Event-Driven, Design Patterns |
 
-## 📝 Próximos Passos (Roadmap)
+---
 
-- [x] Implementação de Dark/Light Mode
-- [x] Sistema de Cópia de E-mail para Clipboard
-- [ ] Integração de blog dinâmico via MDX
-- [ ] Implementação de Testes E2E com Playwright
-- [ ] Suporte a Internationalization (i18n)
+## Contact
 
-## 📞 Contato Profissional
-
-- **LinkedIn**: [André Narcizo](https://linkedin.com/in/andrenarcizo)
+- **LinkedIn**: [Andre Narcizo](https://linkedin.com/in/andrenarcizo)
 - **GitHub**: [@DevAndreNarcizo](https://github.com/DevAndreNarcizo)
 - **Email**: dev.andrenarcizo@gmail.com
 - **WhatsApp**: [+55 62 99338-2881](https://wa.me/5562993382881)
 
 ---
-*Foco em resultados e excelência técnica para o seu negócio.*
+
+*Built with React 19, TypeScript, and Vite. Deployed on Netlify.*

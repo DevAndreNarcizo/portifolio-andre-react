@@ -1,4 +1,4 @@
-import { ArrowRight, Github } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Server } from 'lucide-react';
 import { contactInfo } from '../data';
 import './Hero.css';
 
@@ -8,53 +8,69 @@ const Hero = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const openWhatsApp = () => {
-    window.open(contactInfo.whatsappLink, '_blank');
-  };
-
   return (
     <section id="hero" className="hero">
       <div className="container">
         <div className="hero-content">
-          <p className="hero-label">Full-Stack Developer</p>
-          
+          <div className="hero-badges">
+            <span className="hero-badge">Backend & Architecture</span>
+            <span className="hero-badge">Full-Stack Developer</span>
+          </div>
+
           <h1 className="hero-title">
-            André Narcizo
+            Andre Narcizo
           </h1>
-          
+
           <p className="hero-description">
-            Atuo na Sysout Tecnologia e em projetos freelance, construindo sistemas web,
-            apps mobile, APIs, dashboards e automações. Minha stack principal passa por
-            Angular, Laravel, Flutter, Python e PostgreSQL.
+            I build production-grade backends, APIs, and full-stack systems.
+            Laravel, Node.js, Python. PostgreSQL, Redis, RabbitMQ.
+            Clean Architecture, SOLID, Docker, CI/CD.
           </p>
-          
+
           <p className="hero-description-secondary">
-            Tenho evoluído de Full Stack para uma atuação mais arquitetural: código limpo,
-            decisões documentadas, regras de negócio bem separadas e software pensado para
-            manutenção.
+            Currently at Sysout Tecnologia, delivering enterprise Angular systems and Laravel APIs.
+            Evolving from Full-Stack execution toward Software Architecture —
+            with every decision documented and every layer testable.
           </p>
-          
+
+          <p className="hero-description-pt">
+            Atuo na Sysout Tecnologia e em projetos freelance. Minha stack principal:
+            Angular, Laravel, Flutter, Python e PostgreSQL. Entregando sistemas completos —
+            do banco ao deploy, com codigo limpo e arquitetura bem definida.
+          </p>
+
           <div className="hero-cta">
             <button className="btn btn-primary" onClick={() => scrollTo('projetos')}>
-              Ver projetos
+              View projects
               <ArrowRight size={16} style={{ marginLeft: 8 }} />
             </button>
-            <button className="btn btn-secondary" onClick={openWhatsApp}>
-              Falar comigo
-            </button>
-          </div>
-          
-          <div className="hero-links">
-            <a href={contactInfo.github} target="_blank" rel="noreferrer">
-              <Github size={18} />
+            <a href={contactInfo.github} target="_blank" rel="noreferrer" className="btn btn-secondary">
+              <Github size={16} style={{ marginRight: 6 }} />
               GitHub
             </a>
-            <a href={contactInfo.linkedin} target="_blank" rel="noreferrer">
+            <a href={contactInfo.linkedin} target="_blank" rel="noreferrer" className="btn btn-secondary">
+              <Linkedin size={16} style={{ marginRight: 6 }} />
               LinkedIn
             </a>
-            <a href={contactInfo.instagram} target="_blank" rel="noreferrer">
-              Instagram
-            </a>
+          </div>
+
+          <div className="hero-quick-stats">
+            <div className="quick-stat">
+              <Server size={14} />
+              <span>Clean Architecture</span>
+            </div>
+            <div className="quick-stat">
+              <span className="stat-dot" />
+              <span>Docker + CI/CD</span>
+            </div>
+            <div className="quick-stat">
+              <span className="stat-dot" />
+              <span>Test-Driven</span>
+            </div>
+            <div className="quick-stat">
+              <span className="stat-dot" />
+              <span>Event-Driven</span>
+            </div>
           </div>
         </div>
       </div>

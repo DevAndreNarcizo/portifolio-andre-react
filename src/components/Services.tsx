@@ -15,7 +15,10 @@ const Services = () => {
   return (
     <section id="servicos" className="section">
       <div className="container-wide">
-        <h2 className="section-title">Serviços</h2>
+        <h2 className="section-title">What I Build</h2>
+        <p className="section-subtitle">
+          End-to-end delivery — from architecture and database to frontend and deployment.
+        </p>
         <div className="services-grid">
           {services.map((service) => {
             const Icon = iconMap[service.icon];
@@ -24,8 +27,8 @@ const Services = () => {
                 <div className="service-icon-wrapper">
                   {Icon && <Icon size={24} />}
                 </div>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
+                <h3>{service.titleEn}</h3>
+                <p>{service.descriptionEn}</p>
               </div>
             );
           })}
