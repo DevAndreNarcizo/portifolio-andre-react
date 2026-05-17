@@ -25,8 +25,13 @@
   gap: 0.25rem;
   padding: 1rem 0;
   border-bottom: 1px solid var(--color-border);
-  transition: var(--transition-fast);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
   text-decoration: none;
+}
+
+.contact-method-card:hover {
+  transform: translateX(4px);
+  border-color: rgba(var(--color-accent-rgb), 0.42);
 }
 
 .contact-method-card:last-child {
@@ -58,11 +63,12 @@
 
 .contact-social-links a {
   color: var(--color-text-dim);
-  transition: var(--transition-fast);
+  transition: transform var(--transition-fast), color var(--transition-fast);
 }
 
 .contact-social-links a:hover {
   color: var(--color-accent);
+  transform: translateY(-2px);
 }
 
 .contact-cta-side {

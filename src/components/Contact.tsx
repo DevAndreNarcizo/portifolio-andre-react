@@ -1,10 +1,17 @@
+import { motion } from 'framer-motion';
 import { Github, Linkedin, Instagram, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { contactInfo } from '../data';
+import { useLanguage } from '../i18n';
+import { text } from '../content';
 import './Contact.css';
+
+const easeOut = [0.22, 1, 0.36, 1] as const;
 
 const Contact = () => {
   const [emailCopied, setEmailCopied] = useState(false);
+  const { language } = useLanguage();
+  const t = text[language].contact;
 
   const handleEmailClick = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -16,48 +23,78 @@ const Contact = () => {
   return (
     <section id="contato" className="section">
       <div className="container">
-        <div className="contact-grid">
+        <motion.div
+          className="contact-grid reveal"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: easeOut }}
+        >
           <div className="contact-info-side">
-            <h2 className="section-title">Let's work together</h2>
+            <h2 className="section-title">{t.title}</h2>
             <p className="contact-description">
-              Got an idea, system, or process that needs to move beyond spreadsheets and guesswork?
-              I can help turn the problem into scope, architecture, and delivery.
+              {t.description}
             </p>
 
             <div className="contact-methods">
-              <a href={contactInfo.whatsappLink} target="_blank" rel="noreferrer" className="contact-method-card">
+              <motion.a
+                href={contactInfo.whatsappLink}
+                target="_blank"
+                rel="noreferrer"
+                className="contact-method-card"
+                whileHover={{ scale: 1.02, y: -2, borderColor: 'rgba(var(--color-accent-rgb), 0.35)' }}
+              >
                 <span className="method-label">WhatsApp</span>
                 <span className="method-value">{contactInfo.whatsapp}</span>
-              </a>
-              <a href={`mailto:${contactInfo.email}`} onClick={handleEmailClick} className="contact-method-card">
+              </motion.a>
+              <motion.a
+                href={`mailto:${contactInfo.email}`}
+                onClick={handleEmailClick}
+                className="contact-method-card"
+                whileHover={{ scale: 1.02, y: -2, borderColor: 'rgba(var(--color-accent-rgb), 0.35)' }}
+              >
                 <span className="method-label">Email</span>
-                <span className="method-value">{emailCopied ? 'Copied!' : contactInfo.email}</span>
-              </a>
+                <span className="method-value">{emailCopied ? t.copied : contactInfo.email}</span>
+              </motion.a>
             </div>
 
             <div className="contact-social-links">
-              <a href={contactInfo.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                <Linkedin size={20} />
-              </a>
-              <a href={contactInfo.github} target="_blank" rel="noreferrer" aria-label="GitHub">
-                <Github size={20} />
-              </a>
-              <a href={contactInfo.instagram} target="_blank" rel="noreferrer" aria-label="Instagram">
-                <Instagram size={20} />
-              </a>
+              {[
+                { href: contactInfo.linkedin, label: 'LinkedIn', Icon: Linkedin },
+                { href: contactInfo.github, label: 'GitHub', Icon: Github },
+                { href: contactInfo.instagram, label: 'Instagram', Icon: Instagram },
+              ].map(({ href, label, Icon }) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={label}
+                  whileHover={{ scale: 1.15, y: -2, color: 'var(--color-accent)' }}
+                >
+                  <Icon size={20} />
+                </motion.a>
+              ))}
             </div>
           </div>
 
           <div className="contact-cta-side">
-            <a href={contactInfo.whatsappLink} target="_blank" rel="noreferrer" className="btn btn-primary btn-large">
-              Let's talk about a project
+            <motion.a
+              href={contactInfo.whatsappLink}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-primary btn-large"
+              whileHover={{ scale: 1.05, y: -3 }}
+              whileTap={{ scale: 0.96 }}
+            >
+              {t.cta}
               <ArrowRight size={18} style={{ marginLeft: 8 }} />
-            </a>
+            </motion.a>
             <p className="cta-hint">
-              I usually respond within 24h on weekdays.
+              {t.hint}
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

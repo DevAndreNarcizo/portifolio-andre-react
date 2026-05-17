@@ -5,13 +5,23 @@ import SEO from './SEO';
 import { cheatSheets } from '../simple-data';
 import './CheatSheets.css';
 
+interface CheatSheetCommand {
+  id: string | number;
+  command: string;
+  description: string;
+  category: string;
+  tags: string[];
+  example?: string;
+  warning?: string;
+}
+
 const CheatSheets = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedSheet, setSelectedSheet] = useState('git');
 
   const currentSheet = cheatSheets.find(sheet => sheet.id === selectedSheet);
-  const commands = currentSheet?.commands || [];
+  const commands = (currentSheet?.commands || []) as CheatSheetCommand[];
 
   const categories = ['all', ...new Set(commands.map(cmd => cmd.category))];
 
@@ -83,8 +93,8 @@ const CheatSheets = () => {
             key={command.id}
             command={command.command}
             description={command.description}
-            example={(command as any).example}
-            warning={(command as any).warning}
+            example={command.example}
+            warning={command.warning}
             tags={command.tags}
           />
         ))}

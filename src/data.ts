@@ -1,4 +1,14 @@
-import type { Project, Service, Note, ArchitecturePrinciple, StackGroup } from './types';
+import type {
+  CertificateItem,
+  EducationItem,
+  Metric,
+  Project,
+  Service,
+  Note,
+  ArchitecturePrinciple,
+  StackGroup,
+  TechMarqueeItem
+} from './types';
 
 export interface Differential {
   title: string;
@@ -21,6 +31,40 @@ export const contactInfo = {
   instagram: 'https://instagram.com/dev.andre_narcizo',
   instagramUser: '@dev.andre_narcizo'
 };
+
+export const heroTechs: TechMarqueeItem[] = [
+  { name: 'Laravel' },
+  { name: 'PHP' },
+  { name: 'Angular' },
+  { name: 'React' },
+  { name: 'TypeScript' },
+  { name: 'Flutter' },
+  { name: 'Docker' },
+  { name: 'PostgreSQL' },
+  { name: 'MySQL' },
+  { name: 'Supabase' },
+  { name: 'GitHub Actions' },
+  { name: 'Clean Architecture' }
+];
+
+export const aboutMetrics: Metric[] = [
+  {
+    value: '2+',
+    label: 'anos estudando e desenvolvendo software'
+  },
+  {
+    value: '10+',
+    label: 'projetos web, mobile, SaaS e landing pages'
+  },
+  {
+    value: '8+',
+    label: 'tecnologias aplicadas em projetos reais'
+  },
+  {
+    value: '100%',
+    label: 'foco em evolucao tecnica e entrega'
+  }
+];
 
 export const differentials: Differential[] = [
   {
@@ -283,6 +327,39 @@ export const stackGroups: StackGroup[] = [
   }
 ];
 
+export const educationItems: EducationItem[] = [
+  {
+    title: 'Ciencia da Computacao',
+    institution: 'Formacao academica',
+    type: 'Graduacao',
+    status: 'Em andamento'
+  },
+  {
+    title: 'Desenvolvimento Full-Stack',
+    institution: 'Projetos pessoais, freelance e empresa',
+    type: 'Pratica profissional',
+    status: 'Em evolucao'
+  }
+];
+
+export const certificateItems: CertificateItem[] = [
+  {
+    title: 'Laravel, PHP e APIs REST',
+    issuer: 'Estudos e projetos aplicados',
+    status: 'Em progresso'
+  },
+  {
+    title: 'Angular, React e TypeScript',
+    issuer: 'Projetos web e sistemas internos',
+    status: 'Aplicado em projetos'
+  },
+  {
+    title: 'Docker, CI/CD e Arquitetura',
+    issuer: 'Laboratorios e portfolio tecnico',
+    status: 'Em evolucao'
+  }
+];
+
 export const architecturePrinciples: ArchitecturePrinciple[] = [
   {
     title: 'Clean Architecture',
@@ -316,17 +393,13 @@ export const architecturePrinciples: ArchitecturePrinciple[] = [
   }
 ];
 
-export const aboutTextEn = `I'm Andre Narcizo, a full-stack developer from Goiania, Brazil, working at Sysout Tecnologia and on freelance projects.
+export const aboutTextEn = `Desenvolvedor Full-Stack em Goiania-GO, atuando com sistemas web, APIs, interfaces responsivas, mobile e automacoes.
 
-My work spans frontend, backend, mobile, data, and integrations — with deep focus on Angular, Laravel, Flutter, Python, and PostgreSQL. I'm actively evolving toward Software Architecture, with growing expertise in distributed systems, event-driven architecture, and DevOps.
+Minha stack principal combina Laravel, Angular, React, Flutter, Docker e bancos relacionais. Gosto de transformar problemas reais em produtos organizados, com codigo limpo, boa experiencia de uso e base tecnica preparada para evoluir.
 
-My goal for 2026 is to consolidate my transition from Junior to Mid-Level/Pleno Developer, building a solid foundation for a long-term career in Software Architecture.`;
+Meu foco atual e consolidar minha evolucao como desenvolvedor pleno, aprofundando arquitetura de software, qualidade, documentacao e entregas completas do banco ao deploy.`;
 
-export const aboutTextPt = `Sou Andre Narcizo, desenvolvedor full-stack em Goiania-GO, atuando na Sysout Tecnologia e em projetos freelance.
-
-Minha atuacao combina frontend, backend, mobile, dados e integracoes. Tenho foco em Angular, Laravel, Flutter, Python e PostgreSQL, com interesse crescente em arquitetura de software, documentacao, qualidade e automacoes com IA.
-
-Meu objetivo para 2026 e consolidar minha evolucao para Desenvolvedor Pleno e, no longo prazo, construir uma carreira solida rumo a Arquitetura de Software.`;
+export const aboutTextPt = aboutTextEn;
 
 export const notes: Note[] = [
   {

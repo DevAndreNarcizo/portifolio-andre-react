@@ -1,7 +1,11 @@
 import './Footer.css';
+import { useLanguage } from '../i18n';
+import { text } from '../content';
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const { language } = useLanguage();
+  const t = text[language].footer;
 
   return (
     <footer className="site-footer">
@@ -9,7 +13,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-left">
             <span className="footer-logo">Andre Narcizo</span>
-            <p>Full-Stack Developer — Goiania, Brazil</p>
+            <p>{t.role}</p>
           </div>
 
           <div className="footer-right">

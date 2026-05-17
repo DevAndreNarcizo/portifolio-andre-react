@@ -18,11 +18,13 @@
   align-items: flex-start;
   text-align: left;
   height: 100%;
-  transition: border-color var(--transition-fast);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .service-card:hover {
   border-color: var(--color-border-hover);
+  transform: translateY(-4px);
+  background: rgba(var(--color-accent-rgb), 0.04);
 }
 
 .service-icon-wrapper {

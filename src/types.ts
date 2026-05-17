@@ -17,6 +17,28 @@ export interface Project {
   result?: string;
 }
 
+export interface Metric {
+  value: string;
+  label: string;
+}
+
+export interface TechMarqueeItem {
+  name: string;
+}
+
+export interface EducationItem {
+  title: string;
+  institution: string;
+  type: string;
+  status: string;
+}
+
+export interface CertificateItem {
+  title: string;
+  issuer: string;
+  status: string;
+}
+
 export interface Skill {
   name: string;
   level: number;
