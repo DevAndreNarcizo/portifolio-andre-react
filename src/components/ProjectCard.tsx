@@ -1,9 +1,11 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { ExternalLink, Github, Code } from 'lucide-react';
+import { Code } from 'lucide-react';
 import type { Project } from '../types';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
+import ProjectCardBadges from './ProjectCardBadges';
+import ProjectCardLinks from './ProjectCardLinks';
 import './ProjectCard.css';
 
 interface ProjectCardProps {
@@ -43,15 +45,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
     mouseY.set(0);
   };
 
-  const {
-    title,
-    image,
-    liveLink,
-    githubLink,
-    tags,
-    summary,
-    tier
-  } = project;
+  const { title, image, liveLink, githubLink, tags, summary, tier } = project;
   const isEnterprise = tier === 'enterprise';
   const projectNumber = String(index + 1).padStart(2, '0');
 
@@ -73,10 +67,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
     >
       <motion.div
         className="project-card-glow"
-        style={{
-          x: glowX,
-          y: glowY,
-        }}
+        style={{ x: glowX, y: glowY }}
       />
 
       <div className="project-info">
@@ -85,48 +76,14 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 
         {summary && <p className="project-summary">{summary}</p>}
 
-        <div className="project-tags">
-          {tags.map((tag) => (
-            <motion.span
-              key={tag}
-              className={`project-tag ${isEnterprise ? 'project-tag--enterprise' : ''}`}
-              whileHover={{ scale: 1.08, y: -2 }}
-            >
-              {tag}
-            </motion.span>
-          ))}
-        </div>
+        <ProjectCardBadges tags={tags} isEnterprise={isEnterprise} />
 
-        <div className="project-actions">
-          {liveLink && (
-            <motion.a
-              href={liveLink}
-              target="_blank"
-              rel="noreferrer"
-              className="project-action-btn primary"
-              title="Live Site"
-              whileHover={{ scale: 1.06, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ExternalLink size={17} />
-              <span>{t.viewSystem}</span>
-            </motion.a>
-          )}
-          {!liveLink && githubLink && (
-            <motion.a
-              href={githubLink}
-              target="_blank"
-              rel="noreferrer"
-              className="project-action-btn primary"
-              title="GitHub"
-              whileHover={{ scale: 1.06, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Github size={17} />
-              <span>{t.github}</span>
-            </motion.a>
-          )}
-        </div>
+        <ProjectCardLinks
+          liveLink={liveLink}
+          githubLink={githubLink}
+          viewSystemLabel={t.viewSystem}
+          githubLabel={t.github}
+        />
       </div>
 
       <div className="project-visual">
@@ -145,7 +102,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           />
         ) : (
           <div className="project-image-placeholder">
-            <Code size={42} />
+            <Code size={42} aria-hidden="true" />
             <span>{t.architecture}</span>
           </div>
         )}

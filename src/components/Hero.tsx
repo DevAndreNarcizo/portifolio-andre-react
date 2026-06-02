@@ -1,65 +1,14 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { ArrowDown, Code2, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
+import HeroBackground from './HeroBackground';
+import HeroRoleTyper from './HeroRoleTyper';
+import HeroCTA from './HeroCTA';
 import './Hero.css';
 
 const springTransition = { type: 'spring' as const, stiffness: 400, damping: 20 };
 const easeOut = [0.22, 1, 0.36, 1] as const;
-
-const Particle = () => {
-  const randomProps = {
-    initialX: `${Math.random() * 100}%`,
-    duration: 6 + Math.random() * 14,
-    delay: Math.random() * 5,
-    size: 2 + Math.random() * 4,
-    opacity: 0.12 + Math.random() * 0.18,
-    yOffset: -(40 + Math.random() * 120),
-  };
-
-  return (
-    <motion.div
-      className="hero-particle"
-      style={{
-        left: randomProps.initialX,
-        width: randomProps.size,
-        height: randomProps.size,
-      }}
-      animate={{
-        y: [0, randomProps.yOffset],
-        opacity: [randomProps.opacity, 0],
-      }}
-      transition={{
-        duration: randomProps.duration,
-        repeat: Infinity,
-        delay: randomProps.delay,
-        ease: 'linear',
-      }}
-    />
-  );
-};
-
-const FloatingToken = ({ children, x, y, delay }: { children: string; x: string; y: string; delay: number }) => (
-  <motion.span
-    className="hero-floating-token"
-    style={{ left: x, top: y }}
-    initial={{ opacity: 0, scale: 0.6, y: 20 }}
-    animate={{
-      opacity: [0, 0.7, 0.7, 0],
-      scale: [0.6, 1, 1, 0.8],
-      y: [20, 0, 0, -10],
-    }}
-    transition={{
-      duration: 8,
-      delay,
-      repeat: Infinity,
-      times: [0, 0.1, 0.8, 1],
-    }}
-  >
-    {children}
-  </motion.span>
-);
 
 const Hero = () => {
   const { language } = useLanguage();
@@ -128,8 +77,6 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, [language]);
 
-  const codeTokens = ['</>', '{ }', '=>', '[]', '&&', '||', 'const', 'await', '::', '##'];
-
   return (
     <section
       id="hero"
@@ -137,24 +84,7 @@ const Hero = () => {
       ref={containerRef}
       onMouseMove={handleMouseMove}
     >
-      <div className="hero-particles-container">
-        {Array.from({ length: 30 }).map((_, i) => (
-          <Particle key={i} />
-        ))}
-      </div>
-
-      <div className="hero-tokens-container">
-        {codeTokens.map((token, i) => (
-          <FloatingToken
-            key={token}
-            x={`${8 + Math.random() * 84}%`}
-            y={`${5 + Math.random() * 90}%`}
-            delay={i * 0.8}
-          >
-            {token}
-          </FloatingToken>
-        ))}
-      </div>
+      <HeroBackground />
 
       <motion.div
         className="hero-glow"
@@ -218,33 +148,12 @@ const Hero = () => {
                   ease: easeOut,
                 }}
               >
-                {char === ' ' ? '\u00A0' : char}
+                {char === ' ' ? ' ' : char}
               </motion.span>
             ))}
           </motion.h1>
 
-          <motion.div
-            className="hero-role-frame"
-            variants={{
-              hidden: { opacity: 0, y: 28 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut, delay: 0.55 } },
-            }}
-          >
-            <span className="corner corner-tl" />
-            <span className="corner corner-tr" />
-            <span className="corner corner-bl" />
-            <span className="corner corner-br" />
-            <p className="hero-role">
-              {roleText}
-              <motion.span
-                className="hero-role-cursor"
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.55, repeat: Infinity, repeatType: 'reverse' }}
-              >
-                |
-              </motion.span>
-            </p>
-          </motion.div>
+          <HeroRoleTyper roleText={roleText} easeOut={easeOut} />
 
           <motion.p
             className="hero-description hero-description--center"
@@ -266,48 +175,14 @@ const Hero = () => {
             {t.support}
           </motion.p>
 
-          <motion.div
-            className="hero-cta"
-            variants={{
-              hidden: { opacity: 0, y: 28 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut, delay: 0.85 } },
-            }}
-          >
-            <motion.button
-              className="btn btn-primary"
-              onClick={() => scrollTo('projetos')}
-              whileHover={{ scale: 1.04, y: -2 }}
-              whileTap={{ scale: 0.96 }}
-            >
-              <Code2 size={16} style={{ marginRight: 8 }} />
-              {t.projects}
-            </motion.button>
-            <motion.button
-              className="btn btn-secondary"
-              onClick={() => scrollTo('contato')}
-              whileHover={{ scale: 1.04, y: -2 }}
-              whileTap={{ scale: 0.96 }}
-            >
-              <ExternalLink size={16} style={{ marginRight: 6 }} />
-              {t.contact}
-            </motion.button>
-          </motion.div>
-
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 28 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut, delay: 0.95 } },
-            }}
-          >
-            <motion.button
-              className="hero-scroll"
-              onClick={() => scrollTo('sobre')}
-              aria-label="Scroll"
-              whileHover={{ y: 4 }}
-            >
-              <ArrowDown size={24} />
-            </motion.button>
-          </motion.div>
+          <HeroCTA
+            projectsLabel={t.projects}
+            contactLabel={t.contact}
+            easeOut={easeOut}
+            onScrollToProjects={() => scrollTo('projetos')}
+            onScrollToContact={() => scrollTo('contato')}
+            onScrollDown={() => scrollTo('sobre')}
+          />
         </motion.div>
       </div>
     </section>
