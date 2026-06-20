@@ -8,18 +8,6 @@ export const useScrollReveal = () => {
       element.classList.add('is-visible');
     };
 
-    const revealPassedElements = () => {
-      const revealLine = window.innerHeight * 0.92;
-
-      document.querySelectorAll('.reveal:not(.is-visible)').forEach((element) => {
-        const rect = element.getBoundingClientRect();
-
-        if (rect.top < revealLine) {
-          revealElement(element);
-        }
-      });
-    };
-
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.querySelectorAll('.reveal').forEach((element) => {
         revealElement(element);
@@ -45,14 +33,8 @@ export const useScrollReveal = () => {
     const elements = document.querySelectorAll('.reveal');
     elements.forEach((element) => observer.observe(element));
 
-    requestAnimationFrame(revealPassedElements);
-    window.addEventListener('scroll', revealPassedElements, { passive: true });
-    window.addEventListener('resize', revealPassedElements);
-
     return () => {
       observer.disconnect();
-      window.removeEventListener('scroll', revealPassedElements);
-      window.removeEventListener('resize', revealPassedElements);
       document.documentElement.classList.remove('reveal-ready');
     };
   }, []);

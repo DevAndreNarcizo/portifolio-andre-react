@@ -1,15 +1,12 @@
 import ProjectCard from './ProjectCard';
-import { projects, landingPages } from '../data';
+import { featuredProjects } from '../data';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
-import type { Project } from '../types';
 import './Projects.css';
 
 const Projects = () => {
   const { language } = useLanguage();
   const t = text[language].projects;
-
-  const displayedProjects: Project[] = [...projects, ...landingPages].slice(0, 6);
 
   return (
     <section id="projetos" className="section">
@@ -20,9 +17,9 @@ const Projects = () => {
           {t.subtitle}
         </p>
 
-        {displayedProjects.length > 0 ? (
+        {featuredProjects.length > 0 ? (
           <div className="projects-showcase">
-            {displayedProjects.map((project, index) => (
+            {featuredProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </div>

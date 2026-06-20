@@ -119,6 +119,35 @@
   margin-bottom: 1.5rem;
 }
 
+.project-meta {
+  max-width: 34rem;
+  display: grid;
+  gap: 0.875rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(var(--color-accent-rgb), 0.28);
+}
+
+.project-meta-item {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.project-meta-label {
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.project-meta-item p {
+  color: var(--color-text-dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 .project-tags {
   display: flex;
   gap: 0.625rem;

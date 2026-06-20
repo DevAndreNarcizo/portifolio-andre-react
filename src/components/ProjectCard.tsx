@@ -45,7 +45,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
     mouseY.set(0);
   };
 
-  const { title, image, liveLink, githubLink, tags, summary, tier } = project;
+  const { title, image, liveLink, githubLink, tags, summary, problem, solution, tier } = project;
   const isEnterprise = tier === 'enterprise';
   const projectNumber = String(index + 1).padStart(2, '0');
 
@@ -74,7 +74,24 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         <span className="project-number">{t.project} {projectNumber}</span>
         <h3 className="project-card-title">{title}</h3>
 
-        {summary && <p className="project-summary">{summary}</p>}
+        {summary && <p className="project-summary">{summary[language]}</p>}
+
+        {(problem || solution) && (
+          <div className="project-meta">
+            {problem && (
+              <div className="project-meta-item">
+                <span className="project-meta-label">{t.problem}</span>
+                <p>{problem[language]}</p>
+              </div>
+            )}
+            {solution && (
+              <div className="project-meta-item">
+                <span className="project-meta-label">{t.solution}</span>
+                <p>{solution[language]}</p>
+              </div>
+            )}
+          </div>
+        )}
 
         <ProjectCardBadges tags={tags} isEnterprise={isEnterprise} />
 

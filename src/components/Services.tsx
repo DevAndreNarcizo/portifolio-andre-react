@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Layout, Layers, Smartphone, Settings } from 'lucide-react';
 import { services } from '../data';
+import { useLanguage } from '../i18n';
+import { text } from '../content';
 import './Services.css';
 
 import type { LucideIcon } from 'lucide-react';
@@ -13,6 +15,9 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 const Services = () => {
+  const { language } = useLanguage();
+  const t = text[language].services;
+
   return (
     <section id="servicos" className="section">
       <div className="container-wide">
@@ -23,7 +28,7 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          What I Build
+          {t.title}
         </motion.h2>
         <motion.p
           className="section-subtitle reveal"
@@ -32,7 +37,7 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
         >
-          End-to-end delivery — from architecture and database to frontend and deployment.
+          {t.subtitle}
         </motion.p>
         <div className="services-grid">
           {services.map((service, i) => {
@@ -50,8 +55,8 @@ const Services = () => {
                 <div className="service-icon-wrapper">
                   {Icon && <Icon size={24} />}
                 </div>
-                <h3>{service.titleEn}</h3>
-                <p>{service.descriptionEn}</p>
+                <h3>{language === 'pt' ? service.title : service.titleEn}</h3>
+                <p>{language === 'pt' ? service.description : service.descriptionEn}</p>
               </motion.div>
             );
           })}

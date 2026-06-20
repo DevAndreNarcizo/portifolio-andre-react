@@ -1,10 +1,10 @@
 export const text = {
   pt: {
     nav: {
-      home: 'Inicio',
+      home: 'Início',
       about: 'Sobre mim',
       stack: 'Stack',
-      education: 'Formacao',
+      education: 'Formação',
       projects: 'Projetos',
       contact: 'Contato'
     },
@@ -12,8 +12,8 @@ export const text = {
       hello: "HELLO, I'm",
       title: 'Andre Narcizo',
       role: 'Full-Stack Developer',
-      description: 'Desenvolvedor Full-Stack focado em aplicacoes web modernas, APIs, sistemas escalaveis e interfaces responsivas.',
-      support: 'Trabalho com Laravel, Angular, React, Flutter, Docker e bancos relacionais, unindo organizacao tecnica, performance e boa experiencia para o usuario.',
+      description: 'Desenvolvedor Full-Stack focado em aplicações web modernas, APIs, sistemas escaláveis e interfaces responsivas.',
+      support: 'Trabalho com Laravel, Angular, React, Flutter, Docker e bancos relacionais, unindo organização técnica, performance e boa experiência para o usuário.',
       projects: 'Ver projetos',
       contact: 'Entrar em contato'
     },
@@ -24,18 +24,18 @@ export const text = {
         { value: '2+', label: 'anos estudando e desenvolvendo software' },
         { value: '10+', label: 'projetos web, mobile, SaaS e landing pages' },
         { value: '8+', label: 'tecnologias aplicadas em projetos reais' },
-        { value: '100%', label: 'foco em evolucao tecnica e entrega' }
+        { value: '100%', label: 'foco em evolução técnica e entrega' }
       ],
       paragraphs: [
-        'Sou desenvolvedor Full-Stack em Goiania-GO, atuando com sistemas web, APIs, interfaces responsivas, mobile e automacoes.',
-        'Minha stack principal combina Laravel, Angular, React, Flutter, Docker e bancos relacionais. Gosto de transformar problemas reais em produtos organizados, com codigo limpo, boa experiencia de uso e base tecnica preparada para evoluir.',
-        'Meu foco atual e consolidar minha evolucao como desenvolvedor pleno, aprofundando arquitetura de software, qualidade, documentacao e entregas completas do banco ao deploy.'
+        'Sou desenvolvedor Full-Stack em Goiânia-GO, atuando com sistemas web, APIs, interfaces responsivas, mobile e automações.',
+        'Minha stack principal combina Laravel, Angular, React, Flutter, Docker e bancos relacionais. Gosto de transformar problemas reais em produtos organizados, com código limpo, boa experiência de uso e base técnica preparada para evoluir.',
+        'Meu foco atual é consolidar minha evolução como desenvolvedor pleno, aprofundando arquitetura de software, qualidade, documentação e entregas completas do banco ao deploy.'
       ]
     },
     profile: {
       kicker: 'DEVELOPER • FULLSTACK • PRODUCTS',
       title: 'Perfil Profissional',
-      copy: 'Construo produtos web com foco em clareza visual, organizacao tecnica e resultado. Atuo entre frontend, backend, mobile e integracoes, conectando experiencia de uso com APIs, banco de dados, automacao e deploy.',
+      copy: 'Construo produtos web com foco em clareza visual, organização técnica e resultado. Atuo entre frontend, backend, mobile e integrações, conectando experiência de uso com APIs, banco de dados, automação e deploy.',
       pills: ['Frontend moderno', 'Backend organizado', 'Entrega completa'],
       cta: 'Ver LinkedIn'
     },
@@ -43,24 +43,28 @@ export const text = {
       title: 'Tech Stack',
       subtitle: 'Tecnologias que uso para construir sistemas completos, do banco de dados ao deploy.'
     },
+    services: {
+      title: 'O que eu construo',
+      subtitle: 'Entrega ponta a ponta — da arquitetura e banco de dados ao frontend e deploy.'
+    },
     education: {
-      kicker: 'Formacao e conquistas',
-      title: 'Aprendizado continuo aplicado em projetos',
-      subtitle: 'Base academica, pratica profissional e estudos direcionados para evoluir como desenvolvedor full-stack.',
-      educationTitle: 'Formacao',
+      kicker: 'Formação e conquistas',
+      title: 'Aprendizado contínuo aplicado em projetos',
+      subtitle: 'Base acadêmica, prática profissional e estudos direcionados para evoluir como desenvolvedor full-stack.',
+      educationTitle: 'Formação',
       certificatesTitle: 'Certificados e estudos',
       items: [
         {
-          title: 'Ciencia da Computacao',
-          institution: 'Formacao academica',
-          type: 'Graduacao',
+          title: 'Ciência da Computação',
+          institution: 'Formação acadêmica',
+          type: 'Graduação',
           status: 'Em andamento'
         },
         {
           title: 'Desenvolvimento Full-Stack',
           institution: 'Projetos pessoais, freelance e empresa',
-          type: 'Pratica profissional',
-          status: 'Em evolucao'
+          type: 'Prática profissional',
+          status: 'Em evolução'
         }
       ],
       certificates: [
@@ -76,33 +80,26 @@ export const text = {
         },
         {
           title: 'Docker, CI/CD e Arquitetura',
-          issuer: 'Laboratorios e portfolio tecnico',
-          status: 'Em evolucao'
+          issuer: 'Laboratórios e portfolio técnico',
+          status: 'Em evolução'
         }
       ]
     },
     projects: {
       kicker: 'PORTFOLIO',
       title: 'Projetos',
-      subtitle: 'Projetos desenvolvidos aplicando produto, experiencia do usuario, arquitetura e tecnologia para criar solucoes completas.',
-      filters: {
-        featured: 'Destaques',
-        enterprise: 'Arquitetura & APIs',
-        saas: 'SaaS & Produtos',
-        web: 'Web Apps',
-        legacy: 'Sites de clientes'
-      },
+      subtitle: 'Projetos desenvolvidos aplicando produto, experiência do usuário, arquitetura e tecnologia para criar soluções completas.',
       empty: 'Projetos em desenvolvimento. Veja o GitHub para acompanhar.',
       context: 'Projetos freelance e sites institucionais entregues com React, Next.js e Tailwind CSS.'
     },
     projectCard: {
       project: 'Projeto',
       viewSystem: 'Ver projeto',
-      code: 'Codigo',
+      code: 'Código',
       stack: 'Stack',
-      role: 'Minha atuacao',
+      role: 'Minha atuação',
       problem: 'Problema',
-      solution: 'Solucao',
+      solution: 'Solução',
       outcome: 'Resultado',
       architecture: 'Projeto de arquitetura',
       github: 'Ver no GitHub'
@@ -112,10 +109,10 @@ export const text = {
       description: 'Tem uma ideia, sistema ou processo que precisa sair de planilhas e improvisos? Posso ajudar a transformar o problema em escopo, arquitetura e entrega.',
       copied: 'Copiado!',
       cta: 'Falar sobre um projeto',
-      hint: 'Normalmente respondo em ate 24h em dias uteis.'
+      hint: 'Normalmente respondo em até 24h em dias úteis.'
     },
     footer: {
-      role: 'Full-Stack Developer — Goiania, Brasil'
+      role: 'Full-Stack Developer — Goiânia, Brasil'
     }
   },
   en: {
@@ -146,7 +143,7 @@ export const text = {
         { value: '100%', label: 'focus on technical growth and delivery' }
       ],
       paragraphs: [
-        'I am a Full-Stack Developer from Goiania, Brazil, working with web systems, APIs, responsive interfaces, mobile apps, and automations.',
+        'I am a Full-Stack Developer from Goiânia, Brazil, working with web systems, APIs, responsive interfaces, mobile apps, and automations.',
         'My core stack combines Laravel, Angular, React, Flutter, Docker, and relational databases. I like turning real problems into organized products with clean code, good user experience, and a technical foundation that can evolve.',
         'My current focus is consolidating my growth toward mid-level development, deepening software architecture, quality, documentation, and complete delivery from database to deployment.'
       ]
@@ -161,6 +158,10 @@ export const text = {
     stack: {
       title: 'Tech Stack',
       subtitle: 'Technologies I use to build complete systems, from database to deployment.'
+    },
+    services: {
+      title: 'What I Build',
+      subtitle: 'End-to-end delivery — from architecture and database to frontend and deployment.'
     },
     education: {
       kicker: 'Education and achievements',
@@ -204,13 +205,6 @@ export const text = {
       kicker: 'PORTFOLIO',
       title: 'Projects',
       subtitle: 'Projects built with product thinking, user experience, architecture, and technology to create complete solutions.',
-      filters: {
-        featured: 'Featured',
-        enterprise: 'Architecture & APIs',
-        saas: 'SaaS & Products',
-        web: 'Web Apps',
-        legacy: 'Client Sites'
-      },
       empty: 'Projects under development. Check GitHub for progress.',
       context: 'Freelance and institutional websites delivered with React, Next.js, and Tailwind CSS.'
     },
@@ -234,7 +228,7 @@ export const text = {
       hint: 'I usually respond within 24h on weekdays.'
     },
     footer: {
-      role: 'Full-Stack Developer — Goiania, Brazil'
+      role: 'Full-Stack Developer — Goiânia, Brazil'
     }
   }
 } as const;
