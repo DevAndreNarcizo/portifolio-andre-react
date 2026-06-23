@@ -1,14 +1,12 @@
-import { useEffect, useState, useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
+import { EASE_OUT, SPRING_TRANSITION } from '../constants/motion';
 import HeroBackground from './HeroBackground';
 import HeroRoleTyper from './HeroRoleTyper';
 import HeroCTA from './HeroCTA';
 import './Hero.css';
-
-const springTransition = { type: 'spring' as const, stiffness: 400, damping: 20 };
-const easeOut = [0.22, 1, 0.36, 1] as const;
 
 const Hero = () => {
   const { language } = useLanguage();
@@ -38,45 +36,6 @@ const Hero = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const [roleText, setRoleText] = useState('');
-
-  useEffect(() => {
-    const roles = language === 'pt'
-      ? ['Full-Stack Developer', 'Laravel • Angular • React', 'Docker • CI/CD', 'Arquitetura de Software']
-      : ['Full-Stack Developer', 'Laravel • Angular • React', 'Docker • CI/CD', 'Software Architecture'];
-
-    let roleIdx = 0;
-    let charIdx = 0;
-    let isDeleting = false;
-    let timeout: ReturnType<typeof setTimeout>;
-
-    const type = () => {
-      const current = roles[roleIdx];
-      if (!isDeleting) {
-        setRoleText(current.substring(0, charIdx + 1));
-        charIdx++;
-        if (charIdx === current.length) {
-          timeout = setTimeout(() => { isDeleting = true; type(); }, 1800);
-          return;
-        }
-        timeout = setTimeout(type, 60 + Math.random() * 30);
-      } else {
-        setRoleText(current.substring(0, charIdx - 1));
-        charIdx--;
-        if (charIdx === 0) {
-          isDeleting = false;
-          roleIdx = (roleIdx + 1) % roles.length;
-          timeout = setTimeout(type, 300);
-          return;
-        }
-        timeout = setTimeout(type, 25 + Math.random() * 15);
-      }
-    };
-
-    timeout = setTimeout(type, 400);
-    return () => clearTimeout(timeout);
-  }, [language]);
-
   return (
     <section
       id="hero"
@@ -101,7 +60,7 @@ const Hero = () => {
             className="hero-avatar-wrap"
             variants={{
               hidden: { opacity: 0, y: 28 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut, delay: 0.25 } },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE_OUT, delay: 0.25 } },
             }}
           >
             <motion.img
@@ -116,13 +75,13 @@ const Hero = () => {
             className="hero-hello"
             variants={{
               hidden: { opacity: 0, y: 28 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut, delay: 0.35 } },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE_OUT, delay: 0.35 } },
             }}
           >
             <motion.span
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={springTransition}
+              transition={SPRING_TRANSITION}
             >
               HELLO
             </motion.span>
@@ -145,7 +104,7 @@ const Hero = () => {
                 transition={{
                   duration: 0.5,
                   delay: 0.5 + i * 0.04,
-                  ease: easeOut,
+                  ease: EASE_OUT,
                 }}
               >
                 {char === ' ' ? ' ' : char}
@@ -153,13 +112,13 @@ const Hero = () => {
             ))}
           </motion.h1>
 
-          <HeroRoleTyper roleText={roleText} easeOut={easeOut} />
+          <HeroRoleTyper />
 
           <motion.p
             className="hero-description hero-description--center"
             variants={{
               hidden: { opacity: 0, y: 28 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut, delay: 0.65 } },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE_OUT, delay: 0.65 } },
             }}
           >
             {t.description}
@@ -169,7 +128,7 @@ const Hero = () => {
             className="hero-description-secondary hero-description--center"
             variants={{
               hidden: { opacity: 0, y: 28 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut, delay: 0.75 } },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE_OUT, delay: 0.75 } },
             }}
           >
             {t.support}
@@ -178,7 +137,6 @@ const Hero = () => {
           <HeroCTA
             projectsLabel={t.projects}
             contactLabel={t.contact}
-            easeOut={easeOut}
             onScrollToProjects={() => scrollTo('projetos')}
             onScrollToContact={() => scrollTo('contato')}
             onScrollDown={() => scrollTo('sobre')}

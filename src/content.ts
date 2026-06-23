@@ -9,9 +9,8 @@ export const text = {
       contact: 'Contato'
     },
     hero: {
-      hello: "HELLO, I'm",
       title: 'Andre Narcizo',
-      role: 'Full-Stack Developer',
+      roles: ['Full-Stack Developer', 'Laravel • Angular • React', 'Docker • CI/CD', 'Arquitetura de Software'],
       description: 'Desenvolvedor Full-Stack focado em aplicações web modernas, APIs, sistemas escaláveis e interfaces responsivas.',
       support: 'Trabalho com Laravel, Angular, React, Flutter, Docker e bancos relacionais, unindo organização técnica, performance e boa experiência para o usuário.',
       projects: 'Ver projetos',
@@ -95,7 +94,6 @@ export const text = {
     projectCard: {
       project: 'Projeto',
       viewSystem: 'Ver projeto',
-      code: 'Código',
       stack: 'Stack',
       role: 'Minha atuação',
       problem: 'Problema',
@@ -125,9 +123,8 @@ export const text = {
       contact: 'Contact'
     },
     hero: {
-      hello: "HELLO, I'm",
       title: 'Andre Narcizo',
-      role: 'Full-Stack Developer',
+      roles: ['Full-Stack Developer', 'Laravel • Angular • React', 'Docker • CI/CD', 'Software Architecture'],
       description: 'Full-Stack Developer focused on modern web applications, APIs, scalable systems, and responsive interfaces.',
       support: 'I work with Laravel, Angular, React, Flutter, Docker, and relational databases, combining technical organization, performance, and user experience.',
       projects: 'View projects',
@@ -211,7 +208,6 @@ export const text = {
     projectCard: {
       project: 'Project',
       viewSystem: 'View project',
-      code: 'Code',
       stack: 'Stack',
       role: 'My role',
       problem: 'Problem',

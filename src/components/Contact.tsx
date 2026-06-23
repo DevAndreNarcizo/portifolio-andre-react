@@ -4,9 +4,8 @@ import { useState } from 'react';
 import { contactInfo } from '../data';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
+import { EASE_OUT } from '../constants/motion';
 import './Contact.css';
-
-const easeOut = [0.22, 1, 0.36, 1] as const;
 
 const Contact = () => {
   const [emailCopied, setEmailCopied] = useState(false);
@@ -14,21 +13,32 @@ const Contact = () => {
   const t = text[language].contact;
 
   const handleEmailClick = async (e: React.MouseEvent) => {
+    // Sem suporte a clipboard: deixa o mailto seguir o fluxo padrão.
+    if (!navigator.clipboard) {
+      return;
+    }
+
     e.preventDefault();
-    await navigator.clipboard.writeText(contactInfo.email);
-    setEmailCopied(true);
-    setTimeout(() => setEmailCopied(false), 2000);
+
+    try {
+      await navigator.clipboard.writeText(contactInfo.email);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    } catch {
+      // Falha ao copiar (contexto inseguro/permissão): cai para o mailto.
+      window.location.href = `mailto:${contactInfo.email}`;
+    }
   };
 
   return (
     <section id="contato" className="section">
       <div className="container">
         <motion.div
-          className="contact-grid reveal"
+          className="contact-grid"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: easeOut }}
+          transition={{ duration: 0.7, ease: EASE_OUT }}
         >
           <div className="contact-info-side">
             <h2 className="section-title">{t.title}</h2>
