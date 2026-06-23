@@ -33,34 +33,50 @@ export const heroTechs: TechMarqueeItem[] = [
 export const services: Service[] = [
   {
     id: 1,
-    title: 'Sites & Landing Pages',
-    titleEn: 'Websites & Landing Pages',
-    description: 'Para profissionais e empresas que precisam explicar sua oferta, gerar confiança e levar o cliente para o contato certo.',
-    descriptionEn: 'For professionals and businesses that need to communicate their value proposition, build trust, and convert visitors.',
+    title: {
+      pt: 'Sites & Landing Pages',
+      en: 'Websites & Landing Pages'
+    },
+    description: {
+      pt: 'Para profissionais e empresas que precisam explicar sua oferta, gerar confiança e levar o cliente para o contato certo.',
+      en: 'For professionals and businesses that need to communicate their value proposition, build trust, and convert visitors.'
+    },
     icon: 'layout'
   },
   {
     id: 2,
-    title: 'Aplicações Web',
-    titleEn: 'Web Applications',
-    description: 'Dashboards, painéis administrativos, sistemas CRUD, relatórios e integrações para processos internos.',
-    descriptionEn: 'Dashboards, admin panels, CRUD systems, reports, and integrations for internal processes.',
+    title: {
+      pt: 'Aplicações Web',
+      en: 'Web Applications'
+    },
+    description: {
+      pt: 'Dashboards, painéis administrativos, sistemas CRUD, relatórios e integrações para processos internos.',
+      en: 'Dashboards, admin panels, CRUD systems, reports, and integrations for internal processes.'
+    },
     icon: 'layers'
   },
   {
     id: 3,
-    title: 'Aplicativos Mobile',
-    titleEn: 'Mobile Apps',
-    description: 'Aplicações mobile com Flutter para validar produto, atendimento, operação ou experiência do cliente.',
-    descriptionEn: 'Mobile applications with Flutter for product validation, customer service, operations, or user experience.',
+    title: {
+      pt: 'Aplicativos Mobile',
+      en: 'Mobile Apps'
+    },
+    description: {
+      pt: 'Aplicações mobile com Flutter para validar produto, atendimento, operação ou experiência do cliente.',
+      en: 'Mobile applications with Flutter for product validation, customer service, operations, or user experience.'
+    },
     icon: 'smartphone'
   },
   {
     id: 4,
-    title: 'APIs, Dados & Automação',
-    titleEn: 'APIs, Data & Automation',
-    description: 'Backends em Laravel/Node/Python, integrações, PostgreSQL/Supabase e automações com IA.',
-    descriptionEn: 'Backends in Laravel/Node/Python, integrations, PostgreSQL/Supabase, and AI-powered automation.',
+    title: {
+      pt: 'APIs, Dados & Automação',
+      en: 'APIs, Data & Automation'
+    },
+    description: {
+      pt: 'Backends em Laravel/Node/Python, integrações, PostgreSQL/Supabase e automações com IA.',
+      en: 'Backends in Laravel/Node/Python, integrations, PostgreSQL/Supabase, and AI-powered automation.'
+    },
     icon: 'settings'
   }
 ];
@@ -400,19 +416,15 @@ export const stackGroups: StackGroup[] = [
   }
 ];
 
-const findById = (list: Project[], id: number): Project => {
-  const project = list.find((item) => item.id === id);
-  if (!project) {
-    throw new Error(`Project with id ${id} not found`);
-  }
-  return project;
-};
-
+// Showcase completo e intercalado: alterna enterprise e produtos para começar
+// forte (com imagem) e evitar dois cards sem imagem (103/104) lado a lado.
 export const featuredProjects: Project[] = [
-  findById(architectureProjects, 101),
-  findById(projects, 1),
-  findById(architectureProjects, 102),
-  findById(projects, 2),
-  findById(projects, 3),
-  findById(landingPages, 4)
+  architectureProjects[0], // 101 - laravel-clean-architecture-api
+  projects[0],             // 1   - Agenda-Fácil
+  architectureProjects[1], // 102 - node-microservices-event-driven
+  projects[1],             // 2   - Fin-Assist
+  architectureProjects[2], // 103 - saas-task-manager (sem imagem)
+  projects[2],             // 3   - Ecommerce Luz da Aurora
+  architectureProjects[3], // 104 - php-code-analyzer (sem imagem)
+  ...landingPages          // 4,5,6 - landing pages (todas com imagem)
 ];

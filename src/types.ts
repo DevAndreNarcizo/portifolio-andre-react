@@ -27,10 +27,8 @@ export interface TechMarqueeItem {
 
 export interface Service {
   id: number;
-  title: string;
-  titleEn: string;
-  description: string;
-  descriptionEn: string;
+  title: Localized;
+  description: Localized;
   icon: string;
 }
 

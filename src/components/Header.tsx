@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Menu, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import { contactInfo } from '../data';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
+import { EASE_OUT } from '../constants/motion';
 import './Header.css';
-
-const easeOut = [0.22, 1, 0.36, 1] as const;
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,7 +42,7 @@ const Header = () => {
       className={`site-header ${isScrolled ? 'scrolled' : ''}`}
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.65, ease: easeOut, delay: 0.2 }}
+      transition={{ duration: 0.65, ease: EASE_OUT, delay: 0.2 }}
     >
       <nav className="container-wide">
         <div className="header-socials">
@@ -56,12 +54,16 @@ const Header = () => {
           </motion.a>
         </div>
 
-        <Link to="/" className="logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+        <a
+          href="#hero"
+          className="logo"
+          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+        >
           Andre Narcizo
-        </Link>
+        </a>
 
         <div className="nav-right">
-          <ul className={`menu ${mobileOpen ? 'open' : ''}`}>
+          <ul id="primary-navigation" className={`menu ${mobileOpen ? 'open' : ''}`}>
             {navItems.map((item) => (
               <li key={item.id}>
                 <motion.a
@@ -93,6 +95,8 @@ const Header = () => {
             className="mobile-menu-toggle"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menu"
+            aria-expanded={mobileOpen}
+            aria-controls="primary-navigation"
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

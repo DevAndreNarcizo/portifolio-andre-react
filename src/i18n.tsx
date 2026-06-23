@@ -17,8 +17,12 @@ const getInitialLanguage = (): Language => {
     return 'pt';
   }
 
-  const stored = window.localStorage.getItem('portfolio-language');
-  return stored === 'en' ? 'en' : 'pt';
+  try {
+    const stored = window.localStorage.getItem('portfolio-language');
+    return stored === 'en' ? 'en' : 'pt';
+  } catch {
+    return 'pt';
+  }
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
@@ -26,7 +30,11 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   const setLanguage = useCallback((nextLanguage: Language) => {
     setLanguageState(nextLanguage);
-    window.localStorage.setItem('portfolio-language', nextLanguage);
+    try {
+      window.localStorage.setItem('portfolio-language', nextLanguage);
+    } catch {
+      // Persistência indisponível (modo privado/bloqueado): mantém só em memória.
+    }
   }, []);
 
   const toggleLanguage = useCallback(() => {
