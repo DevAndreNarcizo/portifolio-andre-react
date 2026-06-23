@@ -1,5 +1,10 @@
 export type ProjectTier = 'enterprise' | 'saas' | 'web' | 'landing';
 
+export interface Localized {
+  pt: string;
+  en: string;
+}
+
 export interface Project {
   id: number;
   title: string;
@@ -8,64 +13,22 @@ export interface Project {
   githubLink?: string;
   tags: string[];
   tier: ProjectTier;
-  description?: string;
-  summary?: string;
-  stack?: string;
-  role?: string;
-  problem?: string;
-  solution?: string;
-  result?: string;
-}
-
-export interface Metric {
-  value: string;
-  label: string;
+  summary: Localized;
+  problem: Localized;
+  solution: Localized;
+  result: Localized;
+  role: Localized;
+  stack: string;
 }
 
 export interface TechMarqueeItem {
   name: string;
 }
 
-export interface EducationItem {
-  title: string;
-  institution: string;
-  type: string;
-  status: string;
-}
-
-export interface CertificateItem {
-  title: string;
-  issuer: string;
-  status: string;
-}
-
-export interface Skill {
-  name: string;
-  level: number;
-}
-
 export interface Service {
   id: number;
-  title: string;
-  titleEn: string;
-  description: string;
-  descriptionEn: string;
-  icon: string;
-}
-
-export interface Note {
-  id: number;
-  title: string;
-  date: string;
-  summary: string;
-  content: string[];
-  learning: string;
-  nextStep: string;
-}
-
-export interface ArchitecturePrinciple {
-  title: string;
-  description: string;
+  title: Localized;
+  description: Localized;
   icon: string;
 }
 

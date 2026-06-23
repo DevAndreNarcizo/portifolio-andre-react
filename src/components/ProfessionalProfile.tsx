@@ -4,6 +4,7 @@ import { Code2, Rocket, ShieldCheck } from 'lucide-react';
 import { contactInfo } from '../data';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
+import { EASE_OUT } from '../constants/motion';
 import './ProfessionalProfile.css';
 
 const ProfessionalProfile = () => {
@@ -38,7 +39,7 @@ const ProfessionalProfile = () => {
         <div className="profile-grid">
           <motion.div
             ref={panelRef}
-            className="profile-photo-panel reveal reveal-left"
+            className="profile-photo-panel"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{
@@ -49,7 +50,7 @@ const ProfessionalProfile = () => {
             initial={{ opacity: 0, x: -36 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, ease: EASE_OUT }}
           >
             <img src="/Imagens/Foto.webp" alt="Andre Narcizo em ambiente profissional" className="profile-photo" />
             <div className="profile-code-badge" aria-hidden="true">
@@ -68,11 +69,11 @@ const ProfessionalProfile = () => {
           </motion.div>
 
           <motion.div
-            className="profile-content reveal reveal-right"
+            className="profile-content"
             initial={{ opacity: 0, x: 36 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, ease: EASE_OUT }}
           >
             <p className="section-kicker">{t.kicker}</p>
             <h2 className="section-title">{t.title}</h2>

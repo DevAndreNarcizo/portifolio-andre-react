@@ -1,28 +1,49 @@
+import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
-import { projects, landingPages } from '../data';
+import { featuredProjects } from '../data';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
-import type { Project } from '../types';
+import { EASE_OUT } from '../constants/motion';
 import './Projects.css';
 
 const Projects = () => {
   const { language } = useLanguage();
   const t = text[language].projects;
 
-  const displayedProjects: Project[] = [...projects, ...landingPages].slice(0, 6);
-
   return (
     <section id="projetos" className="section">
       <div className="container-wide">
-        <p className="section-kicker reveal">{t.kicker}</p>
-        <h2 className="section-title reveal">{t.title}</h2>
-        <p className="section-subtitle reveal">
+        <motion.p
+          className="section-kicker"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE_OUT }}
+        >
+          {t.kicker}
+        </motion.p>
+        <motion.h2
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.08 }}
+        >
+          {t.title}
+        </motion.h2>
+        <motion.p
+          className="section-subtitle"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.14 }}
+        >
           {t.subtitle}
-        </p>
+        </motion.p>
 
-        {displayedProjects.length > 0 ? (
+        {featuredProjects.length > 0 ? (
           <div className="projects-showcase">
-            {displayedProjects.map((project, index) => (
+            {featuredProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </div>
@@ -32,11 +53,17 @@ const Projects = () => {
           </div>
         )}
 
-        <div className="projects-cta-wrapper reveal">
+        <motion.div
+          className="projects-cta-wrapper"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE_OUT }}
+        >
           <p className="projects-context">
             {t.context}
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

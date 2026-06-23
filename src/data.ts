@@ -1,26 +1,9 @@
 import type {
-  CertificateItem,
-  EducationItem,
-  Metric,
   Project,
   Service,
-  Note,
-  ArchitecturePrinciple,
   StackGroup,
   TechMarqueeItem
 } from './types';
-
-export interface Differential {
-  title: string;
-  description: string;
-  icon: string;
-}
-
-export interface ProcessStep {
-  title: string;
-  description: string;
-  icon: string;
-}
 
 export const contactInfo = {
   email: 'dev.andrenarcizo@gmail.com',
@@ -47,97 +30,53 @@ export const heroTechs: TechMarqueeItem[] = [
   { name: 'Clean Architecture' }
 ];
 
-export const aboutMetrics: Metric[] = [
-  {
-    value: '2+',
-    label: 'anos estudando e desenvolvendo software'
-  },
-  {
-    value: '10+',
-    label: 'projetos web, mobile, SaaS e landing pages'
-  },
-  {
-    value: '8+',
-    label: 'tecnologias aplicadas em projetos reais'
-  },
-  {
-    value: '100%',
-    label: 'foco em evolucao tecnica e entrega'
-  }
-];
-
-export const differentials: Differential[] = [
-  {
-    title: 'Product Engineering',
-    description: 'I think like a product owner — technology must serve the business, not the other way around.',
-    icon: 'briefcase'
-  },
-  {
-    title: 'Architecture First',
-    description: 'Every decision is documented. Scalability and maintainability are non-negotiable from day one.',
-    icon: 'shield'
-  },
-  {
-    title: 'Outcome Focus',
-    description: 'Clean code, fast interfaces, and software that solves real problems — not just tickets.',
-    icon: 'zap'
-  }
-];
-
-export const processSteps: ProcessStep[] = [
-  {
-    title: '1. Discovery',
-    description: 'Understanding the real problem before proposing any solution.',
-    icon: 'search'
-  },
-  {
-    title: '2. Architecture Proposal',
-    description: 'Architecture, stack, and scope aligned with business goals.',
-    icon: 'file-text'
-  },
-  {
-    title: '3. Development',
-    description: 'Clean code, organized commits, continuous delivery.',
-    icon: 'code'
-  },
-  {
-    title: '4. Review & Delivery',
-    description: 'Tests, adjustments, and documentation for operations.',
-    icon: 'check-square'
-  }
-];
-
 export const services: Service[] = [
   {
     id: 1,
-    title: 'Websites & Landing Pages',
-    titleEn: 'Websites & Landing Pages',
-    description: 'Para profissionais e empresas que precisam explicar sua oferta, gerar confiança e levar o cliente para o contato certo.',
-    descriptionEn: 'For professionals and businesses that need to communicate their value proposition, build trust, and convert visitors.',
+    title: {
+      pt: 'Sites & Landing Pages',
+      en: 'Websites & Landing Pages'
+    },
+    description: {
+      pt: 'Para profissionais e empresas que precisam explicar sua oferta, gerar confiança e levar o cliente para o contato certo.',
+      en: 'For professionals and businesses that need to communicate their value proposition, build trust, and convert visitors.'
+    },
     icon: 'layout'
   },
   {
     id: 2,
-    title: 'Web Applications',
-    titleEn: 'Web Applications',
-    description: 'Dashboards, admin panels, CRUD systems, reports, and integrations for internal processes.',
-    descriptionEn: 'Dashboards, admin panels, CRUD systems, reports, and integrations for internal processes.',
+    title: {
+      pt: 'Aplicações Web',
+      en: 'Web Applications'
+    },
+    description: {
+      pt: 'Dashboards, painéis administrativos, sistemas CRUD, relatórios e integrações para processos internos.',
+      en: 'Dashboards, admin panels, CRUD systems, reports, and integrations for internal processes.'
+    },
     icon: 'layers'
   },
   {
     id: 3,
-    title: 'Mobile Apps',
-    titleEn: 'Mobile Apps',
-    description: 'Aplicações mobile com Flutter para validar produto, atendimento, operação ou experiência do cliente.',
-    descriptionEn: 'Mobile applications with Flutter for product validation, customer service, operations, or user experience.',
+    title: {
+      pt: 'Aplicativos Mobile',
+      en: 'Mobile Apps'
+    },
+    description: {
+      pt: 'Aplicações mobile com Flutter para validar produto, atendimento, operação ou experiência do cliente.',
+      en: 'Mobile applications with Flutter for product validation, customer service, operations, or user experience.'
+    },
     icon: 'smartphone'
   },
   {
     id: 4,
-    title: 'APIs, Data & Automation',
-    titleEn: 'APIs, Data & Automation',
-    description: 'Backends em Laravel/Node/Python, integrações, PostgreSQL/Supabase e automações com IA.',
-    descriptionEn: 'Backends in Laravel/Node/Python, integrations, PostgreSQL/Supabase, and AI-powered automation.',
+    title: {
+      pt: 'APIs, Dados & Automação',
+      en: 'APIs, Data & Automation'
+    },
+    description: {
+      pt: 'Backends em Laravel/Node/Python, integrações, PostgreSQL/Supabase e automações com IA.',
+      en: 'Backends in Laravel/Node/Python, integrations, PostgreSQL/Supabase, and AI-powered automation.'
+    },
     icon: 'settings'
   }
 ];
@@ -151,12 +90,27 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/DevAndreNarcizo/Agenda_Facil',
     tags: ['React 19', 'Supabase', 'TypeScript', 'SaaS'],
     tier: 'saas',
-    summary: 'Micro-SaaS for appointment scheduling — production app with real users in beauty and local services.',
+    summary: {
+      pt: 'Micro-SaaS de agendamento de horários — aplicação em produção com usuários reais nos setores de beleza e serviços locais.',
+      en: 'Micro-SaaS for appointment scheduling — production app with real users in beauty and local services.'
+    },
     stack: 'React 19, Supabase, TypeScript',
-    role: 'Product, frontend, database, scheduling flow',
-    problem: 'Small businesses need to organize appointments without relying on spreadsheets.',
-    solution: 'Digital scheduling with registration, time slots, and management foundation.',
-    result: 'SaaS product modeling, authentication, and recurring user flow UX.'
+    role: {
+      pt: 'Produto, frontend, banco de dados e fluxo de agendamento',
+      en: 'Product, frontend, database, scheduling flow'
+    },
+    problem: {
+      pt: 'Pequenos negócios precisam organizar seus agendamentos sem depender de planilhas.',
+      en: 'Small businesses need to organize appointments without relying on spreadsheets.'
+    },
+    solution: {
+      pt: 'Agendamento digital com cadastro, horários disponíveis e uma base sólida de gestão.',
+      en: 'Digital scheduling with registration, time slots, and management foundation.'
+    },
+    result: {
+      pt: 'Modelagem de produto SaaS, autenticação e UX para o fluxo recorrente do usuário.',
+      en: 'SaaS product modeling, authentication, and recurring user flow UX.'
+    }
   },
   {
     id: 2,
@@ -166,12 +120,27 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/DevAndreNarcizo/Fin-Assist',
     tags: ['Python', 'Machine Learning', 'AI'],
     tier: 'web',
-    summary: 'AI/ML applied to financial education and personal finance management.',
+    summary: {
+      pt: 'IA/ML aplicada à educação financeira e à gestão de finanças pessoais.',
+      en: 'AI/ML applied to financial education and personal finance management.'
+    },
     stack: 'Python, Scikit-learn, CustomTkinter',
-    role: 'Product, modeling, UI, model training',
-    problem: 'Lack of accessible tools combining financial education with AI.',
-    solution: 'Desktop application with predictive model for financial health scoring.',
-    result: 'Bridge between academic research (TCC), Python, and real-world financial product vision.'
+    role: {
+      pt: 'Produto, modelagem, UI e treinamento do modelo',
+      en: 'Product, modeling, UI, model training'
+    },
+    problem: {
+      pt: 'Falta de ferramentas acessíveis que unam educação financeira e inteligência artificial.',
+      en: 'Lack of accessible tools combining financial education with AI.'
+    },
+    solution: {
+      pt: 'Aplicação desktop com modelo preditivo para pontuação de saúde financeira.',
+      en: 'Desktop application with predictive model for financial health scoring.'
+    },
+    result: {
+      pt: 'Ponte entre a pesquisa acadêmica (TCC), Python e uma visão de produto financeiro real.',
+      en: 'Bridge between academic research (TCC), Python, and real-world financial product vision.'
+    }
   },
   {
     id: 3,
@@ -181,12 +150,27 @@ export const projects: Project[] = [
     githubLink: '',
     tags: ['React', 'Express', 'Supabase', 'PostgreSQL'],
     tier: 'web',
-    summary: 'Full ecommerce platform — catalog, cart, checkout, and admin panel for a real store.',
+    summary: {
+      pt: 'Plataforma completa de e-commerce — catálogo, carrinho, checkout e painel administrativo para uma loja real.',
+      en: 'Full ecommerce platform — catalog, cart, checkout, and admin panel for a real store.'
+    },
     stack: 'React, Express, Supabase, PostgreSQL',
-    role: 'Frontend, backend, database, payment integration',
-    problem: 'Physical store needed digital presence with catalog and checkout.',
-    solution: 'Complete ecommerce with catalog, cart, checkout, and admin dashboard.',
-    result: 'Functional store delivery with hands-on online sales flow experience.'
+    role: {
+      pt: 'Frontend, backend, banco de dados e integração de pagamentos',
+      en: 'Frontend, backend, database, payment integration'
+    },
+    problem: {
+      pt: 'Loja física precisava de presença digital com catálogo e checkout.',
+      en: 'Physical store needed digital presence with catalog and checkout.'
+    },
+    solution: {
+      pt: 'E-commerce completo com catálogo, carrinho, checkout e painel administrativo.',
+      en: 'Complete ecommerce with catalog, cart, checkout, and admin dashboard.'
+    },
+    result: {
+      pt: 'Entrega de loja funcional com experiência prática no fluxo de vendas online.',
+      en: 'Functional store delivery with hands-on online sales flow experience.'
+    }
   }
 ];
 
@@ -194,30 +178,60 @@ export const architectureProjects: Project[] = [
   {
     id: 101,
     title: 'laravel-clean-architecture-api',
-    image: '',
+    image: '/Imagens/laravel-clean-architecture-api.webp',
     githubLink: 'https://github.com/DevAndreNarcizo/laravel-clean-architecture-api',
     tags: ['Laravel 11', 'PostgreSQL', 'Redis', 'RabbitMQ', 'Docker', 'PHPUnit'],
     tier: 'enterprise',
-    summary: 'Enterprise-grade REST API with Clean Architecture, 100+ tests, Docker, CI/CD, and async messaging.',
+    summary: {
+      pt: 'API REST de nível enterprise com Clean Architecture, mais de 100 testes, Docker, CI/CD e mensageria assíncrona.',
+      en: 'Enterprise-grade REST API with Clean Architecture, 100+ tests, Docker, CI/CD, and async messaging.'
+    },
     stack: 'Laravel 11, PostgreSQL, Redis, RabbitMQ, Docker, PHPUnit, GitHub Actions',
-    role: 'Architecture, backend, tests, DevOps',
-    problem: 'Demonstrate production-grade backend architecture beyond CRUD controllers.',
-    solution: 'Layered architecture (Domain/Application/Infrastructure/Interface) with event-driven messaging and comprehensive tests.',
-    result: 'Recruiter-ready proof of enterprise backend engineering and DevOps skills.'
+    role: {
+      pt: 'Arquitetura, backend, testes e DevOps',
+      en: 'Architecture, backend, tests, DevOps'
+    },
+    problem: {
+      pt: 'Demonstrar arquitetura de backend de nível produção, indo além de controllers CRUD.',
+      en: 'Demonstrate production-grade backend architecture beyond CRUD controllers.'
+    },
+    solution: {
+      pt: 'Arquitetura em camadas (Domain/Application/Infrastructure/Interface) com mensageria orientada a eventos e testes abrangentes.',
+      en: 'Layered architecture (Domain/Application/Infrastructure/Interface) with event-driven messaging and comprehensive tests.'
+    },
+    result: {
+      pt: 'Prova pronta para recrutadores de engenharia de backend enterprise e habilidades de DevOps.',
+      en: 'Recruiter-ready proof of enterprise backend engineering and DevOps skills.'
+    }
   },
   {
     id: 102,
     title: 'node-microservices-event-driven',
-    image: '',
+    image: '/Imagens/node-microservices-event-driven.webp',
     githubLink: 'https://github.com/DevAndreNarcizo/node-microservices-event-driven',
     tags: ['Node.js', 'NestJS', 'MongoDB', 'RabbitMQ', 'Docker', 'Jest'],
     tier: 'enterprise',
-    summary: 'Event-driven microservices with RabbitMQ — Order Service and Notification Service.',
+    summary: {
+      pt: 'Microsserviços orientados a eventos com RabbitMQ — Order Service e Notification Service.',
+      en: 'Event-driven microservices with RabbitMQ — Order Service and Notification Service.'
+    },
     stack: 'Node.js, NestJS, MongoDB, RabbitMQ, Docker Compose, Jest, Prometheus',
-    role: 'Distributed systems, messaging, tests, DevOps',
-    problem: 'Prove understanding of distributed systems and event-driven architecture.',
-    solution: 'Two independent services communicating exclusively via RabbitMQ with health checks, correlation IDs, and structured logging.',
-    result: 'Demonstrating microservices patterns, async communication, and service observability.'
+    role: {
+      pt: 'Sistemas distribuídos, mensageria, testes e DevOps',
+      en: 'Distributed systems, messaging, tests, DevOps'
+    },
+    problem: {
+      pt: 'Comprovar o domínio de sistemas distribuídos e arquitetura orientada a eventos.',
+      en: 'Prove understanding of distributed systems and event-driven architecture.'
+    },
+    solution: {
+      pt: 'Dois serviços independentes que se comunicam exclusivamente via RabbitMQ, com health checks, correlation IDs e logging estruturado.',
+      en: 'Two independent services communicating exclusively via RabbitMQ with health checks, correlation IDs, and structured logging.'
+    },
+    result: {
+      pt: 'Demonstração de padrões de microsserviços, comunicação assíncrona e observabilidade de serviços.',
+      en: 'Demonstrating microservices patterns, async communication, and service observability.'
+    }
   },
   {
     id: 103,
@@ -226,12 +240,27 @@ export const architectureProjects: Project[] = [
     githubLink: 'https://github.com/DevAndreNarcizo/saas-task-manager',
     tags: ['Next.js 14', 'TypeScript', 'Stripe', 'PostgreSQL', 'Redis'],
     tier: 'enterprise',
-    summary: 'Full-stack SaaS with Stripe subscriptions, RBAC, and real-time updates — deployed and functional.',
+    summary: {
+      pt: 'SaaS full-stack com assinaturas via Stripe, RBAC e atualizações em tempo real — publicado e funcional.',
+      en: 'Full-stack SaaS with Stripe subscriptions, RBAC, and real-time updates — deployed and functional.'
+    },
     stack: 'Next.js 14, TypeScript, Tailwind, NestJS, PostgreSQL, Redis, Stripe, Docker',
-    role: 'Full-stack, payments, auth, deployment',
-    problem: 'End-to-end SaaS product ownership from code to payment to deployment.',
-    solution: 'Freemium task manager with Stripe Checkout, webhooks, role-based access, and real-time updates.',
-    result: 'Live SaaS demonstrating full product lifecycle and payment integration.'
+    role: {
+      pt: 'Full-stack, pagamentos, autenticação e deploy',
+      en: 'Full-stack, payments, auth, deployment'
+    },
+    problem: {
+      pt: 'Propriedade de um produto SaaS de ponta a ponta — do código ao pagamento e ao deploy.',
+      en: 'End-to-end SaaS product ownership from code to payment to deployment.'
+    },
+    solution: {
+      pt: 'Gerenciador de tarefas freemium com Stripe Checkout, webhooks, controle de acesso por papéis e atualizações em tempo real.',
+      en: 'Freemium task manager with Stripe Checkout, webhooks, role-based access, and real-time updates.'
+    },
+    result: {
+      pt: 'SaaS no ar demonstrando o ciclo de vida completo do produto e integração de pagamentos.',
+      en: 'Live SaaS demonstrating full product lifecycle and payment integration.'
+    }
   },
   {
     id: 104,
@@ -240,12 +269,27 @@ export const architectureProjects: Project[] = [
     githubLink: 'https://github.com/DevAndreNarcizo/php-code-analyzer',
     tags: ['PHP', 'CLI', 'Open Source', 'Static Analysis'],
     tier: 'enterprise',
-    summary: 'Open-source CLI that analyzes PHP/Laravel projects and generates quality reports.',
+    summary: {
+      pt: 'CLI open-source que analisa projetos PHP/Laravel e gera relatórios de qualidade.',
+      en: 'Open-source CLI that analyzes PHP/Laravel projects and generates quality reports.'
+    },
     stack: 'PHP, PHPUnit, GitHub Actions, Packagist',
-    role: 'Author, architecture, tests, CI/CD',
-    problem: 'Open-source contribution gap — nothing published on Packagist or npm.',
-    solution: 'CLI tool measuring cyclomatic complexity, SOLID violations, type coverage, and test coverage.',
-    result: 'Published package demonstrating community contribution and code quality standards.'
+    role: {
+      pt: 'Autor, arquitetura, testes e CI/CD',
+      en: 'Author, architecture, tests, CI/CD'
+    },
+    problem: {
+      pt: 'Lacuna em contribuição open-source — nada publicado no Packagist ou npm.',
+      en: 'Open-source contribution gap — nothing published on Packagist or npm.'
+    },
+    solution: {
+      pt: 'Ferramenta CLI que mede complexidade ciclomática, violações de SOLID, cobertura de tipos e cobertura de testes.',
+      en: 'CLI tool measuring cyclomatic complexity, SOLID violations, type coverage, and test coverage.'
+    },
+    result: {
+      pt: 'Pacote publicado que demonstra contribuição com a comunidade e padrões de qualidade de código.',
+      en: 'Published package demonstrating community contribution and code quality standards.'
+    }
   }
 ];
 
@@ -257,12 +301,27 @@ export const landingPages: Project[] = [
     githubLink: 'https://github.com/DevAndreNarcizo/Clinica-Thaysa-Medeiros',
     tags: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
     tier: 'landing',
-    summary: 'Premium institutional website for aesthetics and wellness clinic.',
+    summary: {
+      pt: 'Site institucional premium para clínica de estética e bem-estar.',
+      en: 'Premium institutional website for aesthetics and wellness clinic.'
+    },
     stack: 'Next.js, Tailwind CSS, Framer Motion',
-    role: 'Design, frontend, animations, deploy',
-    problem: 'Clinic needed digital authority and new client conversion.',
-    solution: 'Premium interface focused on luxury, services, and booking journey.',
-    result: 'Elevated brand positioning and mobile-optimized site.'
+    role: {
+      pt: 'Design, frontend, animações e deploy',
+      en: 'Design, frontend, animations, deploy'
+    },
+    problem: {
+      pt: 'A clínica precisava de autoridade digital e conversão de novos clientes.',
+      en: 'Clinic needed digital authority and new client conversion.'
+    },
+    solution: {
+      pt: 'Interface premium focada em sofisticação, serviços e na jornada de agendamento.',
+      en: 'Premium interface focused on luxury, services, and booking journey.'
+    },
+    result: {
+      pt: 'Posicionamento de marca elevado e site otimizado para mobile.',
+      en: 'Elevated brand positioning and mobile-optimized site.'
+    }
   },
   {
     id: 5,
@@ -271,12 +330,27 @@ export const landingPages: Project[] = [
     githubLink: 'https://github.com/DevAndreNarcizo/ThaisSousa-NailDesigner',
     tags: ['React', 'Tailwind CSS', 'Responsive'],
     tier: 'landing',
-    summary: 'Landing page for nail designer with portfolio and booking.',
+    summary: {
+      pt: 'Landing page para nail designer com portfólio e agendamento.',
+      en: 'Landing page for nail designer with portfolio and booking.'
+    },
     stack: 'React, Tailwind CSS, Vite',
-    role: 'Design, frontend, deploy',
-    problem: 'Independent professional without digital presence to attract clients.',
-    solution: 'Visual landing page with work gallery and conversion focus.',
-    result: 'Reusable template for beauty and aesthetics professionals.'
+    role: {
+      pt: 'Design, frontend e deploy',
+      en: 'Design, frontend, deploy'
+    },
+    problem: {
+      pt: 'Profissional autônoma sem presença digital para atrair clientes.',
+      en: 'Independent professional without digital presence to attract clients.'
+    },
+    solution: {
+      pt: 'Landing page visual com galeria de trabalhos e foco em conversão.',
+      en: 'Visual landing page with work gallery and conversion focus.'
+    },
+    result: {
+      pt: 'Template reutilizável para profissionais de beleza e estética.',
+      en: 'Reusable template for beauty and aesthetics professionals.'
+    }
   },
   {
     id: 6,
@@ -285,12 +359,27 @@ export const landingPages: Project[] = [
     githubLink: 'https://github.com/DevAndreNarcizo/KarenBianca-LashDesigner',
     tags: ['React', 'Tailwind CSS', 'Responsive'],
     tier: 'landing',
-    summary: 'Professional site for lash designer with portfolio and contact.',
+    summary: {
+      pt: 'Site profissional para lash designer com portfólio e contato.',
+      en: 'Professional site for lash designer with portfolio and contact.'
+    },
     stack: 'React, Tailwind CSS, Vite',
-    role: 'Design, frontend, deploy',
-    problem: 'Lash designer needed a site to showcase work and receive bookings.',
-    solution: 'Elegant page with gallery, testimonials, and WhatsApp CTA.',
-    result: 'Digital presence that converts visitors into booked clients.'
+    role: {
+      pt: 'Design, frontend e deploy',
+      en: 'Design, frontend, deploy'
+    },
+    problem: {
+      pt: 'A lash designer precisava de um site para mostrar seus trabalhos e receber agendamentos.',
+      en: 'Lash designer needed a site to showcase work and receive bookings.'
+    },
+    solution: {
+      pt: 'Página elegante com galeria, depoimentos e CTA para WhatsApp.',
+      en: 'Elegant page with gallery, testimonials, and WhatsApp CTA.'
+    },
+    result: {
+      pt: 'Presença digital que converte visitantes em clientes agendados.',
+      en: 'Digital presence that converts visitors into booked clients.'
+    }
   }
 ];
 
@@ -327,163 +416,15 @@ export const stackGroups: StackGroup[] = [
   }
 ];
 
-export const educationItems: EducationItem[] = [
-  {
-    title: 'Ciencia da Computacao',
-    institution: 'Formacao academica',
-    type: 'Graduacao',
-    status: 'Em andamento'
-  },
-  {
-    title: 'Desenvolvimento Full-Stack',
-    institution: 'Projetos pessoais, freelance e empresa',
-    type: 'Pratica profissional',
-    status: 'Em evolucao'
-  }
-];
-
-export const certificateItems: CertificateItem[] = [
-  {
-    title: 'Laravel, PHP e APIs REST',
-    issuer: 'Estudos e projetos aplicados',
-    status: 'Em progresso'
-  },
-  {
-    title: 'Angular, React e TypeScript',
-    issuer: 'Projetos web e sistemas internos',
-    status: 'Aplicado em projetos'
-  },
-  {
-    title: 'Docker, CI/CD e Arquitetura',
-    issuer: 'Laboratorios e portfolio tecnico',
-    status: 'Em evolucao'
-  }
-];
-
-export const architecturePrinciples: ArchitecturePrinciple[] = [
-  {
-    title: 'Clean Architecture',
-    description: 'Domain layer at the core. Application use cases orchestrate business logic. Infrastructure implements contracts. Controllers are thin adapters — never contain business rules.',
-    icon: 'layers'
-  },
-  {
-    title: 'SOLID by Default',
-    description: 'Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion — applied as muscle memory, not buzzwords.',
-    icon: 'box'
-  },
-  {
-    title: 'Test-Driven Confidence',
-    description: 'Unit tests for domain logic. Feature tests for use cases. Integration tests for infrastructure. CI/CD pipeline blocks merge if coverage drops.',
-    icon: 'check-circle'
-  },
-  {
-    title: 'Event-Driven when Needed',
-    description: 'Synchronous REST for CRUD. RabbitMQ/Kafka for async workflows: emails, notifications, audit logs. Each service owns its database.',
-    icon: 'git-branch'
-  },
-  {
-    title: 'Infrastructure as Code',
-    description: 'Docker Compose for local dev mirrors production. CI/CD builds, tests, and deploys on push. Zero "works on my machine" surprises.',
-    icon: 'terminal'
-  },
-  {
-    title: 'API Design First',
-    description: 'Standardized JSON responses ({ success, data, error, meta }). Pagination, filtering, sorting, and full-text search on every list endpoint. OpenAPI/Swagger documented.',
-    icon: 'file-text'
-  }
-];
-
-export const aboutTextEn = `Desenvolvedor Full-Stack em Goiania-GO, atuando com sistemas web, APIs, interfaces responsivas, mobile e automacoes.
-
-Minha stack principal combina Laravel, Angular, React, Flutter, Docker e bancos relacionais. Gosto de transformar problemas reais em produtos organizados, com codigo limpo, boa experiencia de uso e base tecnica preparada para evoluir.
-
-Meu foco atual e consolidar minha evolucao como desenvolvedor pleno, aprofundando arquitetura de software, qualidade, documentacao e entregas completas do banco ao deploy.`;
-
-export const aboutTextPt = aboutTextEn;
-
-export const notes: Note[] = [
-  {
-    id: 1,
-    title: 'My plan to evolve from Junior to Mid-Level in 2026',
-    date: '2026-05-04',
-    summary: 'Autonomy, quality, and communication are the three pillars I am working on to leave the Junior level behind.',
-    content: [
-      'Mapped real gaps in my core stacks: Flutter, PHP, Laravel, and Angular. No point studying everything — I need depth where I work daily.',
-      'Created a weekly routine with 2 manual study blocks and 1 delivered-task review. Practicing code without AI is mandatory.',
-      'Started asking leadership for objective feedback on what is missing to reach Mid-Level. Spoiler: it is not just technical.',
-      'Use AI to explain concepts and review PRs, but never to replace my own reasoning.'
-    ],
-    learning: 'Career growth requires measurable evidence, not just good intentions.',
-    nextStep: 'Build original examples in Flutter and Laravel by August, with tests and documentation.'
-  },
-  {
-    id: 2,
-    title: 'Thin controllers and single-responsibility services',
-    date: '2026-05-05',
-    summary: 'The moment I stopped putting business logic in controllers, my code became testable for the first time.',
-    content: [
-      'Controllers should only orchestrate HTTP input/output. Business rules live in Services or UseCases, with explicit dependencies.',
-      'Logic directly in controllers delivers faster initially, but becomes tech debt within weeks.',
-      'Large generic services centralize rules but can become bloated. I prefer UseCases per relevant flow.',
-      'Input validation happens before business rule execution — via Requests, DTOs, or equivalent validators per stack.'
-    ],
-    learning: 'Unit tests become trivial when business logic is isolated from the framework.',
-    nextStep: 'Apply ADR pattern (Action-Domain-Responder) in the next Laravel project from scratch.'
-  },
-  {
-    id: 3,
-    title: 'The JSON response pattern I use in every API',
-    date: '2026-05-06',
-    summary: 'A standardized response format eliminates guesswork between frontend and backend, and simplifies debugging.',
-    content: [
-      'Adopted { success, data, error, meta } structure across all projects. The frontend never has to guess where the payload is.',
-      'Errors return readable codes (e.g. USER_NOT_FOUND) and clear messages, never stack traces in production.',
-      'Correct HTTP status codes: 201 for creation, 422 for validation, 409 for conflict. I never return 200 for everything.',
-      'Paginated listings include meta with current_page, per_page, total, and last_page. No unpaginated tables.'
-    ],
-    learning: 'Predictable APIs reduce rework between teams more than any framework ever will.',
-    nextStep: 'Document all public APIs with OpenAPI/Swagger before deployment.'
-  },
-  {
-    id: 4,
-    title: 'Clean Code in practice: what actually changes day to day',
-    date: '2026-05-07',
-    summary: 'Clear names, small functions, and proper error handling are 80% of the Clean Code I apply daily.',
-    content: [
-      'Names reveal intent: isPasswordValid() beats proc(). If I need a comment to explain the name, the name is wrong.',
-      'Functions do one thing. Maximum 20 lines, ideally 10. More than 3 parameters become a DTO.',
-      'Never return null to signal an error. Use domain-specific exceptions or Result objects.',
-      'Comments explain WHY, not WHAT. Commented-out code gets deleted — git keeps history.'
-    ],
-    learning: 'Clean code is not about perfection, it is about being obvious to whoever reads it next.',
-    nextStep: 'Create my own code review checklist and apply it to personal PRs before opening.'
-  },
-  {
-    id: 5,
-    title: 'How I use AI in my workflow without creating dependency',
-    date: '2026-05-08',
-    summary: 'AI is an accelerator, not an autopilot. The rule: understand before accepting, document before forgetting.',
-    content: [
-      'Every AI session starts from the Second Brain INDEX and loads only necessary context. Skills are activated on demand.',
-      'I use AI to explain concepts, generate boilerplate, and review PRs — never to deliver a finished solution without understanding.',
-      'Always read and understand every generated line before accepting. If I cannot explain it, I do not use it.',
-      'Document what the AI suggested and why I accepted it. This becomes real learning, not a shortcut.'
-    ],
-    learning: 'Those who use AI without understanding the code become dependent; those who understand multiply productivity.',
-    nextStep: 'Create prompt templates for recurring tasks (CRUD, tests, refactoring).'
-  },
-  {
-    id: 6,
-    title: 'Angular, Laravel, and Flutter: my working stack in 2026',
-    date: '2026-05-09',
-    summary: 'Real stack is the one that solves the client\'s problem. I chose technologies I use at work and in freelance.',
-    content: [
-      'Angular for enterprise systems: strong typing, clear structure, predictable maintenance. Ideal for dashboards and complex CRUDs.',
-      'Laravel for rapid APIs: mature ecosystem, efficient Eloquent, simple deployment. My default backend for web and mobile.',
-      'Flutter for mobile: one codebase for iOS and Android, with native performance. Priority of the Pleno 2026 Plan.',
-      'Python as a complement for automation, data, and AI integrations. Fin-Assist proves you can unite academic research and product.'
-    ],
-    learning: 'Going deep in 4 stacks well is worth more than knowing 10 superficially.',
-    nextStep: 'Build original Flutter and Laravel examples with clean architecture by September.'
-  }
+// Showcase completo e intercalado: alterna enterprise e produtos para começar
+// forte (com imagem) e evitar dois cards sem imagem (103/104) lado a lado.
+export const featuredProjects: Project[] = [
+  architectureProjects[0], // 101 - laravel-clean-architecture-api
+  projects[0],             // 1   - Agenda-Fácil
+  architectureProjects[1], // 102 - node-microservices-event-driven
+  projects[1],             // 2   - Fin-Assist
+  architectureProjects[2], // 103 - saas-task-manager (sem imagem)
+  projects[2],             // 3   - Ecommerce Luz da Aurora
+  architectureProjects[3], // 104 - php-code-analyzer (sem imagem)
+  ...landingPages          // 4,5,6 - landing pages (todas com imagem)
 ];

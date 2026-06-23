@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Code2, ExternalLink } from 'lucide-react';
+import { EASE_OUT } from '../constants/motion';
 
 interface HeroCTAProps {
   projectsLabel: string;
   contactLabel: string;
-  easeOut: readonly [number, number, number, number];
   onScrollToProjects: () => void;
   onScrollToContact: () => void;
   onScrollDown: () => void;
@@ -13,7 +13,6 @@ interface HeroCTAProps {
 const HeroCTA = ({
   projectsLabel,
   contactLabel,
-  easeOut,
   onScrollToProjects,
   onScrollToContact,
   onScrollDown,
@@ -23,7 +22,7 @@ const HeroCTA = ({
       className="hero-cta"
       variants={{
         hidden: { opacity: 0, y: 28 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut, delay: 0.85 } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE_OUT, delay: 0.85 } },
       }}
     >
       <motion.button
@@ -49,7 +48,7 @@ const HeroCTA = ({
     <motion.div
       variants={{
         hidden: { opacity: 0, y: 28 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut, delay: 0.95 } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE_OUT, delay: 0.95 } },
       }}
     >
       <motion.button

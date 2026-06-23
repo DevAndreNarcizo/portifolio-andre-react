@@ -4,6 +4,7 @@ import { Code } from 'lucide-react';
 import type { Project } from '../types';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
+import { EASE_OUT } from '../constants/motion';
 import ProjectCardBadges from './ProjectCardBadges';
 import ProjectCardLinks from './ProjectCardLinks';
 import './ProjectCard.css';
@@ -45,14 +46,14 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
     mouseY.set(0);
   };
 
-  const { title, image, liveLink, githubLink, tags, summary, tier } = project;
+  const { title, image, liveLink, githubLink, tags, summary, problem, solution, role, result, tier } = project;
   const isEnterprise = tier === 'enterprise';
   const projectNumber = String(index + 1).padStart(2, '0');
 
   return (
     <motion.div
       ref={cardRef}
-      className={`project-card reveal reveal-stagger ${isEnterprise ? 'project-card--enterprise' : ''}`}
+      className={`project-card ${isEnterprise ? 'project-card--enterprise' : ''}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
@@ -63,7 +64,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: index * 0.08 }}
+      transition={{ duration: 0.7, ease: EASE_OUT, delay: index * 0.08 }}
     >
       <motion.div
         className="project-card-glow"
@@ -74,7 +75,36 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         <span className="project-number">{t.project} {projectNumber}</span>
         <h3 className="project-card-title">{title}</h3>
 
-        {summary && <p className="project-summary">{summary}</p>}
+        {summary && <p className="project-summary">{summary[language]}</p>}
+
+        {(problem || solution || role || result) && (
+          <div className="project-meta">
+            {problem && (
+              <div className="project-meta-item">
+                <span className="project-meta-label">{t.problem}</span>
+                <p>{problem[language]}</p>
+              </div>
+            )}
+            {solution && (
+              <div className="project-meta-item">
+                <span className="project-meta-label">{t.solution}</span>
+                <p>{solution[language]}</p>
+              </div>
+            )}
+            {role && (
+              <div className="project-meta-item">
+                <span className="project-meta-label">{t.role}</span>
+                <p>{role[language]}</p>
+              </div>
+            )}
+            {result && (
+              <div className="project-meta-item">
+                <span className="project-meta-label">{t.outcome}</span>
+                <p>{result[language]}</p>
+              </div>
+            )}
+          </div>
+        )}
 
         <ProjectCardBadges tags={tags} isEnterprise={isEnterprise} />
 

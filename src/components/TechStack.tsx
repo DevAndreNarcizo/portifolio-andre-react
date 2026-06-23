@@ -4,6 +4,7 @@ import { Server, Layout, Smartphone, Database, Terminal, Layers } from 'lucide-r
 import type { LucideIcon } from 'lucide-react';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
+import { EASE_OUT } from '../constants/motion';
 import './TechStack.css';
 
 const iconMap: Record<string, LucideIcon> = {
@@ -23,20 +24,20 @@ const TechStack = () => {
     <section id="stack" className="section bg-alt">
       <div className="container-wide">
         <motion.h2
-          className="section-title reveal"
+          className="section-title"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, ease: EASE_OUT }}
         >
           {t.title}
         </motion.h2>
         <motion.p
-          className="section-subtitle reveal"
+          className="section-subtitle"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+          transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.1 }}
         >
           {t.subtitle}
         </motion.p>
@@ -47,11 +48,11 @@ const TechStack = () => {
             return (
               <motion.div
                 key={group.category}
-                className="stack-card reveal reveal-stagger"
+                className="stack-card"
                 initial={{ opacity: 0, y: 28, scale: 0.97 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.12 + i * 0.08 }}
+                transition={{ duration: 0.5, ease: EASE_OUT, delay: 0.12 + i * 0.08 }}
                 whileHover={{ y: -4, borderColor: 'rgba(var(--color-accent-rgb), 0.25)' }}
               >
                 <div className="stack-card-header">
