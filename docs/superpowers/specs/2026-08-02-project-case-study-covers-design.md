@@ -85,7 +85,7 @@ No new runtime data flow or component state is required. Vite serves the assets 
 
 ### Automated checks
 
-1. Add Vitest as a development dependency and expose a `test` package script because the repository currently has no automated test runner.
+1. Expose a `test` package script using the Node.js built-in test runner and the TypeScript compiler already installed in the project, avoiding a new dependency or package-lock drift.
 2. Add a focused data test that fails while either case study has an empty image path, the MyFinance live link is missing, or the HunterAI public live link is incorrectly present.
 3. Verify both WebP files exist and have non-zero dimensions.
 4. Run the full test suite, TypeScript build, ESLint, and Vite production build.
