@@ -85,7 +85,8 @@ export const caseStudyProjects: Project[] = [
   {
     id: 201,
     title: 'MyFinance Platform',
-    image: '',
+    image: '/Imagens/myfinance-platform.webp',
+    liveLink: 'https://my-finance-ebon-one.vercel.app/',
     githubLink: 'https://github.com/DevAndreNarcizo/myfinance-platform',
     tags: ['React', 'Node.js', 'Flutter', 'PostgreSQL', 'JWT'],
     tier: 'saas',
@@ -114,7 +115,7 @@ export const caseStudyProjects: Project[] = [
   {
     id: 202,
     title: 'HunterAI Platform',
-    image: '',
+    image: '/Imagens/hunter-ai-platform.webp',
     githubLink: 'https://github.com/DevAndreNarcizo/hunter-ai-platform',
     tags: ['Next.js', 'Node.js', 'FastAPI', 'PostgreSQL', 'Redis'],
     tier: 'enterprise',
