@@ -134,7 +134,7 @@ test('case studies expose the approved images and links', () => {
   );
 });
 
-test('case-study covers are readable 16:9 WebP assets within budget', () => {
+test('case-study covers are exact 1600x900 WebP assets within budget', () => {
   for (const filename of [
     'myfinance-platform.webp',
     'hunter-ai-platform.webp',
@@ -143,11 +143,8 @@ test('case-study covers are readable 16:9 WebP assets within budget', () => {
     const buffer = readFileSync(assetPath);
     const { width, height } = readWebpDimensions(buffer);
 
-    assert.ok(width > 0 && height > 0, `${filename} must have dimensions`);
-    assert.ok(
-      Math.abs(width / height - 16 / 9) < 0.01,
-      `${filename} must use a 16:9 ratio`,
-    );
+    assert.equal(width, 1600, `${filename} must be exactly 1600px wide`);
+    assert.equal(height, 900, `${filename} must be exactly 900px high`);
     assert.ok(
       statSync(assetPath).size <= 250 * 1024,
       `${filename} must remain at or below 250 KB`,

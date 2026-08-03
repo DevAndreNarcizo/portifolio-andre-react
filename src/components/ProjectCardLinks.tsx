@@ -10,7 +10,7 @@ interface ProjectCardLinksProps {
 
 /**
  * Renderiza os botoes de acao (live site / GitHub) do cartao de projeto.
- * @author André Narcizo
+ * @author André Narcizo - andre.narcizo@sysout.com.br
  */
 const ProjectCardLinks = ({
   liveLink,
