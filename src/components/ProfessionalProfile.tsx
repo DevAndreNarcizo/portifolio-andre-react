@@ -52,7 +52,7 @@ const ProfessionalProfile = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: EASE_OUT }}
           >
-            <img src="/Imagens/Foto.webp" alt="Andre Narcizo em ambiente profissional" className="profile-photo" />
+            <img src="/Imagens/Foto.webp" alt="André Narcizo em ambiente profissional" className="profile-photo" />
             <div className="profile-code-badge" aria-hidden="true">
               <svg viewBox="0 0 120 120">
                 <defs>

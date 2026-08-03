@@ -1,39 +1,35 @@
-# Andre Narcizo — Full-Stack Developer
+# André Narcizo — Professional Portfolio
+
+[English](README.md) | [Português](README.pt-BR.md)
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev)
 [![Netlify](https://img.shields.io/badge/deployed-Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white)](https://dev-andrenarcizo.netlify.app)
-[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](./LICENSE)
 
-**Full-Stack Developer from Goiania, Brazil** — building production-grade backends, APIs, and full-stack systems with Laravel, Angular, React, Flutter, and Docker.
+Professional bilingual portfolio for André Narcizo, a Full-Stack Developer at Sysout Tecnologia.
+The site presents verified professional experience, selected engineering projects, technical stack,
+education, and recruiter-oriented contact information.
 
-Currently at **Sysout Tecnologia**, delivering enterprise Angular + Laravel applications. Evolving toward Software Architecture with Clean Architecture, SOLID, event-driven patterns, and comprehensive testing.
+## Highlights
 
----
+- Portuguese and English content with persistent language selection
+- Professional experience timeline based on the current CV
+- Curated full-stack, SaaS, API, mobile, and architecture projects
+- Responsive interface with dark and light themes
+- Accessible navigation and reduced-motion support
+- Recruiter-oriented SEO and social metadata
 
-## Portfolio Sections
-
-- **Engineering Portfolio** — Filterable projects by tier (Featured, Architecture & APIs, SaaS, Web Apps, Client Sites)
-- **Engineering Principles** — Clean Architecture, SOLID, TDD, Event-Driven, IaC, API Design First
-- **Tech Stack** — Backend, Frontend, Mobile, Data, DevOps, Architecture practices
-- **Engineering Notes** — Technical decisions and architecture insights
-- **Bilingual About** — EN + PT content
-
----
-
-## Tech Stack (Portfolio)
+## Technology stack
 
 | Layer | Technologies |
-|-------|-------------|
-| Framework | React 19, TypeScript 5.9, Vite 7 |
-| Routing | React Router 7 |
-| Styling | CSS Custom Properties, Dark/Light mode |
-| Icons | Lucide React |
+|---|---|
+| Frontend | React 19, TypeScript 5.9, Vite 7 |
+| UI | CSS Custom Properties, Framer Motion, Lucide React |
+| Quality | ESLint, TypeScript strict build |
+| Delivery | Netlify continuous deployment |
 
----
-
-## Getting Started
+## Local development
 
 ```bash
 git clone https://github.com/DevAndreNarcizo/portifolio-andre-react.git
@@ -42,35 +38,18 @@ npm install
 npm run dev
 ```
 
-### Production Build
+## Validation
 
 ```bash
+npm run lint
 npm run build
-npm run preview
 ```
 
----
+## Professional links
 
-## My Core Stack (what I actually use)
+- [Live portfolio](https://dev-andrenarcizo.netlify.app)
+- [LinkedIn](https://linkedin.com/in/andrenarcizo)
+- [GitHub](https://github.com/DevAndreNarcizo)
+- [Email](mailto:dev.andrenarcizo@outlook.com)
 
-| Category | Technologies |
-|----------|-------------|
-| **Backend & APIs** | Laravel, PHP, Node.js, Express, NestJS, Python, FastAPI |
-| **Frontend** | React, Next.js, Angular, TypeScript, Vite, Tailwind CSS |
-| **Mobile** | Flutter, Dart |
-| **Data & Cache** | PostgreSQL, MySQL, MongoDB, Redis, Supabase |
-| **DevOps & Quality** | Docker, Docker Compose, GitHub Actions, CI/CD, Azure DevOps |
-| **Architecture** | Clean Architecture, SOLID, DDD, TDD, Event-Driven, Design Patterns |
-
----
-
-## Contact
-
-- **LinkedIn**: [Andre Narcizo](https://linkedin.com/in/andrenarcizo)
-- **GitHub**: [@DevAndreNarcizo](https://github.com/DevAndreNarcizo)
-- **Email**: dev.andrenarcizo@gmail.com
-- **WhatsApp**: [+55 62 99338-2881](https://wa.me/5562993382881)
-
----
-
-*Built with React 19, TypeScript, and Vite. Deployed on Netlify.*
+Built with React, TypeScript, and Vite. Deployed on Netlify.

@@ -6,10 +6,10 @@ import type {
 } from './types';
 
 export const contactInfo = {
-  email: 'dev.andrenarcizo@gmail.com',
-  whatsapp: '+55 62 99338-2881',
-  whatsappLink: 'https://wa.me/5562993382881',
-  linkedin: 'https://www.linkedin.com/in/andr%C3%A9-narcizo/',
+  email: 'dev.andrenarcizo@outlook.com',
+  whatsapp: '+55 62 98557-9319',
+  whatsappLink: 'https://wa.me/5562985579319',
+  linkedin: 'https://www.linkedin.com/in/andrenarcizo/',
   github: 'https://github.com/DevAndreNarcizo',
   instagram: 'https://instagram.com/dev.andre_narcizo',
   instagramUser: '@dev.andre_narcizo'
@@ -81,6 +81,67 @@ export const services: Service[] = [
   }
 ];
 
+export const caseStudyProjects: Project[] = [
+  {
+    id: 201,
+    title: 'MyFinance Platform',
+    image: '',
+    githubLink: 'https://github.com/DevAndreNarcizo/myfinance-platform',
+    tags: ['React', 'Node.js', 'Flutter', 'PostgreSQL', 'JWT'],
+    tier: 'saas',
+    summary: {
+      pt: 'Estudo de caso de uma plataforma financeira full-stack para web e mobile, com autenticação, dados relacionais e importação assistida por IA.',
+      en: 'Case study of a full-stack financial platform for web and mobile, featuring authentication, relational data, and AI-assisted imports.'
+    },
+    stack: 'React, Node.js, Express, Flutter, Supabase, PostgreSQL, JWT',
+    role: {
+      pt: 'Modelagem de produto, arquitetura full-stack, API, mobile e documentação',
+      en: 'Product modeling, full-stack architecture, API, mobile, and documentation'
+    },
+    problem: {
+      pt: 'Centralizar receitas, despesas, dívidas, metas e documentos financeiros de um núcleo familiar.',
+      en: 'Centralize household income, expenses, debts, goals, and financial documents.'
+    },
+    solution: {
+      pt: 'Clientes React e Flutter consumindo uma API Node.js, com PostgreSQL, JWT e isolamento dos dados por núcleo familiar.',
+      en: 'React and Flutter clients consuming a Node.js API with PostgreSQL, JWT, and household-based data isolation.'
+    },
+    result: {
+      pt: 'Demonstra domínio de produto, autenticação, dados relacionais, integração com IA e entrega multiplataforma.',
+      en: 'Demonstrates product ownership, authentication, relational data, AI integration, and cross-platform delivery.'
+    }
+  },
+  {
+    id: 202,
+    title: 'HunterAI Platform',
+    image: '',
+    githubLink: 'https://github.com/DevAndreNarcizo/hunter-ai-platform',
+    tags: ['Next.js', 'Node.js', 'FastAPI', 'PostgreSQL', 'Redis'],
+    tier: 'enterprise',
+    summary: {
+      pt: 'Estudo de caso de arquitetura SaaS B2B para aquisição e qualificação de leads com processamento assíncrono e governança de abordagem.',
+      en: 'B2B SaaS architecture case study for lead acquisition and qualification with asynchronous processing and outreach governance.'
+    },
+    stack: 'Next.js, Node.js, TypeScript, FastAPI, PostgreSQL, Redis',
+    role: {
+      pt: 'Decomposição do sistema, limites de domínio, arquitetura assíncrona e roadmap',
+      en: 'System decomposition, domain boundaries, asynchronous architecture, and roadmap'
+    },
+    problem: {
+      pt: 'Organizar captura, qualificação e abordagem de leads sem acoplar fluxos sensíveis ao processamento síncrono.',
+      en: 'Organize lead capture, qualification, and outreach without coupling sensitive workflows to synchronous processing.'
+    },
+    solution: {
+      pt: 'Arquitetura evolutiva com web, API, worker Python, PostgreSQL e Redis, preservando aprovação manual em comunicações sensíveis.',
+      en: 'Evolvable architecture with web, API, Python worker, PostgreSQL, and Redis, preserving manual approval for sensitive communication.'
+    },
+    result: {
+      pt: 'Demonstra decisões pragmáticas sobre SaaS, filas, conformidade e evolução de um monólito modular.',
+      en: 'Demonstrates pragmatic decisions around SaaS, queues, compliance, and modular-monolith evolution.'
+    }
+  }
+];
+
 export const projects: Project[] = [
   {
     id: 1,
@@ -91,8 +152,8 @@ export const projects: Project[] = [
     tags: ['React 19', 'Supabase', 'TypeScript', 'SaaS'],
     tier: 'saas',
     summary: {
-      pt: 'Micro-SaaS de agendamento de horários — aplicação em produção com usuários reais nos setores de beleza e serviços locais.',
-      en: 'Micro-SaaS for appointment scheduling — production app with real users in beauty and local services.'
+      pt: 'Aplicação full-stack para criação, edição e gestão de agendamentos com interface responsiva.',
+      en: 'Full-stack application for creating, editing, and managing appointments through a responsive interface.'
     },
     stack: 'React 19, Supabase, TypeScript',
     role: {
@@ -121,10 +182,10 @@ export const projects: Project[] = [
     tags: ['Python', 'Machine Learning', 'AI'],
     tier: 'web',
     summary: {
-      pt: 'IA/ML aplicada à educação financeira e à gestão de finanças pessoais.',
-      en: 'AI/ML applied to financial education and personal finance management.'
+      pt: 'Aplicação de finanças pessoais com machine learning, análise de gastos e assistente conversacional.',
+      en: 'Personal finance application with machine learning, spending analysis, and a conversational assistant.'
     },
-    stack: 'Python, Scikit-learn, CustomTkinter',
+    stack: 'Python, PyTorch, FastAPI, Gemini',
     role: {
       pt: 'Produto, modelagem, UI e treinamento do modelo',
       en: 'Product, modeling, UI, model training'
@@ -134,8 +195,8 @@ export const projects: Project[] = [
       en: 'Lack of accessible tools combining financial education with AI.'
     },
     solution: {
-      pt: 'Aplicação desktop com modelo preditivo para pontuação de saúde financeira.',
-      en: 'Desktop application with predictive model for financial health scoring.'
+      pt: 'Aplicação com categorização, previsão de gastos, detecção de anomalias e suporte conversacional.',
+      en: 'Application with categorization, spending prediction, anomaly detection, and conversational support.'
     },
     result: {
       pt: 'Ponte entre a pesquisa acadêmica (TCC), Python e uma visão de produto financeiro real.',
@@ -183,8 +244,8 @@ export const architectureProjects: Project[] = [
     tags: ['Laravel 11', 'PostgreSQL', 'Redis', 'RabbitMQ', 'Docker', 'PHPUnit'],
     tier: 'enterprise',
     summary: {
-      pt: 'API REST de nível enterprise com Clean Architecture, mais de 100 testes, Docker, CI/CD e mensageria assíncrona.',
-      en: 'Enterprise-grade REST API with Clean Architecture, 100+ tests, Docker, CI/CD, and async messaging.'
+      pt: 'API Laravel organizada com Clean Architecture, limites de domínio claros, Docker e automação de validação.',
+      en: 'Laravel API organized with Clean Architecture, clear domain boundaries, Docker, and automated validation.'
     },
     stack: 'Laravel 11, PostgreSQL, Redis, RabbitMQ, Docker, PHPUnit, GitHub Actions',
     role: {
@@ -200,8 +261,8 @@ export const architectureProjects: Project[] = [
       en: 'Layered architecture (Domain/Application/Infrastructure/Interface) with event-driven messaging and comprehensive tests.'
     },
     result: {
-      pt: 'Prova pronta para recrutadores de engenharia de backend enterprise e habilidades de DevOps.',
-      en: 'Recruiter-ready proof of enterprise backend engineering and DevOps skills.'
+      pt: 'Demonstra organização de backend, separação de responsabilidades, testes e práticas de entrega.',
+      en: 'Demonstrates backend organization, separation of concerns, testing, and delivery practices.'
     }
   },
   {
@@ -406,25 +467,22 @@ export const stackGroups: StackGroup[] = [
   },
   {
     category: 'DevOps & Quality',
-    items: 'Docker, Docker Compose, GitHub Actions, CI/CD, Azure DevOps',
+    items: 'Docker, Docker Compose, GitHub Actions, CI/CD',
     icon: 'terminal'
   },
   {
     category: 'Architecture & Practices',
-    items: 'Clean Architecture, SOLID, DDD, TDD, Event-Driven, Design Patterns',
+    items: 'Clean Architecture, SOLID, BLoC, Event-Driven, Design Patterns',
     icon: 'layers'
   }
 ];
 
-// Showcase completo e intercalado: alterna enterprise e produtos para começar
-// forte (com imagem) e evitar dois cards sem imagem (103/104) lado a lado.
+// Curadoria enxuta para recrutadores: estudos de caso e projetos verificáveis.
 export const featuredProjects: Project[] = [
-  architectureProjects[0], // 101 - laravel-clean-architecture-api
-  projects[0],             // 1   - Agenda-Fácil
-  architectureProjects[1], // 102 - node-microservices-event-driven
-  projects[1],             // 2   - Fin-Assist
-  architectureProjects[2], // 103 - saas-task-manager (sem imagem)
-  projects[2],             // 3   - Ecommerce Luz da Aurora
-  architectureProjects[3], // 104 - php-code-analyzer (sem imagem)
-  ...landingPages          // 4,5,6 - landing pages (todas com imagem)
+  caseStudyProjects[0],
+  caseStudyProjects[1],
+  projects[1],
+  architectureProjects[1],
+  architectureProjects[0],
+  projects[0]
 ];

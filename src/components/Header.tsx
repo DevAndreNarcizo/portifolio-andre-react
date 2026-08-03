@@ -31,6 +31,7 @@ const Header = () => {
   const navItems = [
     { label: t.nav.home, id: 'hero' },
     { label: t.nav.about, id: 'sobre' },
+    { label: t.nav.experience, id: 'experiencia' },
     { label: t.nav.stack, id: 'stack' },
     { label: t.nav.education, id: 'formacao' },
     { label: t.nav.projects, id: 'projetos' },
@@ -59,7 +60,7 @@ const Header = () => {
           className="logo"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
         >
-          Andre Narcizo
+          André Narcizo
         </a>
 
         <div className="nav-right">
@@ -75,6 +76,17 @@ const Header = () => {
                 </motion.a>
               </li>
             ))}
+            <li className="mobile-language-item">
+              <button
+                type="button"
+                onClick={() => {
+                  setLanguage(language === 'pt' ? 'en' : 'pt');
+                  setMobileOpen(false);
+                }}
+              >
+                {language === 'pt' ? 'English' : 'Português'}
+              </button>
+            </li>
           </ul>
 
           <div className="language-toggle" aria-label={language === 'pt' ? 'Selecionar idioma' : 'Select language'}>

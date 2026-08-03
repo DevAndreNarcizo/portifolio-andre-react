@@ -152,6 +152,10 @@ body.light-mode .site-header nav {
   cursor: pointer;
 }
 
+.mobile-language-item {
+  display: none;
+}
+
 @keyframes headerDrop {
   from {
     opacity: 0;
@@ -195,6 +199,25 @@ body.light-mode .site-header nav {
 
   .menu.open {
     display: flex;
+  }
+
+  .mobile-language-item {
+    display: block;
+    width: 100%;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .mobile-language-item button {
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid rgba(var(--color-accent-rgb), 0.28);
+    border-radius: 8px;
+    background: rgba(var(--color-accent-rgb), 0.08);
+    color: var(--color-text);
+    cursor: pointer;
+    font-weight: 700;
+    text-align: left;
   }
 
   .language-toggle {

@@ -12,12 +12,12 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-left">
-            <span className="footer-logo">Andre Narcizo</span>
+            <span className="footer-logo">André Narcizo</span>
             <p>{t.role}</p>
           </div>
 
           <div className="footer-right">
-            <p>&copy; {year} Andre Narcizo</p>
+            <p>&copy; {year} André Narcizo</p>
             <p className="footer-stack">Laravel &middot; Angular &middot; React &middot; Flutter &middot; Docker</p>
           </div>
         </div>

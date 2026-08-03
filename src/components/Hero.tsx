@@ -65,7 +65,7 @@ const Hero = () => {
           >
             <motion.img
               src="/Imagens/Foto 3x4.webp"
-              alt="Andre Narcizo"
+              alt="André Narcizo"
               className="hero-avatar"
               style={{ x: avatarX, y: avatarY }}
             />

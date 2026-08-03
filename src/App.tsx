@@ -7,6 +7,7 @@ import Services from './components/Services';
 import TechStack from './components/TechStack';
 import About from './components/About';
 import ProfessionalProfile from './components/ProfessionalProfile';
+import Experience from './components/Experience';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -25,6 +26,7 @@ function App() {
           <TechMarquee />
           <About />
           <ProfessionalProfile />
+          <Experience />
           <TechStack />
           <Education />
           <Projects />

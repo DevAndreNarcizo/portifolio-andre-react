@@ -3,16 +3,17 @@ export const text = {
     nav: {
       home: 'Início',
       about: 'Sobre mim',
+      experience: 'Experiência',
       stack: 'Stack',
       education: 'Formação',
       projects: 'Projetos',
       contact: 'Contato'
     },
     hero: {
-      title: 'Andre Narcizo',
-      roles: ['Full-Stack Developer', 'Laravel • Angular • React', 'Docker • CI/CD', 'Arquitetura de Software'],
-      description: 'Desenvolvedor Full-Stack focado em aplicações web modernas, APIs, sistemas escaláveis e interfaces responsivas.',
-      support: 'Trabalho com Laravel, Angular, React, Flutter, Docker e bancos relacionais, unindo organização técnica, performance e boa experiência para o usuário.',
+      title: 'André Narcizo',
+      roles: ['Full-Stack Developer', 'SaaS • Web • Mobile', 'APIs REST • PostgreSQL', 'Angular • Laravel • Flutter'],
+      description: 'Desenvolvedor Full-Stack na Sysout Tecnologia, com experiência em aplicações SaaS, mobile e APIs REST.',
+      support: 'Construo produtos com Angular, Laravel, React, Node.js, Flutter e PostgreSQL, priorizando código limpo, arquitetura evolutiva e resultado para o negócio.',
       projects: 'Ver projetos',
       contact: 'Entrar em contato'
     },
@@ -20,23 +21,55 @@ export const text = {
       kicker: 'SOBRE',
       title: 'Sobre mim',
       metrics: [
-        { value: '2+', label: 'anos estudando e desenvolvendo software' },
-        { value: '10+', label: 'projetos web, mobile, SaaS e landing pages' },
-        { value: '8+', label: 'tecnologias aplicadas em projetos reais' },
-        { value: '100%', label: 'foco em evolução técnica e entrega' }
+        { value: '1+', label: 'ano de experiência profissional em software' },
+        { value: 'SaaS', label: 'experiência com aplicações multi-tenant' },
+        { value: 'Web + Mobile', label: 'entregas integradas com uma mesma API' },
+        { value: 'Remoto', label: 'disponível para oportunidades no Brasil' }
       ],
       paragraphs: [
-        'Sou desenvolvedor Full-Stack em Goiânia-GO, atuando com sistemas web, APIs, interfaces responsivas, mobile e automações.',
-        'Minha stack principal combina Laravel, Angular, React, Flutter, Docker e bancos relacionais. Gosto de transformar problemas reais em produtos organizados, com código limpo, boa experiência de uso e base técnica preparada para evoluir.',
-        'Meu foco atual é consolidar minha evolução como desenvolvedor pleno, aprofundando arquitetura de software, qualidade, documentação e entregas completas do banco ao deploy.'
+        'Sou desenvolvedor Full-Stack em Goiânia-GO e atualmente atuo na Sysout Tecnologia, desenvolvendo aplicações SaaS multi-tenant, aplicativos Flutter e APIs REST.',
+        'Minha stack principal combina Angular, Laravel, React, Node.js, Flutter e PostgreSQL. Tenho experiência com autenticação, autorização por tenant, modelagem relacional, integrações e sustentação de sistemas em produção.',
+        'Busco evoluir continuamente em arquitetura de software, testes, documentação e decisões técnicas orientadas ao produto, mantendo as soluções compreensíveis e preparadas para crescer.'
       ]
     },
     profile: {
-      kicker: 'DEVELOPER • FULLSTACK • PRODUCTS',
+      kicker: 'FULL-STACK • SAAS • PRODUCTS',
       title: 'Perfil Profissional',
-      copy: 'Construo produtos web com foco em clareza visual, organização técnica e resultado. Atuo entre frontend, backend, mobile e integrações, conectando experiência de uso com APIs, banco de dados, automação e deploy.',
-      pills: ['Frontend moderno', 'Backend organizado', 'Entrega completa'],
+      copy: 'Atuo do banco de dados à interface, conectando frontend, backend, mobile e integrações. Transformo requisitos em funcionalidades manuteníveis, com atenção à experiência do usuário, qualidade e impacto no negócio.',
+      pills: ['SaaS multi-tenant', 'APIs REST', 'Web e mobile'],
       cta: 'Ver LinkedIn'
+    },
+    experience: {
+      kicker: 'TRAJETÓRIA',
+      title: 'Experiência profissional',
+      subtitle: 'Experiência em desenvolvimento de software, sustentação de sistemas, suporte técnico e liderança operacional.',
+      current: 'Atual',
+      items: [
+        {
+          role: 'Desenvolvedor Full Stack',
+          company: 'Sysout Tecnologia',
+          period: 'jan 2026 - atual',
+          description: 'Desenvolvimento de aplicações SaaS multi-tenant com Angular, Laravel e PostgreSQL, aplicativos Flutter e APIs REST. Atuação em modelagem relacional, autenticação, autorização, integrações, revisão técnica e evolução de funcionalidades.'
+        },
+        {
+          role: 'Suporte Técnico e Desenvolvedor',
+          company: 'Syndata Sistemas',
+          period: 'mai 2025 - out 2025',
+          description: 'Desenvolvimento e manutenção de funcionalidades com Python, SQL e Java, correção de bugs, refatoração de módulos legados, integrações e suporte em ambientes de produção.'
+        },
+        {
+          role: 'Gerente / Técnico em TI',
+          company: 'Gêmeos Papelaria e Informática',
+          period: 'mar 2023 - abr 2025',
+          description: 'Gestão operacional e liderança de equipe, manutenção de hardware, redes e sistemas, atendimento técnico e resolução de problemas críticos.'
+        },
+        {
+          role: 'Aprendiz de TI',
+          company: 'Cristal Alimentos',
+          period: 'mar 2019 - mar 2021',
+          description: 'Suporte ao departamento de TI, manutenção preventiva de equipamentos, acompanhamento de chamados e organização de documentação interna.'
+        }
+      ]
     },
     stack: {
       title: 'Tech Stack',
@@ -47,40 +80,34 @@ export const text = {
       subtitle: 'Entrega ponta a ponta — da arquitetura e banco de dados ao frontend e deploy.'
     },
     education: {
-      kicker: 'Formação e conquistas',
-      title: 'Aprendizado contínuo aplicado em projetos',
-      subtitle: 'Base acadêmica, prática profissional e estudos direcionados para evoluir como desenvolvedor full-stack.',
+      kicker: 'FORMAÇÃO',
+      title: 'Base acadêmica e desenvolvimento contínuo',
+      subtitle: 'Formação em Ciência da Computação e estudos aplicados às tecnologias utilizadas no trabalho e nos projetos.',
       educationTitle: 'Formação',
       certificatesTitle: 'Certificados e estudos',
       items: [
         {
           title: 'Ciência da Computação',
-          institution: 'Formação acadêmica',
-          type: 'Graduação',
-          status: 'Em andamento'
-        },
-        {
-          title: 'Desenvolvimento Full-Stack',
-          institution: 'Projetos pessoais, freelance e empresa',
-          type: 'Prática profissional',
-          status: 'Em evolução'
+          institution: 'Universidade Paulista (UNIP) — Goiânia, GO',
+          type: 'Bacharelado',
+          status: 'Concluído em 2025'
         }
       ],
       certificates: [
         {
-          title: 'Laravel, PHP e APIs REST',
-          issuer: 'Estudos e projetos aplicados',
-          status: 'Em progresso'
+          title: 'Angular 20+',
+          issuer: 'Atualização técnica',
+          status: '2026'
         },
         {
-          title: 'Angular, React e TypeScript',
-          issuer: 'Projetos web e sistemas internos',
-          status: 'Aplicado em projetos'
+          title: 'PHP 8.3+',
+          issuer: 'Atualização técnica',
+          status: '2026'
         },
         {
-          title: 'Docker, CI/CD e Arquitetura',
-          issuer: 'Laboratórios e portfolio técnico',
-          status: 'Em evolução'
+          title: 'JavaScript e TypeScript',
+          issuer: 'Desenvolvimento web',
+          status: '2025'
         }
       ]
     },
@@ -103,30 +130,31 @@ export const text = {
       github: 'Ver no GitHub'
     },
     contact: {
-      title: 'Vamos construir algo juntos',
-      description: 'Tem uma ideia, sistema ou processo que precisa sair de planilhas e improvisos? Posso ajudar a transformar o problema em escopo, arquitetura e entrega.',
+      title: 'Vamos conversar',
+      description: 'Estou aberto a oportunidades full-stack remotas e a conversas sobre desenvolvimento web, mobile, SaaS e APIs. Entre em contato pelo LinkedIn, e-mail ou WhatsApp.',
       copied: 'Copiado!',
-      cta: 'Falar sobre um projeto',
-      hint: 'Normalmente respondo em até 24h em dias úteis.'
+      cta: 'Entrar em contato',
+      hint: 'Goiânia, GO — disponível para trabalho remoto.'
     },
     footer: {
-      role: 'Full-Stack Developer — Goiânia, Brasil'
+      role: 'Full-Stack Developer na Sysout Tecnologia — Goiânia, Brasil'
     }
   },
   en: {
     nav: {
       home: 'Home',
       about: 'About',
+      experience: 'Experience',
       stack: 'Stack',
       education: 'Education',
       projects: 'Projects',
       contact: 'Contact'
     },
     hero: {
-      title: 'Andre Narcizo',
-      roles: ['Full-Stack Developer', 'Laravel • Angular • React', 'Docker • CI/CD', 'Software Architecture'],
-      description: 'Full-Stack Developer focused on modern web applications, APIs, scalable systems, and responsive interfaces.',
-      support: 'I work with Laravel, Angular, React, Flutter, Docker, and relational databases, combining technical organization, performance, and user experience.',
+      title: 'André Narcizo',
+      roles: ['Full-Stack Developer', 'SaaS • Web • Mobile', 'REST APIs • PostgreSQL', 'Angular • Laravel • Flutter'],
+      description: 'Full-Stack Developer at Sysout Tecnologia, experienced in SaaS applications, mobile development, and REST APIs.',
+      support: 'I build products with Angular, Laravel, React, Node.js, Flutter, and PostgreSQL, prioritizing clean code, evolvable architecture, and business outcomes.',
       projects: 'View projects',
       contact: 'Contact me'
     },
@@ -134,23 +162,55 @@ export const text = {
       kicker: 'ABOUT',
       title: 'About me',
       metrics: [
-        { value: '2+', label: 'years studying and building software' },
-        { value: '10+', label: 'web, mobile, SaaS, and landing page projects' },
-        { value: '8+', label: 'core technologies applied in real projects' },
-        { value: '100%', label: 'focus on technical growth and delivery' }
+        { value: '1+', label: 'year of professional software experience' },
+        { value: 'SaaS', label: 'experience with multi-tenant applications' },
+        { value: 'Web + Mobile', label: 'clients integrated through a shared API' },
+        { value: 'Remote', label: 'open to opportunities in Brazil' }
       ],
       paragraphs: [
-        'I am a Full-Stack Developer from Goiânia, Brazil, working with web systems, APIs, responsive interfaces, mobile apps, and automations.',
-        'My core stack combines Laravel, Angular, React, Flutter, Docker, and relational databases. I like turning real problems into organized products with clean code, good user experience, and a technical foundation that can evolve.',
-        'My current focus is consolidating my growth toward mid-level development, deepening software architecture, quality, documentation, and complete delivery from database to deployment.'
+        'I am a Full-Stack Developer based in Goiânia, Brazil, currently working at Sysout Tecnologia on multi-tenant SaaS applications, Flutter apps, and REST APIs.',
+        'My core stack includes Angular, Laravel, React, Node.js, Flutter, and PostgreSQL. I have experience with authentication, tenant-based authorization, relational modeling, integrations, and production support.',
+        'I continuously improve my software architecture, testing, documentation, and product-oriented decision-making skills, keeping solutions understandable and ready to evolve.'
       ]
     },
     profile: {
-      kicker: 'DEVELOPER • FULLSTACK • PRODUCTS',
+      kicker: 'FULL-STACK • SAAS • PRODUCTS',
       title: 'Professional Profile',
-      copy: 'I build web products with visual clarity, technical organization, and outcome focus. I work across frontend, backend, mobile, and integrations, connecting user experience with APIs, databases, automation, and deployment.',
-      pills: ['Modern frontend', 'Organized backend', 'Complete delivery'],
+      copy: 'I work from database to interface, connecting frontend, backend, mobile, and integrations. I turn requirements into maintainable features with attention to user experience, quality, and business impact.',
+      pills: ['Multi-tenant SaaS', 'REST APIs', 'Web and mobile'],
       cta: 'View LinkedIn'
+    },
+    experience: {
+      kicker: 'CAREER',
+      title: 'Professional experience',
+      subtitle: 'Experience in software development, production support, technical assistance, and operational leadership.',
+      current: 'Present',
+      items: [
+        {
+          role: 'Full-Stack Developer',
+          company: 'Sysout Tecnologia',
+          period: 'Jan 2026 - Present',
+          description: 'Development of multi-tenant SaaS applications with Angular, Laravel, and PostgreSQL, Flutter apps, and REST APIs. Work includes relational modeling, authentication, authorization, integrations, technical reviews, and feature evolution.'
+        },
+        {
+          role: 'Technical Support & Developer',
+          company: 'Syndata Sistemas',
+          period: 'May 2025 - Oct 2025',
+          description: 'Developed and maintained features with Python, SQL, and Java, fixed bugs, refactored legacy modules, integrated corporate systems, and supported production environments.'
+        },
+        {
+          role: 'IT Manager / Technician',
+          company: 'Gêmeos Papelaria e Informática',
+          period: 'Mar 2023 - Apr 2025',
+          description: 'Managed operations and led the team, maintained hardware, networks, and systems, provided technical assistance, and resolved critical issues.'
+        },
+        {
+          role: 'IT Apprentice',
+          company: 'Cristal Alimentos',
+          period: 'Mar 2019 - Mar 2021',
+          description: 'Supported the IT department, performed preventive equipment maintenance, tracked service requests, and organized internal documentation.'
+        }
+      ]
     },
     stack: {
       title: 'Tech Stack',
@@ -161,40 +221,34 @@ export const text = {
       subtitle: 'End-to-end delivery — from architecture and database to frontend and deployment.'
     },
     education: {
-      kicker: 'Education and achievements',
-      title: 'Continuous learning applied to projects',
-      subtitle: 'Academic foundation, professional practice, and focused studies to evolve as a full-stack developer.',
+      kicker: 'EDUCATION',
+      title: 'Academic foundation and continuous development',
+      subtitle: 'Computer Science degree and applied studies focused on technologies used at work and in projects.',
       educationTitle: 'Education',
       certificatesTitle: 'Certificates and studies',
       items: [
         {
           title: 'Computer Science',
-          institution: 'Academic education',
-          type: 'Degree',
-          status: 'In progress'
-        },
-        {
-          title: 'Full-Stack Development',
-          institution: 'Personal projects, freelance work, and company experience',
-          type: 'Professional practice',
-          status: 'In progress'
+          institution: 'Universidade Paulista (UNIP) — Goiânia, Brazil',
+          type: "Bachelor's degree",
+          status: 'Completed in 2025'
         }
       ],
       certificates: [
         {
-          title: 'Laravel, PHP, and REST APIs',
-          issuer: 'Applied studies and projects',
-          status: 'In progress'
+          title: 'Angular 20+',
+          issuer: 'Technical update',
+          status: '2026'
         },
         {
-          title: 'Angular, React, and TypeScript',
-          issuer: 'Web projects and internal systems',
-          status: 'Applied in projects'
+          title: 'PHP 8.3+',
+          issuer: 'Technical update',
+          status: '2026'
         },
         {
-          title: 'Docker, CI/CD, and Architecture',
-          issuer: 'Labs and technical portfolio',
-          status: 'In progress'
+          title: 'JavaScript and TypeScript',
+          issuer: 'Web development',
+          status: '2025'
         }
       ]
     },
@@ -217,14 +271,14 @@ export const text = {
       github: 'View on GitHub'
     },
     contact: {
-      title: "Let's work together",
-      description: 'Got an idea, system, or process that needs to move beyond spreadsheets and guesswork? I can help turn the problem into scope, architecture, and delivery.',
+      title: "Let's connect",
+      description: 'I am open to remote full-stack opportunities and conversations about web, mobile, SaaS, and API development. Reach me through LinkedIn, email, or WhatsApp.',
       copied: 'Copied!',
-      cta: "Let's talk about a project",
-      hint: 'I usually respond within 24h on weekdays.'
+      cta: 'Get in touch',
+      hint: 'Goiânia, Brazil — available for remote work.'
     },
     footer: {
-      role: 'Full-Stack Developer — Goiânia, Brazil'
+      role: 'Full-Stack Developer at Sysout Tecnologia — Goiânia, Brazil'
     }
   }
 } as const;
