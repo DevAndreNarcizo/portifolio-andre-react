@@ -33,7 +33,7 @@ const ProjectCardLinks = ({
         <span>{viewSystemLabel}</span>
       </motion.a>
     )}
-    {!liveLink && githubLink && (
+    {githubLink && (
       <motion.a
         href={githubLink}
         target="_blank"
