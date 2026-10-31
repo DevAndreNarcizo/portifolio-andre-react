@@ -122,14 +122,13 @@ export class StackBlueprint {
       const rail = q('.rail')[0] as HTMLElement;
       const tl = m.gsap.timeline({
         defaults: { ease: 'power2.inOut' },
-        scrollTrigger: { trigger: q('.stage')[0], start: 'top top+=64', end: '+=200%', pin: true, scrub: 0.6 },
+        scrollTrigger: { trigger: q('.stage')[0], start: 'top top+=64', end: '+=200%', pin: true, scrub: 0.6, invalidateOnRefresh: true },
       });
       // Exploded view: the plates start as a tilted, overlapping stack and separate into the readable list
       tl.from(plates, {
         y: (i: number, el: HTMLElement) => plates[0].offsetTop - el.offsetTop + i * 40,
         rotateX: 58,
         transformOrigin: '50% 0%',
-        boxShadow: '0 0 0 rgba(20, 20, 20, 0)',
         duration: 1,
         stagger: 0.08,
       });
