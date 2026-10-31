@@ -36,6 +36,7 @@ import { Words } from '../ui/words';
             <button type="button" class="copy mono" (click)="copy()">
               {{ copied() ? t().contact.copied : t().contact.copy }}
             </button>
+            <span class="visually-hidden" role="status">{{ copied() ? t().contact.copied : '' }}</span>
           </li>
           <li class="channel">
             <span class="mono label">LinkedIn</span>
@@ -146,6 +147,7 @@ export class Contact {
   protected readonly year = new Date().getFullYear();
   protected readonly live = signal(false);
   readonly copied = signal(false);
+  private timer?: ReturnType<typeof setTimeout>;
   private readonly email = viewChild.required<ElementRef<HTMLAnchorElement>>('email');
 
   constructor() {
@@ -172,6 +174,7 @@ export class Contact {
       return;
     }
     this.copied.set(true);
-    setTimeout(() => this.copied.set(false), 2000);
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => this.copied.set(false), 2000);
   }
 }

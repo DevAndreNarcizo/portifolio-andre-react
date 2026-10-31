@@ -27,6 +27,13 @@ describe('Contact', () => {
     expect(copyButton().textContent!.trim()).toBe('Copiado!');
   });
 
+  it('announces the copy to screen readers', async () => {
+    mockClipboard(() => Promise.resolve());
+    await fixture.componentInstance.copy();
+    await fixture.whenStable();
+    expect(el.querySelector('[role="status"]')!.textContent!.trim()).toBe('Copiado!');
+  });
+
   it('selects the address instead when the clipboard is unavailable', async () => {
     mockClipboard(() => Promise.reject(new Error('denied')));
     await fixture.componentInstance.copy();
