@@ -259,3 +259,11 @@ button {
     transition: none !important;
   }
 }
+
+/* Content still waiting for its scroll reveal must print */
+@media print {
+  main * {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}

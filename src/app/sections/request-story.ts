@@ -188,7 +188,8 @@ function story(m: Motion, mode: Mode, root: HTMLElement): () => void {
 
   if (desktop) root.classList.add('is-pinned');
   gsap.set(q('.row-new'), { autoAlpha: 0 });
-  if (desktop) gsap.set(steps.slice(1), { autoAlpha: 0, y: 16 });
+  // opacity, not autoAlpha: every caption stays in the a11y tree in reading order
+  if (desktop) gsap.set(steps.slice(1), { opacity: 0, y: 16 });
   else reveal(m, steps);
 
   const tl = gsap.timeline({
@@ -200,7 +201,7 @@ function story(m: Motion, mode: Mode, root: HTMLElement): () => void {
 
   const caption = (i: number) => {
     if (!desktop) return;
-    tl.to(steps, { autoAlpha: (j: number) => (j === i ? 1 : 0), y: (j: number) => (j === i ? 0 : -16) }, '<');
+    tl.to(steps, { opacity: (j: number) => (j === i ? 1 : 0), y: (j: number) => (j === i ? 0 : -16) }, '<');
   };
   const travel = (packets: Element[], points: Point[]) => {
     for (const [cx, cy] of points) tl.to(packets, { attr: { cx, cy } });

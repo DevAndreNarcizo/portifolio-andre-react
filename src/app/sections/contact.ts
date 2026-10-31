@@ -154,13 +154,16 @@ export class Contact {
     afterNextRender(() => this.live.set(!reducedMotion()));
     sceneMotion((m, _mode, root) => {
       const q = m.gsap.utils.selector(root);
-      m.gsap.from(q('.headline .w > span'), {
-        yPercent: 105,
-        duration: 0.9,
-        ease: 'power3.out',
-        stagger: 0.08,
-        scrollTrigger: { trigger: q('.headline')[0], start: 'top 80%', once: true },
-      });
+      // only animate a headline that is still below the fold (deep link / slow network: it may already be visible)
+      if (q('.headline')[0].getBoundingClientRect().top > innerHeight) {
+        m.gsap.from(q('.headline .w > span'), {
+          yPercent: 105,
+          duration: 0.9,
+          ease: 'power3.out',
+          stagger: 0.08,
+          scrollTrigger: { trigger: q('.headline')[0], start: 'top 80%', once: true },
+        });
+      }
       reveal(m, q('.lead, .channel, .hint'));
     });
   }

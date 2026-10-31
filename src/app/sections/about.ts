@@ -132,13 +132,16 @@ export class About {
   constructor() {
     sceneMotion((m, _mode, root) => {
       const q = m.gsap.utils.selector(root);
-      m.gsap.from(q('.marker'), {
-        scale: 0,
-        duration: 0.5,
-        ease: 'back.out(3)',
-        stagger: 0.15,
-        scrollTrigger: { trigger: q('.frame')[0], start: 'top 75%', once: true },
-      });
+      // only pop the markers in when the photo is still below the fold
+      if (q('.frame')[0].getBoundingClientRect().top > innerHeight) {
+        m.gsap.from(q('.marker'), {
+          scale: 0,
+          duration: 0.5,
+          ease: 'back.out(3)',
+          stagger: 0.15,
+          scrollTrigger: { trigger: q('.frame')[0], start: 'top 75%', once: true },
+        });
+      }
       reveal(m, q('.legend li, .text > *'));
     });
   }

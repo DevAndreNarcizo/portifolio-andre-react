@@ -52,6 +52,16 @@ export function loadMotion(): Promise<Motion> {
     gsap.ticker.lagSmoothing(0);
 
     await document.fonts?.ready;
+    // Pins add height above a #fragment, and their refresh stops the browser's jump midway
+    // (Safari has no scroll anchoring either): land on the target again once every scene exists.
+    const target = location.hash && document.getElementById(location.hash.slice(1));
+    if (target) {
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+        lenis.resize(); // Lenis' scroll limit is still the pre-pin height here
+        lenis.scrollTo(target, { immediate: true });
+      });
+    }
     loaded = { gsap, ScrollTrigger, lenis };
     return loaded;
   })());
@@ -93,11 +103,12 @@ export function sceneMotion(scene: Scene): void {
 export function reveal(m: Motion, targets: Iterable<Element>, stagger = 0.08): void {
   const below = Array.from(targets).filter((el) => el.getBoundingClientRect().top > innerHeight);
   if (!below.length) return;
-  m.gsap.set(below, { autoAlpha: 0, y: 24 });
+  // opacity, not autoAlpha: hidden items stay focusable, findable and in the a11y tree (focus scrolls them in, which reveals them)
+  m.gsap.set(below, { opacity: 0, y: 24 });
   m.ScrollTrigger.batch(below, {
     start: 'top 88%',
     once: true,
     onEnter: (batch) =>
-      m.gsap.to(batch, { autoAlpha: 1, y: 0, duration: 0.7, ease: 'power3.out', stagger, overwrite: true }),
+      m.gsap.to(batch, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', stagger, overwrite: true }),
   });
 }
