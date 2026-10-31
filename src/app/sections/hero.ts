@@ -70,7 +70,7 @@ import { Words } from '../ui/words';
       letter-spacing: -0.015em;
       margin-top: 16px;
     }
-    .headline .w > span {
+    .headline ::ng-deep .w > span {
       animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
       animation-delay: calc(var(--i) * 60ms + 120ms);
     }
