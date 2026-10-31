@@ -251,3 +251,20 @@ Cada componente usa template e estilos inline quando o arquivo fica abaixo de ~2
 ## Decisões da revisão
 
 - MongoDB sai de "Data & Cache" na migração de `stackGroups` (decisão de André em 2026-10-31). O projeto `node-microservices-event-driven` mantém a própria stack descrita como está.
+
+## Ajustes da verificação
+
+Durante a escrita do plano, todo o código foi compilado e testado num projeto de rascunho (build, 24 testes unitários, 5 testes do HTML pré-renderizado, screenshots desktop/celular/reduced-motion, Lighthouse mobile 97/100/100/100 e desktop 100/100/100/100). Estes pontos mudaram em relação ao texto acima e prevalecem sobre ele:
+
+1. **Sem SplitText.** O SplitText reescreve o DOM e quebra os bindings do Angular na troca de idioma. Os títulos são divididos em palavras pelo próprio template (componente `app-words`), com o mesmo efeito de máscara por palavra. O GSAP carregado é só `gsap` + `ScrollTrigger`.
+2. **Sem `ui/blueprint-diagram.ts`.** O diagrama simples só aparece no hero; a Fig. 02 e o contato têm desenhos próprios.
+3. **Hero animado só com CSS** (palavras subindo, traços se desenhando), sem depender do GSAP e sem piscar no primeiro paint. As requisições em loop do hero e do contato usam SVG `<animateMotion>`, inserido só no navegador e só sem reduced-motion.
+4. **Sem a classe `js-motion`.** O helper `reveal()` esconde, no momento em que o GSAP carrega, só elementos que ainda estão abaixo da dobra. Sem JS, nada fica escondido.
+5. **Fontes self-hosted** (`public/fonts/*.woff2`, subset latin) com `preload` e `font-display: optional`, em vez do `<link>` do Google Fonts, que gerava CLS 0.2. Agora o CLS é 0.
+6. **Fig. 02 no celular:** o mesmo SVG (escalado) abaixo da lista numerada de legendas, sem um segundo diagrama vertical.
+7. **Fig. 04:** formação e certificados num bloco lateral de cards, não intercalados na linha do tempo.
+8. **Fig. 05:** a vista explodida usa placas inclinadas em `rotateX` que se abrem até a lista legível. A vista isométrica com `rotateZ` deixaria o texto ilegível.
+9. **Carimbo dos projetos sem "ano":** os dados não têm ano.
+10. **Netlify `NODE_VERSION = "24"`**, porque o Angular CLI 22.2 exige Node ≥ 22.22.3. O `.nvmrc` também fixa 24.
+11. Quem chega com reduced-motion nunca baixa o GSAP; desligar a preferência no meio da visita exige recarregar.
+12. `KNOWLEDGE-README.md` e `setup-knowledge.sh` também saem, porque instalavam pacotes React.
