@@ -1,55 +1,39 @@
-/* Self-hosted latin subsets, preloaded in index.html.
+/* Geist and Geist Mono (SIL OFL, public/fonts/GEIST-LICENSE.txt), latin subsets preloaded in index.html.
    optional = no swap after first paint, so no layout shift; a slow first visit falls back to the system font once. */
 @font-face {
-  font-family: 'Instrument Serif';
+  font-family: 'Geist';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 100 900;
   font-display: optional;
-  src: url('/fonts/instrument-serif.woff2') format('woff2');
+  src: url('/fonts/Geist-Variable.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Instrument Serif';
-  font-style: italic;
-  font-weight: 400;
-  font-display: optional;
-  src: url('/fonts/instrument-serif-italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Inter Tight';
+  font-family: 'Geist Mono';
   font-style: normal;
-  font-weight: 400 600;
+  font-weight: 100 900;
   font-display: optional;
-  src: url('/fonts/inter-tight.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400 600;
-  font-display: optional;
-  src: url('/fonts/jetbrains-mono.woff2') format('woff2');
+  src: url('/fonts/GeistMono-Variable.woff2') format('woff2');
 }
 
 :root {
-  --paper: #f4efe6;
-  --ink: #141414;
-  --signal: #e8452c;
-  --signal-text: #b8321c;
-  --muted: #6b665c;
-  --rule: #8a8478;
-  --grid: rgba(20, 20, 20, 0.06);
+  color-scheme: dark;
+  --bg: #0a0c0f;
+  --panel: #0d1116;
+  --line: #1c2128;
+  --tx: #e6e8eb;
+  --mut: #8b939e;
+  --acc: #3ddc84;
+  --acc-ink: #04130a;
 
-  --serif: 'Instrument Serif', Georgia, serif;
-  --sans: 'Inter Tight', system-ui, sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --sans: 'Geist', system-ui, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, monospace;
 
-  --header: 64px;
+  --header: 60px;
   --gutter: 16px;
   --maxw: 1200px;
-  --section-y: clamp(72px, 12vw, 140px);
-  --h2: clamp(34px, 5.5vw, 64px);
+  --section-y: clamp(80px, 12vw, 160px);
+  --h2: clamp(30px, 4vw, 56px);
 }
 
 @media (min-width: 640px) {
@@ -65,6 +49,7 @@
 }
 
 html {
+  background: var(--bg);
   scroll-padding-top: var(--header);
   -webkit-text-size-adjust: 100%;
 }
@@ -87,13 +72,9 @@ html.lenis body {
 
 body {
   margin: 0;
-  background-color: var(--paper);
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 22px 22px;
-  color: var(--ink);
-  font: 400 17px/1.6 var(--sans);
+  background: var(--bg);
+  color: var(--tx);
+  font: 400 16px/1.55 var(--sans);
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
 }
@@ -107,6 +88,7 @@ svg {
 h1,
 h2,
 h3,
+h4,
 p,
 ol,
 ul,
@@ -132,8 +114,12 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--acc);
   outline-offset: 3px;
+}
+
+::selection {
+  background: #3ddc8440;
 }
 
 .wrap {
@@ -147,85 +133,57 @@ button {
   padding-block: var(--section-y);
 }
 
-.fig-label {
-  font: 600 12px/1.4 var(--mono);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--signal-text);
+.kick {
+  font: 500 13px/1.4 var(--mono);
+  color: var(--acc);
+  letter-spacing: 0.02em;
 }
 
-.title {
-  font: 400 var(--h2) / 1 var(--serif);
-  letter-spacing: -0.01em;
+.h2 {
+  font-size: var(--h2);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   margin-top: 12px;
-}
-
-.title em {
-  font-style: italic;
-  color: var(--signal);
+  max-width: 22ch;
 }
 
 .lead {
-  max-width: 62ch;
-  color: var(--muted);
-  margin-top: 16px;
-}
-
-.mono {
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.08em;
+  max-width: 60ch;
+  color: var(--mut);
+  margin-top: 14px;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 48px;
-  padding: 0 22px;
-  border: 1.5px solid var(--ink);
-  border-radius: 2px;
-  font: 600 15px/1 var(--sans);
+  min-height: 46px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font: 500 14px/1 var(--mono);
   text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  border-color: var(--mut);
 }
 
 .btn-primary {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--acc);
+  border-color: var(--acc);
+  color: var(--acc-ink);
 }
 
 .btn-primary:hover {
-  background: var(--signal-text);
-  border-color: var(--signal-text);
+  background: #6be7a3;
+  border-color: #6be7a3;
 }
 
-.btn-ghost {
-  background: transparent;
-}
-
-.btn-ghost:hover {
-  background: var(--ink);
-  color: var(--paper);
-}
-
-/* Split headline: each word is a mask, its inner span rises */
-.w {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom;
-  padding-bottom: 0.08em;
-  margin-bottom: -0.08em;
-}
-
-.w > span {
-  display: inline-block;
-}
-
-.w > .em {
-  font-style: italic;
-  color: var(--signal);
+.ext::after {
+  content: ' ↗';
 }
 
 .skip-link {
@@ -234,8 +192,8 @@ button {
   top: -100px;
   z-index: 100;
   padding: 12px 16px;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--acc);
+  color: var(--acc-ink);
 }
 
 .skip-link:focus {
@@ -249,6 +207,18 @@ button {
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+/* Code rows of the card on screen slide in one by one (pinned cases only; app-code-block renders the rows) */
+.is-pinned .eng.on .row {
+  animation: row-in 0.32s calc(0.22s + var(--i) * 28ms) both ease-out;
+}
+
+@keyframes row-in {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

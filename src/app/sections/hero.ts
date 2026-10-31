@@ -1,151 +1,291 @@
-import { ChangeDetectionStrategy, Component, afterNextRender, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, afterNextRender, inject, signal } from '@angular/core';
 import { LangService } from '../lang';
-import { reducedMotion } from '../motion';
-import { Words } from '../ui/words';
+import { reducedMotion, sceneMotion } from '../motion';
+
+const NOISE = '!<>-_/[]{}=+*^?#01';
+const FRAMES = 34;
 
 @Component({
   selector: 'app-hero',
-  imports: [Words],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section id="inicio" class="hero wrap">
-      <div class="copy">
-        <p class="fig-label">{{ t().hero.label }}</p>
-        <h1 class="headline"><app-words [text]="t().hero.title" /></h1>
-        <p class="lead">{{ t().hero.description }}</p>
-        <p class="mono stack-line">{{ t().hero.stackLine }}</p>
-        <div class="ctas">
-          <a class="btn btn-primary" href="#projetos">{{ t().hero.projects }}</a>
-          <a class="btn btn-ghost" href="#contato">{{ t().hero.contact }}</a>
+    <section id="inicio" class="hero">
+      <p class="kick">{{ t().hero.kicker }}</p>
+      <h1 [attr.aria-label]="t().hero.title">{{ scrambled() ?? t().hero.title }}</h1>
+      <p class="sub">{{ t().hero.sub }}</p>
+      <p class="ctas">
+        <a class="btn btn-primary" href="#apps">{{ t().hero.apps }}</a>
+        <a class="btn" href="#contato">{{ t().hero.contact }}</a>
+        <a class="btn" [href]="t().cv.href" download>{{ t().cv.label }}</a>
+      </p>
+
+      <div class="fan" role="img" [attr.aria-label]="t().hero.fan">
+        <div class="slot s1">
+          <figure class="w">
+            <div class="bar"><i></i><i></i><i></i><span class="url">foco-vida.vercel.app</span></div>
+            <img src="/apps/hero-fv.webp" width="1100" height="729" alt="" decoding="async" />
+          </figure>
+        </div>
+        <div class="slot s2">
+          <figure class="w">
+            <div class="bar"><i></i><i></i><i></i><span class="url">agenda-facil · /dashboard</span></div>
+            <img src="/apps/hero-af.webp" width="1100" height="729" alt="" decoding="async" />
+          </figure>
+        </div>
+        <div class="slot s0">
+          <figure class="w">
+            <div class="bar"><i></i><i></i><i></i><span class="url">myfinance · /inicio</span></div>
+            <img src="/apps/hero-mf.webp" width="1600" height="1060" alt="" fetchpriority="high" />
+          </figure>
+        </div>
+        <div class="slot sp">
+          <div class="phone"><img src="/apps/hero-phone.webp" width="560" height="1188" alt="" decoding="async" /></div>
         </div>
       </div>
 
-      <svg class="diagram" viewBox="0 0 520 300" role="img" [attr.aria-label]="t().hero.diagram">
-        <path class="wire" pathLength="1" d="M130 62 C170 62 170 150 210 150" />
-        <path class="wire" pathLength="1" d="M130 238 C170 238 170 150 210 150" />
-        <path class="wire" pathLength="1" d="M330 150 H390" />
-        <text class="note" x="192" y="100">HTTP</text>
-        <text class="note" x="344" y="140">SQL</text>
-
-        <g class="node">
-          <rect x="10" y="40" width="120" height="44" rx="2" />
-          <text x="70" y="67">Angular</text>
-        </g>
-        <g class="node">
-          <rect x="10" y="216" width="120" height="44" rx="2" />
-          <text x="70" y="243">Flutter</text>
-        </g>
-        <g class="node">
-          <rect x="210" y="128" width="120" height="44" rx="2" />
-          <text x="270" y="155">Laravel</text>
-        </g>
-        <g class="node">
-          <rect x="390" y="128" width="120" height="44" rx="2" />
-          <text x="450" y="155">PostgreSQL</text>
-        </g>
-
-        @if (live()) {
-          <circle class="packet" r="5">
-            <animateMotion dur="3.2s" repeatCount="indefinite" path="M130 62 C170 62 170 150 210 150 H390" />
-          </circle>
-          <circle class="packet" r="5">
-            <animateMotion dur="3.2s" begin="1.6s" repeatCount="indefinite" path="M130 238 C170 238 170 150 210 150 H390" />
-          </circle>
-        } @else {
-          <circle class="packet" r="5" cx="130" cy="62" />
+      <ul class="proof" [attr.aria-label]="t().hero.proofLabel">
+        @for (p of t().hero.proof; track p.value) {
+          <li>
+            <b>{{ p.value }}</b><span class="l">{{ p.label }}</span><span class="src">{{ p.source }}</span>
+          </li>
         }
-      </svg>
+      </ul>
     </section>
   `,
   styles: `
     .hero {
-      display: grid;
-      gap: 48px;
-      align-items: center;
-      min-height: calc(100svh - var(--header));
-      padding-block: 48px 72px;
+      padding: 56px var(--gutter) 0;
+      text-align: center;
+      overflow: hidden;
     }
-    .headline {
-      font: 400 clamp(44px, 6.6vw, 96px) / 0.98 var(--serif);
-      letter-spacing: -0.015em;
-      margin-top: 16px;
+    h1 {
+      max-width: 14ch;
+      margin: 18px auto;
+      font-size: clamp(40px, 6.4vw, 88px);
+      font-weight: 600;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
     }
-    .headline ::ng-deep .w > span {
-      animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
-      animation-delay: calc(var(--i) * 60ms + 120ms);
-    }
-    .stack-line {
-      margin-top: 20px;
-      text-transform: uppercase;
+    .sub {
+      max-width: 50ch;
+      margin: 0 auto;
+      color: var(--mut);
+      font-size: clamp(16px, 1.4vw, 19px);
     }
     .ctas {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 32px;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 28px;
     }
-    .diagram {
+    .fan {
+      position: relative;
+      width: min(1240px, 94vw);
+      height: min(52vw, 580px);
+      margin: 52px auto 0;
+      perspective: 1800px;
+      transform-style: preserve-3d;
+    }
+    .slot {
+      position: absolute;
+      transform-style: preserve-3d;
+    }
+    .s0 {
+      left: 17%;
+      top: 10%;
+      z-index: 3;
+      width: 66%;
+    }
+    .s1 {
+      left: 0;
+      top: 0;
+      z-index: 1;
+      width: 44%;
+    }
+    .s2 {
+      right: 0;
+      top: 3%;
+      z-index: 2;
+      width: 44%;
+    }
+    .sp {
+      right: 12%;
+      top: 34%;
+      z-index: 4;
+      width: 13%;
+    }
+    .w {
+      aspect-ratio: 16 / 10.6;
+      overflow: hidden;
+      border: 1px solid #262c35;
+      border-radius: 12px;
+      background: #111;
+      box-shadow: 0 50px 120px -30px #000;
+    }
+    .s0 .w {
+      transform: rotateX(8deg);
+    }
+    .s1 .w {
+      transform: rotateY(22deg) rotateX(6deg) translateZ(-260px);
+      filter: brightness(0.62);
+    }
+    .s2 .w {
+      transform: rotateY(-22deg) rotateX(6deg) translateZ(-260px);
+      filter: brightness(0.62);
+    }
+    .w img {
       width: 100%;
-      max-width: 560px;
-      justify-self: center;
-      color: var(--ink);
+      height: calc(100% - 22px);
+      object-fit: cover;
+      object-position: top left;
     }
-    .wire {
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.4;
-      stroke-dasharray: 1;
-      animation: draw 1.1s 0.5s cubic-bezier(0.6, 0, 0.4, 1) backwards;
+    .bar {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 22px;
+      padding: 0 9px;
+      background: #15191f;
+      border-bottom: 1px solid #232830;
     }
-    .node {
-      animation: fade 0.6s 0.25s backwards;
+    .bar i {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #2c323b;
     }
-    .node rect {
-      fill: var(--paper);
-      stroke: currentColor;
-      stroke-width: 1.4;
+    .url {
+      flex: 1;
+      max-width: 240px;
+      height: 13px;
+      margin-left: 8px;
+      padding: 0 8px;
+      border-radius: 4px;
+      background: #0d1014;
+      color: #7d8692;
+      font: 8px/13px var(--mono);
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
     }
-    text {
-      font: 600 14px var(--mono);
-      fill: currentColor;
-      text-anchor: middle;
+    .phone {
+      padding: 5%;
+      border: 1px solid #2a3038;
+      border-radius: 18% / 8.5%;
+      background: #05070a;
+      box-shadow: 0 40px 90px -20px #000;
+      transform: rotateY(-10deg) translateZ(90px);
     }
-    .note {
-      font-weight: 400;
-      font-size: 12px;
-      fill: var(--muted);
+    .phone img {
+      width: 100%;
+      height: auto;
+      border-radius: 14% / 6.6%;
     }
-    .packet {
-      fill: var(--signal);
+    .proof {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1000px;
+      margin: -36px auto 64px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #0a0c0fe0;
+      backdrop-filter: blur(10px);
+      text-align: left;
     }
-    @media (min-width: 1024px) {
-      .hero {
-        grid-template-columns: 1.15fr 0.85fr;
+    .proof li {
+      padding: 14px 16px;
+      border-right: 1px solid var(--line);
+    }
+    .proof li:last-child {
+      border-right: 0;
+    }
+    .proof b {
+      display: block;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .l {
+      display: block;
+      margin-top: 6px;
+      font-size: 14px;
+    }
+    .src {
+      display: block;
+      margin-top: 4px;
+      color: var(--mut);
+      font: 400 11px/1.4 var(--mono);
+    }
+    @media (max-width: 759.98px) {
+      .fan {
+        height: 70vw;
       }
-    }
-    @keyframes rise {
-      from {
-        transform: translateY(105%);
+      .sp {
+        right: 6%;
+        width: 18%;
       }
-    }
-    @keyframes draw {
-      from {
-        stroke-dashoffset: 1;
+      .proof {
+        grid-template-columns: 1fr 1fr;
+        margin-top: 0;
       }
-    }
-    @keyframes fade {
-      from {
-        opacity: 0;
+      .proof li:nth-child(2) {
+        border-right: 0;
+      }
+      .proof li:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--line);
       }
     }
   `,
 })
 export class Hero {
   protected readonly t = inject(LangService).t;
-  // SMIL ignores prefers-reduced-motion, so the moving packets are only added in the browser when motion is allowed
-  protected readonly live = signal(false);
+  /** The headline while it decodes itself, once; null shows the real text. */
+  protected readonly scrambled = signal<string | null>(null);
 
   constructor() {
-    afterNextRender(() => this.live.set(!reducedMotion()));
+    const destroyRef = inject(DestroyRef);
+    afterNextRender(() => {
+      if (reducedMotion()) return;
+      const title = this.t().hero.title;
+      let frame = 0;
+      const id = setInterval(() => {
+        frame++;
+        if (frame >= FRAMES) {
+          clearInterval(id);
+          this.scrambled.set(null);
+          return;
+        }
+        const shown = (title.length * frame) / FRAMES;
+        this.scrambled.set(
+          [...title].map((c, i) => (c === ' ' || i < shown ? c : NOISE[(Math.random() * NOISE.length) | 0])).join(''),
+        );
+      }, 30);
+      destroyRef.onDestroy(() => clearInterval(id));
+    });
+
+    sceneMotion((m, mode, root) => {
+      if (mode !== 'desktop') return;
+      const { gsap } = m;
+      const hero = root.querySelector('.hero')!;
+      const fan = root.querySelector<HTMLElement>('.fan')!;
+      const rx = gsap.quickTo(fan, 'rotationX', { duration: 0.9, ease: 'power3' });
+      const ry = gsap.quickTo(fan, 'rotationY', { duration: 0.9, ease: 'power3' });
+      const tilt = (e: PointerEvent) => {
+        ry((e.clientX / innerWidth - 0.5) * 8);
+        rx(-(e.clientY / innerHeight - 0.5) * 6);
+      };
+      addEventListener('pointermove', tilt);
+
+      const scrub = (start: string) => ({ trigger: hero, start, end: 'bottom top', scrub: true });
+      gsap.to(fan, { y: -140, scale: 1.12, ease: 'none', scrollTrigger: scrub('top top') });
+      gsap.to(root.querySelector('.s1'), { xPercent: -30, opacity: 0, ease: 'none', scrollTrigger: scrub('30% top') });
+      gsap.to(root.querySelector('.s2'), { xPercent: 30, opacity: 0, ease: 'none', scrollTrigger: scrub('30% top') });
+      gsap.to(root.querySelector('.sp'), { yPercent: -18, ease: 'none', scrollTrigger: scrub('top top') });
+      return () => removeEventListener('pointermove', tilt);
+    });
   }
 }

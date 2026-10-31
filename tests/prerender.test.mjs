@@ -13,35 +13,34 @@ test('is Portuguese by default', () => {
 test('contains the hero headline as readable text', () => {
   const h1 = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
   assert.ok(h1, 'no <h1> in the prerendered page');
-  assert.equal(plain(h1[1]), 'Do banco de dados à interface, web e mobile.');
+  assert.equal(plain(h1[1]), 'Eu construo o produto inteiro.');
 });
 
-test('contains the seven sections', () => {
-  for (const id of ['inicio', 'requisicao', 'sobre', 'trajetoria', 'stack', 'projetos', 'contato']) {
+test('contains every section', () => {
+  const ids = ['inicio', 'apps', 'case-myfinance', 'case-agenda-facil', 'case-foco-vida', 'case-laravel'];
+  for (const id of [...ids, 'por-dentro', 'projetos', 'trajetoria', 'stack', 'contato']) {
     assert.ok(html.includes(`id="${id}"`), `missing section #${id}`);
   }
 });
 
-test('contains every project title', () => {
-  const titles = [
-    'MyFinance Platform',
-    'HunterAI Platform',
-    'Agenda-Fácil',
-    'Fin-Assist',
-    'Ecommerce Luz da Aurora',
-    'laravel-clean-architecture-api',
-    'node-microservices-event-driven',
-    'saas-task-manager',
-    'php-code-analyzer',
-    'Clinica Thaysa Medeiros',
-    'Thais Sousa - Nail Designer',
-    'Karen Bianca - Lash Designer',
-  ];
-  for (const title of titles) assert.ok(html.includes(`>${title}<`), `missing project ${title}`);
+test('contains every card with its code, readable without JavaScript', () => {
+  assert.equal(html.match(/<article[^>]*class="eng[ "]/g)?.length, 30);
+  assert.ok(plain(html).includes('lockForUpdate'), 'Laravel excerpt missing');
+  assert.ok(plain(html).includes('FOR UPDATE SKIP LOCKED'), 'Agenda Fácil excerpt missing');
+  for (const name of ['MyFinance', 'Agenda Fácil', 'Foco Vida', 'Laravel API']) {
+    assert.ok(html.includes(`>${name}</h3>`), `missing case ${name}`);
+  }
+});
+
+test('gives the hero images their size up front', () => {
+  for (const src of ['hero-mf', 'hero-af', 'hero-fv', 'hero-phone']) {
+    assert.match(html, new RegExp(`<img[^>]*src="/apps/${src}\\.webp" width="\\d+" height="\\d+"`), `${src} without size`);
+  }
 });
 
 test('keeps the SEO and social meta tags', () => {
-  assert.match(html, /<meta name="description" content="Full-Stack Developer at Sysout Tecnologia/);
-  assert.match(html, /<meta property="og:title" content="André Narcizo — Full-Stack Developer">/);
+  assert.match(html, /<meta name="description" content="Desenvolvedor full-stack/);
+  assert.match(html, /<meta property="og:title" content="André Narcizo — Desenvolvedor Full-Stack">/);
+  assert.match(html, /<meta name="theme-color" content="#0a0c0f">/);
   assert.match(html, /<link rel="canonical" href="https:\/\/dev-andrenarcizo.netlify.app">/);
 });

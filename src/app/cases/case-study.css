@@ -1,0 +1,485 @@
+/* ---------- static layout (prerendered HTML, phones, portrait, reduced motion) ---------- */
+:host {
+  display: block;
+}
+
+.case {
+  padding-block: 56px;
+}
+
+.in {
+  display: grid;
+  gap: 22px;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.stage {
+  position: relative;
+  min-width: 0;
+}
+
+.win {
+  border: 1px solid #262c35;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 60px 140px -40px #000;
+  transform-origin: 50% 60%;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  background: #15191f;
+  border-bottom: 1px solid #232830;
+}
+
+.bar i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2c323b;
+}
+
+.url {
+  flex: 1;
+  max-width: 380px;
+  height: 18px;
+  margin-left: 10px;
+  padding: 0 10px;
+  border-radius: 5px;
+  background: #0d1014;
+  color: #7d8692;
+  font: 11px/18px var(--mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The first screen, top 16:10 slice: the same framing as the first pinned step */
+.vp {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #0b0f14;
+}
+
+.layer img {
+  width: 100%;
+  height: auto;
+}
+
+.layer + .layer,
+.spot,
+.cursor {
+  display: none;
+}
+
+.rip {
+  position: absolute;
+  left: -14px;
+  top: -14px;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--acc);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.phone {
+  position: relative;
+  z-index: 2;
+  width: min(36%, 200px);
+  aspect-ratio: 9 / 19.1;
+  margin: -22% 5% 0 auto;
+  padding: 7px;
+  border: 1px solid #2a3038;
+  border-radius: 30px;
+  background: #05070a;
+  box-shadow: 0 40px 80px -20px #000;
+}
+
+.scr {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 23px;
+  background: #0b0f14;
+}
+
+.scr img {
+  width: 100%;
+  height: auto;
+}
+
+.scr img + img,
+.tag,
+.progress {
+  display: none;
+}
+
+.idx {
+  font: 500 12px var(--mono);
+  color: var(--mut);
+}
+
+h3 {
+  margin: 8px 0;
+  font-size: clamp(28px, 2.4vw, 40px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.pitch {
+  max-width: 60ch;
+  color: var(--mut);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 14px;
+}
+
+.chips li {
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: #b9c0c9;
+  font: 500 11px var(--mono);
+}
+
+.nums {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 14px 0 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.nums div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  padding: 9px 10px;
+  border-right: 1px solid var(--line);
+}
+
+.nums div:last-child {
+  border: 0;
+}
+
+dd {
+  margin: 0;
+  font: 600 20px/1.1 var(--sans);
+  letter-spacing: -0.02em;
+}
+
+dt {
+  margin-top: 3px;
+  color: var(--mut);
+  font: 400 10.5px/1.3 var(--mono);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin-top: 14px;
+  font: 500 13px var(--mono);
+}
+
+.links a {
+  color: var(--acc);
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.note {
+  color: var(--mut);
+}
+
+.cards {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.eng {
+  min-width: 0;
+  padding: 15px 16px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+}
+
+.k {
+  color: var(--acc);
+  font: 500 11px var(--mono);
+}
+
+h4 {
+  margin: 6px 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.eng p {
+  color: #c3c9d1;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.rail {
+  display: flex;
+  gap: 4px;
+}
+
+.rail i {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.rail b {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--acc);
+}
+
+.rail-l {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  color: var(--mut);
+  font: 400 11px var(--mono);
+}
+
+@media (min-width: 760px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Wide screens without the pinned story: the window stays while the cards scroll past */
+@media (min-width: 1024px) {
+  .in {
+    grid-template-columns: minmax(0, 1fr) clamp(330px, 30vw, 440px);
+    align-items: start;
+  }
+  .stage {
+    position: sticky;
+    top: calc(var(--header) + 16px);
+  }
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- pinned story (added by pinScene on wide landscape screens with motion) ---------- */
+:host(.is-pinned) .case {
+  height: 100vh;
+  padding: 0;
+}
+
+:host(.is-pinned) .in {
+  height: 100%;
+  grid-template-columns: minmax(0, 1fr) clamp(330px, 26vw, 440px);
+  align-items: stretch;
+  padding: 18px 22px;
+}
+
+:host(.is-pinned) .stage {
+  position: relative;
+  top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1600px;
+  container-type: size;
+}
+
+:host(.is-pinned) .win {
+  width: min(100cqw, calc((100cqh - 30px) * 1.6));
+}
+
+/* width-bound (laptops): the viewport grows taller instead of leaving empty bands */
+:host(.is-pinned) .vp {
+  width: 100%;
+  height: min(calc(100cqh - 30px), calc(100cqw / 1.2));
+  aspect-ratio: auto;
+}
+
+/* sizes in screenshot pixels (2x captures); the layer scale shrinks them */
+:host(.is-pinned) .layer {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+}
+
+:host(.is-pinned) .layer img {
+  height: 100%;
+}
+
+:host(.is-pinned) .spot {
+  display: block;
+  position: absolute;
+  border: 6px solid var(--acc);
+  border-radius: 28px;
+  box-shadow: 0 0 0 30000px #05070ad6;
+  opacity: 0;
+  pointer-events: none;
+}
+
+:host(.is-pinned) .cursor {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  width: 26px;
+  opacity: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 3px 6px #0009);
+}
+
+:host(.is-pinned) .phone {
+  position: absolute;
+  top: 5%;
+  bottom: 5%;
+  right: 4%;
+  z-index: 6;
+  width: auto;
+  margin: 0;
+  padding: 10px;
+  border-radius: 44px;
+  box-shadow: 0 60px 120px -20px #000, 0 0 0 1px #000;
+  opacity: 0;
+}
+
+:host(.is-pinned) .scr {
+  border-radius: 34px;
+}
+
+:host(.is-pinned) .scr img {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+:host(.is-pinned) .scr img:first-child {
+  opacity: 1;
+}
+
+:host(.is-pinned) .tag {
+  display: block;
+  position: absolute;
+  left: -12px;
+  bottom: 14%;
+  transform: translateX(-100%);
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #0a0c0fe6;
+  color: var(--acc);
+  font: 500 12px var(--mono);
+  white-space: nowrap;
+}
+
+:host(.is-pinned) .side {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+  padding: 6px 0;
+}
+
+:host(.is-pinned) .chips,
+:host(.is-pinned) .nums,
+:host(.is-pinned) .links,
+:host(.is-pinned) .cards {
+  margin-top: 0;
+}
+
+:host(.is-pinned) .cards {
+  flex: 1;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(#000 calc(100% - 24px), transparent);
+  mask-image: linear-gradient(#000 calc(100% - 24px), transparent);
+}
+
+/* every card stays in the accessibility tree; only the current one is visible */
+:host(.is-pinned) .eng {
+  grid-area: 1 / 1;
+  align-self: start;
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+  transition: opacity 0.22s, transform 0.22s;
+}
+
+:host(.is-pinned) .eng.on {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition: opacity 0.5s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.5s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+:host(.is-pinned) .progress {
+  display: block;
+}
+
+@media (max-height: 780px) {
+  :host(.is-pinned) {
+    --code-size: 10.4px;
+  }
+  :host(.is-pinned) .pitch,
+  :host(.is-pinned) .chips {
+    display: none;
+  }
+  :host(.is-pinned) .side {
+    gap: 10px;
+  }
+  :host(.is-pinned) h3 {
+    margin: 4px 0 0;
+    font-size: 28px;
+  }
+  :host(.is-pinned) .eng {
+    padding: 12px 14px;
+  }
+  :host(.is-pinned) h4 {
+    font-size: 16px;
+  }
+  :host(.is-pinned) .eng p {
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+}
