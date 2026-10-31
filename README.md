@@ -1,55 +1,58 @@
-# André Narcizo — Professional Portfolio
+# André Narcizo — Portfolio
 
 [English](README.md) | [Português](README.pt-BR.md)
 
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Angular](https://img.shields.io/badge/Angular-22-DD0031?style=flat-square&logo=angular&logoColor=white)](https://angular.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![GSAP](https://img.shields.io/badge/GSAP-3-0AE448?style=flat-square&logo=greensock&logoColor=black)](https://gsap.com)
 [![Netlify](https://img.shields.io/badge/deployed-Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white)](https://dev-andrenarcizo.netlify.app)
 
-Professional bilingual portfolio for André Narcizo, a Full-Stack Developer at Sysout Tecnologia.
-The site presents verified professional experience, selected engineering projects, technical stack,
-education, and recruiter-oriented contact information.
+Single-page portfolio of André Narcizo, Full-Stack Developer (Angular, Laravel, Flutter) at Sysout Tecnologia.
+The page is drawn like a technical blueprint: each section is a numbered figure, and a red dot — an HTTP
+request — travels from the Angular and Flutter clients through a Laravel API to PostgreSQL as you scroll.
 
 ## Highlights
 
-- Portuguese and English content with persistent language selection
-- Professional experience timeline based on the current CV
-- Curated full-stack, SaaS, API, mobile, and architecture projects
-- Responsive interface with dark and light themes
-- Accessible navigation and reduced-motion support
-- Recruiter-oriented SEO and social metadata
+- Angular 22: standalone components, zoneless change detection, signals, native `animate.enter`
+- Static prerendering (SSG): the full page ships as HTML, readable without JavaScript
+- Scroll stories with GSAP ScrollTrigger (pinned and scrubbed on desktop, once-only reveals on mobile)
+  and Lenis smooth scrolling, loaded after the page is interactive
+- `prefers-reduced-motion` respected everywhere: no motion, final state shown
+- Portuguese and English, switched at runtime without reloading
+- Lighthouse: Performance 97 (mobile) / 100 (desktop), Accessibility, Best Practices and SEO 100
 
-## Technology stack
+## Stack
 
 | Layer | Technologies |
 |---|---|
-| Frontend | React 19, TypeScript 5.9, Vite 7 |
-| UI | CSS Custom Properties, Framer Motion, Lucide React |
-| Quality | ESLint, TypeScript strict build |
-| Delivery | Netlify continuous deployment |
+| Framework | Angular 22, TypeScript 6 |
+| Motion | GSAP 3 + ScrollTrigger, Lenis, CSS animations, SVG SMIL |
+| Rendering | `@angular/ssr` static output (prerendered `/`) |
+| Tests | Vitest (Angular unit-test builder), Node test runner for the prerendered HTML |
+| Delivery | Netlify |
 
 ## Local development
+
+Requires Node.js 24 (`nvm use`).
 
 ```bash
 git clone https://github.com/DevAndreNarcizo/portifolio-andre-react.git
 cd portifolio-andre-react
 npm install
-npm run dev
+npm start
 ```
 
 ## Validation
 
 ```bash
-npm run lint
+npm test
 npm run build
+npm run test:prerender
 ```
 
-## Professional links
+## Links
 
 - [Live portfolio](https://dev-andrenarcizo.netlify.app)
 - [LinkedIn](https://linkedin.com/in/andrenarcizo)
 - [GitHub](https://github.com/DevAndreNarcizo)
 - [Email](mailto:dev.andrenarcizo@outlook.com)
-
-Built with React, TypeScript, and Vite. Deployed on Netlify.

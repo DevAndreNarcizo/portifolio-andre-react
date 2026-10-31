@@ -16,7 +16,7 @@ Este guia vai te ajudar a publicar seu portfólio no GitHub e fazer o deploy na 
 2. Clique no botão **"+"** no canto superior direito → **"New repository"**
 3. Preencha:
    - **Repository name**: `portifolio-andre-react` (ou o nome que preferir)
-   - **Description**: "Portfólio profissional com React + TypeScript"
+   - **Description**: "Portfólio profissional com Angular + TypeScript"
    - **Visibilidade**: Público ou Privado
 4. **NÃO** marque "Initialize with README" (já temos)
 5. Clique em **"Create repository"**
@@ -59,7 +59,7 @@ Se o GitHub pedir usuário/senha ou token:
 5. Selecione o repositório `portifolio-andre-react`
 6. Configure as opções:
    - **Build command**: `npm run build`
-   - **Publish directory**: `dist`
+   - **Publish directory**: `dist/portfolio-andre/browser`
 7. Clique em **"Deploy site"**
 
 A Netlify vai:
@@ -96,7 +96,7 @@ O Netlify detecta automaticamente mudanças e refaz o deploy quando você faz pu
 
 **Configurações automáticas:**
 - **Build command**: `npm run build`
-- **Publish directory**: `dist`
+- **Publish directory**: `dist/portfolio-andre/browser`
 - **Auto-publish**: Habilitado
 
 ### Atualizar o Site
@@ -152,7 +152,7 @@ Seu portfólio está no ar! 🚀
 Se tiver problemas, consulte:
 - [Documentação Netlify](https://docs.netlify.com/)
 - [Documentação GitHub](https://docs.github.com/)
-- [Documentação Vite](https://vitejs.dev/)
+- [Documentação Angular](https://angular.dev/)
 
 ## 🎨 URLs Úteis
 
