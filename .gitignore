@@ -1,26 +1,31 @@
+# Build output
+/dist
+/tmp
+/out-tsc
+/.angular/cache
+/coverage
+
+# Dependencies
+/node_modules
+
 # Logs
 logs
 *.log
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Local env
 *.local
 
-# Editor directories and files
+# Editors
 .vscode/*
 !.vscode/extensions.json
 .idea
+*.sw?
+
+# System
 .DS_Store
+Thumbs.db
+
+# Agent tooling
 .superpowers/
 .worktrees/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
