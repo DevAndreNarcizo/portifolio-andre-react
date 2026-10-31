@@ -2,8 +2,8 @@
 
 ## Status
 
-- Direção visual (V1 Prancheta), estrutura da página e arquitetura aprovadas por André Narcizo em 2026-10-31.
-- Implementação pendente da revisão deste documento e do plano de implementação.
+- Direção visual (V1 Prancheta), estrutura da página, arquitetura e este documento aprovados por André Narcizo em 2026-10-31.
+- Implementação pendente do plano de implementação.
 - Branch: `feat/angular-rewrite` (mesmo repositório; o React atual é substituído nesta branch e só sai do ar no merge).
 
 ## Objetivo
@@ -248,6 +248,6 @@ Cada componente usa template e estilos inline quando o arquivo fica abaixo de ~2
 - **Peso**: GSAP + plugins + Lenis (~70 KB gzip) ficam no chunk lazy; o bundle inicial contém só Angular e o conteúdo.
 - **SplitText e troca de idioma**: ao trocar PT/EN, as seções revertem o split e refazem com o texto novo (efeito sobre o signal `lang`).
 
-## Pontos a confirmar na revisão
+## Decisões da revisão
 
-- `stackGroups` atual lista MongoDB em "Data & Cache", embora o commit `aa0069a` diga que MongoDB foi removido da stack. Esta spec migra os dados como estão; remover MongoDB é uma decisão de André.
+- MongoDB sai de "Data & Cache" na migração de `stackGroups` (decisão de André em 2026-10-31). O projeto `node-microservices-event-driven` mantém a própria stack descrita como está.
