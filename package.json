@@ -11,7 +11,8 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test --watch=false",
-    "test:prerender": "node --test tests/prerender.test.mjs"
+    "test:prerender": "node --test tests/prerender.test.mjs",
+    "test:excerpts": "node --test tests/excerpts.test.mjs"
   },
   "dependencies": {
     "@angular/common": "^22.2.0",
