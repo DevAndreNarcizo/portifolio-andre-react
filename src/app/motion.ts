@@ -1,5 +1,6 @@
 import { DestroyRef, ElementRef, afterNextRender, inject } from '@angular/core';
 import type Lenis from 'lenis';
+import { agentBuild } from './agents';
 
 type Gsap = typeof import('gsap').gsap;
 type ScrollTriggerStatic = typeof import('gsap/ScrollTrigger').ScrollTrigger;
@@ -99,16 +100,11 @@ export function sceneMotion(scene: Scene): void {
   });
 }
 
-/** Once-only fade + slide-up as targets scroll in. Targets already on or above the screen are left alone. */
-export function reveal(m: Motion, targets: Iterable<Element>, stagger = 0.08): void {
+/**
+ * Once-only "agents build it" reveal as targets scroll in (see agents.ts). Targets already on or above the
+ * screen are left alone. Returns the undo, so a scene can `return reveal(...)` and matchMedia reverts it.
+ */
+export function reveal(targets: Iterable<Element>): () => void {
   const below = Array.from(targets).filter((el) => el.getBoundingClientRect().top > innerHeight);
-  if (!below.length) return;
-  // opacity, not autoAlpha: hidden items stay focusable, findable and in the a11y tree (focus scrolls them in, which reveals them)
-  m.gsap.set(below, { opacity: 0, y: 24 });
-  m.ScrollTrigger.batch(below, {
-    start: 'top 88%',
-    once: true,
-    onEnter: (batch) =>
-      m.gsap.to(batch, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', stagger, overwrite: true }),
-  });
+  return agentBuild(below);
 }

@@ -131,7 +131,7 @@ export class CaseStudy {
     sceneMotion((m, mode, root) =>
       mode === 'desktop'
         ? pinScene(m, root, this.data(), (n) => this.step.set(n))
-        : reveal(m, root.querySelectorAll('.win, .phone, .side > header, .chips, .nums, .links, .eng')),
+        : reveal(root.querySelectorAll('.win, .phone, .side > header, .chips, .nums, .links, .eng')),
     );
   }
 }

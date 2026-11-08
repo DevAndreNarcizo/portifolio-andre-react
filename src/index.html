@@ -23,6 +23,9 @@
   <meta name="twitter:description" content="Banco, API, web e mobile. Quatro projetos reais abertos por dentro, com o código que os sustenta.">
   <meta name="twitter:image" content="https://dev-andrenarcizo.netlify.app/og-image.png">
 
+  <!-- Agents build the hero on load (src/app/agents.ts): clip it before first paint so it never flashes. -->
+  <script>if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('agents');</script>
+
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="canonical" href="https://dev-andrenarcizo.netlify.app">
 

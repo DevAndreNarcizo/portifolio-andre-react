@@ -83,6 +83,6 @@ export class More {
   protected readonly projects = moreProjects;
 
   constructor() {
-    sceneMotion((m, _mode, root) => reveal(m, root.querySelectorAll('.kick, .h2, li')));
+    sceneMotion((_m, _mode, root) => reveal(root.querySelectorAll('.kick, .h2, li')));
   }
 }

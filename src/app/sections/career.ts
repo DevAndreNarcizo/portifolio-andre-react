@@ -102,6 +102,6 @@ export class Career {
   protected readonly t = inject(LangService).t;
 
   constructor() {
-    sceneMotion((m, _mode, root) => reveal(m, root.querySelectorAll('.kick, .h2, .jobs > li, .edu > div')));
+    sceneMotion((_m, _mode, root) => reveal(root.querySelectorAll('.kick, .h2, .jobs > li, .edu > div')));
   }
 }

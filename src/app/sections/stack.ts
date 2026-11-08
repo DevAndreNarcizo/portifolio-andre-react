@@ -68,6 +68,6 @@ export class Stack {
   protected readonly groups = stackGroups;
 
   constructor() {
-    sceneMotion((m, _mode, root) => reveal(m, root.querySelectorAll('.kick, .h2, .lead, .group')));
+    sceneMotion((_m, _mode, root) => reveal(root.querySelectorAll('.kick, .h2, .lead, .group')));
   }
 }

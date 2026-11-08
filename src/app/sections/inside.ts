@@ -72,6 +72,6 @@ export class Inside {
   protected readonly repo = siteRepo;
 
   constructor() {
-    sceneMotion((m, _mode, root) => reveal(m, root.querySelectorAll('.kick, .h2, .lead, .eng, .repo')));
+    sceneMotion((_m, _mode, root) => reveal(root.querySelectorAll('.kick, .h2, .lead, .eng, .repo')));
   }
 }

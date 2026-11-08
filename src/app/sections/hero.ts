@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, afterNextRender, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, ElementRef, afterNextRender, inject, signal } from '@angular/core';
+import { agentBuild } from '../agents';
 import { LangService } from '../lang';
 import { reducedMotion, sceneMotion } from '../motion';
 
@@ -10,42 +11,42 @@ const FRAMES = 34;
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section id="inicio" class="hero">
-      <p class="kick">{{ t().hero.kicker }}</p>
-      <h1 [attr.aria-label]="t().hero.title">{{ scrambled() ?? t().hero.title }}</h1>
-      <p class="sub">{{ t().hero.sub }}</p>
-      <p class="ctas">
+      <p class="kick" data-build>{{ t().hero.kicker }}</p>
+      <h1 data-build [attr.aria-label]="t().hero.title">{{ scrambled() ?? t().hero.title }}</h1>
+      <p class="sub" data-build>{{ t().hero.sub }}</p>
+      <p class="ctas" data-build>
         <a class="btn btn-primary" href="#apps">{{ t().hero.apps }}</a>
         <a class="btn" href="#contato">{{ t().hero.contact }}</a>
         <a class="btn" [href]="t().cv.href" download>{{ t().cv.label }}</a>
       </p>
 
       <div class="fan" role="img" [attr.aria-label]="t().hero.fan">
-        <div class="slot s1">
+        <div class="slot s1" data-build>
           <figure class="w">
             <div class="bar"><i></i><i></i><i></i><span class="url">foco-vida.vercel.app</span></div>
             <img src="/apps/hero-fv.webp" width="1100" height="729" alt="" decoding="async" />
           </figure>
         </div>
-        <div class="slot s2">
+        <div class="slot s2" data-build>
           <figure class="w">
             <div class="bar"><i></i><i></i><i></i><span class="url">agenda-facil · /dashboard</span></div>
             <img src="/apps/hero-af.webp" width="1100" height="729" alt="" decoding="async" />
           </figure>
         </div>
-        <div class="slot s0">
+        <div class="slot s0" data-build>
           <figure class="w">
             <div class="bar"><i></i><i></i><i></i><span class="url">myfinance · /inicio</span></div>
             <img src="/apps/hero-mf.webp" width="1600" height="1060" alt="" fetchpriority="high" />
           </figure>
         </div>
-        <div class="slot sp">
+        <div class="slot sp" data-build>
           <div class="phone"><img src="/apps/hero-phone.webp" width="560" height="1188" alt="" decoding="async" /></div>
         </div>
       </div>
 
       <ul class="proof" [attr.aria-label]="t().hero.proofLabel">
         @for (p of t().hero.proof; track p.value) {
-          <li>
+          <li data-build>
             <b>{{ p.value }}</b><span class="l">{{ p.label }}</span><span class="src">{{ p.source }}</span>
           </li>
         }
@@ -248,8 +249,10 @@ export class Hero {
 
   constructor() {
     const destroyRef = inject(DestroyRef);
-    afterNextRender(() => {
-      if (reducedMotion()) return;
+    const host = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
+    // The prerendered hero arrives clipped (index.html sets html.agents); agents build it right away,
+    // and the headline decodes itself once its agent has dragged it in.
+    const decode = () => {
       const title = this.t().hero.title;
       let frame = 0;
       const id = setInterval(() => {
@@ -265,6 +268,10 @@ export class Hero {
         );
       }, 30);
       destroyRef.onDestroy(() => clearInterval(id));
+    };
+    afterNextRender(() => {
+      if (reducedMotion()) return;
+      agentBuild(host.querySelectorAll('[data-build]'), { onBuilt: (el) => el.tagName === 'H1' && decode() });
     });
 
     sceneMotion((m, mode, root) => {

@@ -34,6 +34,6 @@ export class Apps {
   protected readonly cases = cases;
 
   constructor() {
-    sceneMotion((m, _mode, root) => reveal(m, root.querySelectorAll('.intro > *')));
+    sceneMotion((_m, _mode, root) => reveal(root.querySelectorAll('.intro > *')));
   }
 }

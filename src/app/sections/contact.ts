@@ -139,7 +139,7 @@ export class Contact {
   private readonly email = viewChild.required<ElementRef<HTMLAnchorElement>>('email');
 
   constructor() {
-    sceneMotion((m, _mode, root) => reveal(m, root.querySelectorAll('.about, .title, .lead, .channel, .end')));
+    sceneMotion((_m, _mode, root) => reveal(root.querySelectorAll('.about, .title, .lead, .channel, .end')));
   }
 
   async copy(): Promise<void> {
