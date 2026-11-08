@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { moreProjects } from '../content';
 import { LangService } from '../lang';
-import { reveal, sceneMotion } from '../motion';
+import { buildOnView } from '../agents';
 
 @Component({
   selector: 'app-more',
@@ -44,7 +44,7 @@ import { reveal, sceneMotion } from '../motion';
       overflow-wrap: anywhere;
     }
     li p {
-      color: #c3c9d1;
+      color: var(--tx2);
       font-size: 15px;
     }
     .stack {
@@ -83,6 +83,6 @@ export class More {
   protected readonly projects = moreProjects;
 
   constructor() {
-    sceneMotion((_m, _mode, root) => reveal(root.querySelectorAll('.kick, .h2, li')));
+    buildOnView('.kick, .h2, li');
   }
 }

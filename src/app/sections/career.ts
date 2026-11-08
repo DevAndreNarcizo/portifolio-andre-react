@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { LangService } from '../lang';
-import { reveal, sceneMotion } from '../motion';
+import { buildOnView } from '../agents';
 
 @Component({
   selector: 'app-career',
@@ -65,7 +65,7 @@ import { reveal, sceneMotion } from '../motion';
     .jobs p:not(.when) {
       max-width: 70ch;
       margin-top: 6px;
-      color: #c3c9d1;
+      color: var(--tx2);
     }
     .jobs .note {
       padding-left: 12px;
@@ -86,7 +86,7 @@ import { reveal, sceneMotion } from '../motion';
     .edu p,
     .edu li {
       margin-top: 6px;
-      color: #c3c9d1;
+      color: var(--tx2);
     }
     @media (min-width: 900px) {
       .jobs > li {
@@ -102,6 +102,6 @@ export class Career {
   protected readonly t = inject(LangService).t;
 
   constructor() {
-    sceneMotion((_m, _mode, root) => reveal(root.querySelectorAll('.kick, .h2, .jobs > li, .edu > div')));
+    buildOnView('.kick, .h2, .jobs > li, .edu > div');
   }
 }

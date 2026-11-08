@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CaseStudy } from '../cases/case-study';
 import { cases } from '../data/cases';
 import { LangService } from '../lang';
-import { reveal, sceneMotion } from '../motion';
+import { buildOnView } from '../agents';
 
 @Component({
   selector: 'app-apps',
@@ -34,6 +34,6 @@ export class Apps {
   protected readonly cases = cases;
 
   constructor() {
-    sceneMotion((_m, _mode, root) => reveal(root.querySelectorAll('.intro > *')));
+    buildOnView('.intro > *');
   }
 }

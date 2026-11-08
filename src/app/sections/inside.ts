@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { siteRepo } from '../content';
 import { inside } from '../data/inside';
 import { LangService } from '../lang';
-import { reveal, sceneMotion } from '../motion';
+import { buildOnView } from '../agents';
 import { CodeBlock } from '../ui/code-block';
 import { Rich } from '../ui/rich';
 
@@ -50,7 +50,7 @@ import { Rich } from '../ui/rich';
     }
     .eng p {
       margin-top: 6px;
-      color: #c3c9d1;
+      color: var(--tx2);
       font-size: 14px;
       line-height: 1.5;
     }
@@ -72,6 +72,6 @@ export class Inside {
   protected readonly repo = siteRepo;
 
   constructor() {
-    sceneMotion((_m, _mode, root) => reveal(root.querySelectorAll('.kick, .h2, .lead, .eng, .repo')));
+    buildOnView('.kick, .h2, .lead, .eng, .repo');
   }
 }

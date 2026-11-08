@@ -1,8 +1,8 @@
 import type { CodeLang } from '../data/types';
 
-export type TokenKind = '' | 'k' | 's' | 'c' | 'n';
+type TokenKind = '' | 'k' | 's' | 'c' | 'n';
 
-export interface Token {
+interface Token {
   kind: TokenKind;
   text: string;
 }

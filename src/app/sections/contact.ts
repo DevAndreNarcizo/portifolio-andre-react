@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { contactInfo } from '../content';
 import { LangService } from '../lang';
-import { reveal, sceneMotion } from '../motion';
+import { buildOnView } from '../agents';
 
 @Component({
   selector: 'app-contact',
@@ -61,7 +61,7 @@ import { reveal, sceneMotion } from '../motion';
     }
     .about p {
       max-width: 62ch;
-      color: #c3c9d1;
+      color: var(--tx2);
       font-size: 17px;
     }
     .title {
@@ -139,7 +139,7 @@ export class Contact {
   private readonly email = viewChild.required<ElementRef<HTMLAnchorElement>>('email');
 
   constructor() {
-    sceneMotion((_m, _mode, root) => reveal(root.querySelectorAll('.about, .title, .lead, .channel, .end')));
+    buildOnView('.about, .title, .lead, .channel, .end');
   }
 
   async copy(): Promise<void> {

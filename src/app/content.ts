@@ -3,7 +3,7 @@ import type { Localized, MoreProject } from './data/types';
 export type Lang = 'pt' | 'en';
 
 /** Sections a stack item can point to: the case (or the site itself) where the technology is used. */
-export type ProofId = 'case-myfinance' | 'case-agenda-facil' | 'case-foco-vida' | 'case-laravel' | 'por-dentro';
+type ProofId = 'case-myfinance' | 'case-agenda-facil' | 'case-foco-vida' | 'case-laravel' | 'por-dentro';
 
 const pt = {
   nav: {
@@ -303,7 +303,7 @@ export const moreProjects: MoreProject[] = [
   },
 ];
 
-export interface StackGroup {
+interface StackGroup {
   name: Localized;
   items: { name: string; at: ProofId }[];
 }

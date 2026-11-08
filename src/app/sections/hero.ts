@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, ElementRef, afterNextRender, inject, signal } from '@angular/core';
-import { agentBuild } from '../agents';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal } from '@angular/core';
+import { buildOnView } from '../agents';
 import { LangService } from '../lang';
-import { reducedMotion, sceneMotion } from '../motion';
+import { sceneMotion } from '../motion';
 
 const NOISE = '!<>-_/[]{}=+*^?#01';
 const FRAMES = 34;
@@ -249,7 +249,6 @@ export class Hero {
 
   constructor() {
     const destroyRef = inject(DestroyRef);
-    const host = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
     // The prerendered hero arrives clipped (index.html sets html.agents); agents build it right away,
     // and the headline decodes itself once its agent has dragged it in.
     const decode = () => {
@@ -269,10 +268,7 @@ export class Hero {
       }, 30);
       destroyRef.onDestroy(() => clearInterval(id));
     };
-    afterNextRender(() => {
-      if (reducedMotion()) return;
-      agentBuild(host.querySelectorAll('[data-build]'), { onBuilt: (el) => el.tagName === 'H1' && decode() });
-    });
+    buildOnView('[data-build]', { includeVisible: true, onBuilt: (el) => el.tagName === 'H1' && decode() });
 
     sceneMotion((m, mode, root) => {
       if (mode !== 'desktop') return;
@@ -285,14 +281,17 @@ export class Hero {
         ry((e.clientX / innerWidth - 0.5) * 8);
         rx(-(e.clientY / innerHeight - 0.5) * 6);
       };
-      addEventListener('pointermove', tilt);
+      // follow the pointer only while the hero is on screen, not for the rest of the visit
+      const toggleTilt = (on: boolean) =>
+        on ? addEventListener('pointermove', tilt) : removeEventListener('pointermove', tilt);
+      m.ScrollTrigger.create({ trigger: hero, start: 'top bottom', end: 'bottom top', onToggle: (st) => toggleTilt(st.isActive) });
 
       const scrub = (start: string) => ({ trigger: hero, start, end: 'bottom top', scrub: true });
       gsap.to(fan, { y: -140, scale: 1.12, ease: 'none', scrollTrigger: scrub('top top') });
       gsap.to(root.querySelector('.s1'), { xPercent: -30, opacity: 0, ease: 'none', scrollTrigger: scrub('30% top') });
       gsap.to(root.querySelector('.s2'), { xPercent: 30, opacity: 0, ease: 'none', scrollTrigger: scrub('30% top') });
       gsap.to(root.querySelector('.sp'), { yPercent: -18, ease: 'none', scrollTrigger: scrub('top top') });
-      return () => removeEventListener('pointermove', tilt);
+      return () => toggleTilt(false);
     });
   }
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Injector, afterNextRender, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, Injector, afterNextRender, inject, signal } from '@angular/core';
 import { siteRepo } from './content';
 import { LangService } from './lang';
 import { refreshScroll } from './motion';
@@ -14,7 +14,6 @@ import { Stack } from './sections/stack';
   selector: 'app-root',
   imports: [Hero, Apps, Inside, More, Career, Stack, Contact],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { '(window:scroll)': 'onScroll()' },
   template: `
     <a class="skip-link" href="#conteudo">{{ t().nav.skip }}</a>
     <header class="header" [class.hidden]="hidden()">
@@ -141,13 +140,19 @@ export class App {
   private lastY = 0;
 
   constructor() {
-    afterNextRender(() => this.lang.restore());
-  }
-
-  protected onScroll(): void {
-    const y = scrollY;
-    this.hidden.set(y > this.lastY && y > 120);
-    this.lastY = y;
+    const destroyRef = inject(DestroyRef);
+    afterNextRender(() => {
+      this.lang.restore();
+      // A plain passive listener, not a host binding: the signal only schedules change detection
+      // when the header actually flips, instead of on every (smooth-scrolled) frame.
+      const onScroll = () => {
+        const y = scrollY;
+        this.hidden.set(y > this.lastY && y > 120);
+        this.lastY = y;
+      };
+      addEventListener('scroll', onScroll, { passive: true });
+      destroyRef.onDestroy(() => removeEventListener('scroll', onScroll));
+    });
   }
 
   protected toggleLang(): void {

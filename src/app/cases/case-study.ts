@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import type { Case } from '../data/types';
 import { LangService } from '../lang';
-import { reveal, sceneMotion } from '../motion';
+import { agentBuild } from '../agents';
+import { sceneMotion } from '../motion';
 import { CodeBlock } from '../ui/code-block';
 import { Rich } from '../ui/rich';
 import { pinScene } from './case-scene';
@@ -131,7 +132,7 @@ export class CaseStudy {
     sceneMotion((m, mode, root) =>
       mode === 'desktop'
         ? pinScene(m, root, this.data(), (n) => this.step.set(n))
-        : reveal(root.querySelectorAll('.win, .phone, .side > header, .chips, .nums, .links, .eng')),
+        : agentBuild(root.querySelectorAll('.win, .phone, .side > header, .chips, .nums, .links, .eng')),
     );
   }
 }

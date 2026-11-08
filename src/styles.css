@@ -22,6 +22,7 @@
   --panel: #0d1116;
   --line: #1c2128;
   --tx: #e6e8eb;
+  --tx2: #c3c9d1;
   --mut: #8b939e;
   --acc: #3ddc84;
   --acc-ink: #04130a;
@@ -230,11 +231,12 @@ button {
   }
 }
 
-/* Content still waiting for its scroll reveal must print */
+/* Content still waiting for its scroll reveal (or its agent) must print */
 @media print {
   main * {
     opacity: 1 !important;
     visibility: visible !important;
+    clip-path: none !important;
   }
 }
 
@@ -244,9 +246,9 @@ html.agents [data-build]:not([data-built]) {
   clip-path: inset(0 100% 100% 0);
 }
 
-/* Failsafe for the prerendered hero: if the app never boots, show it anyway. */
-html.agents .hero [data-build]:not([data-built]) {
-  animation: agents-failsafe 0s 5s forwards;
+/* Failsafe: if the app never boots (html.agents-live never set), show the prerendered content anyway. */
+html.agents:not(.agents-live) [data-build]:not([data-built]) {
+  animation: agents-failsafe 0s 4s forwards;
 }
 
 @keyframes agents-failsafe {
@@ -334,13 +336,10 @@ html.agents .hero [data-build]:not([data-built]) {
   border: 1.5px solid var(--agent);
   border-radius: 4px;
   background: color-mix(in srgb, var(--agent) 7%, transparent);
-  transition:
-    opacity 0.55s ease,
-    background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .agent-frame.is-done {
-  opacity: 0;
   background: color-mix(in srgb, var(--agent) 16%, transparent);
 }
 

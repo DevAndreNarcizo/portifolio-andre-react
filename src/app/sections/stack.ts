@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { stackGroups } from '../content';
 import { LangService } from '../lang';
-import { reveal, sceneMotion } from '../motion';
+import { buildOnView } from '../agents';
 
 @Component({
   selector: 'app-stack',
@@ -68,6 +68,6 @@ export class Stack {
   protected readonly groups = stackGroups;
 
   constructor() {
-    sceneMotion((_m, _mode, root) => reveal(root.querySelectorAll('.kick, .h2, .lead, .group')));
+    buildOnView('.kick, .h2, .lead, .group');
   }
 }

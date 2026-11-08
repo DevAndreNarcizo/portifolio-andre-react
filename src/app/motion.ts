@@ -1,6 +1,4 @@
 import { DestroyRef, ElementRef, afterNextRender, inject } from '@angular/core';
-import type Lenis from 'lenis';
-import { agentBuild } from './agents';
 
 type Gsap = typeof import('gsap').gsap;
 type ScrollTriggerStatic = typeof import('gsap/ScrollTrigger').ScrollTrigger;
@@ -8,10 +6,9 @@ type ScrollTriggerStatic = typeof import('gsap/ScrollTrigger').ScrollTrigger;
 export interface Motion {
   gsap: Gsap;
   ScrollTrigger: ScrollTriggerStatic;
-  lenis: Lenis;
 }
 
-export type Mode = 'desktop' | 'flow';
+type Mode = 'desktop' | 'flow';
 
 /**
  * Builds a section's animations for one mode. Runs inside a gsap.matchMedia context scoped to the section,
@@ -20,13 +17,13 @@ export type Mode = 'desktop' | 'flow';
 export type Scene = (m: Motion, mode: Mode, root: HTMLElement) => void | (() => void);
 
 // Same breakpoint as the CSS layouts: pinned stories only on wide landscape screens.
-export const DESKTOP =
+const DESKTOP =
   '(min-width: 1024px) and (orientation: landscape) and (prefers-reduced-motion: no-preference)';
-export const FLOW =
+const FLOW =
   '((max-width: 1023.98px) or (orientation: portrait)) and (prefers-reduced-motion: no-preference)';
 
 let loading: Promise<Motion> | undefined;
-let loaded: Motion | undefined;
+let scrollTrigger: ScrollTriggerStatic | undefined;
 
 /** True when the visitor asked for reduced motion, or when matchMedia is missing (tests, old engines). */
 export function reducedMotion(): boolean {
@@ -63,14 +60,14 @@ export function loadMotion(): Promise<Motion> {
         lenis.scrollTo(target, { immediate: true });
       });
     }
-    loaded = { gsap, ScrollTrigger, lenis };
-    return loaded;
+    scrollTrigger = ScrollTrigger;
+    return { gsap, ScrollTrigger };
   })());
 }
 
-/** Recomputes trigger positions after the page height changes (e.g. the project filter). No-op before load. */
+/** Recomputes trigger positions after the page height changes (e.g. a language switch). No-op before load. */
 export function refreshScroll(): void {
-  loaded?.ScrollTrigger.refresh();
+  scrollTrigger?.refresh();
 }
 
 /**
@@ -98,13 +95,4 @@ export function sceneMotion(scene: Scene): void {
       revert = () => mm.revert();
     });
   });
-}
-
-/**
- * Once-only "agents build it" reveal as targets scroll in (see agents.ts). Targets already on or above the
- * screen are left alone. Returns the undo, so a scene can `return reveal(...)` and matchMedia reverts it.
- */
-export function reveal(targets: Iterable<Element>): () => void {
-  const below = Array.from(targets).filter((el) => el.getBoundingClientRect().top > innerHeight);
-  return agentBuild(below);
 }

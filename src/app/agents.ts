@@ -1,7 +1,9 @@
+import { DestroyRef, ElementRef, afterNextRender, inject } from '@angular/core';
+
 /**
  * "Agents building the page": every target stays clipped until an agent cursor flies in, drags a selection
  * frame over it and the content appears behind the drag, like a multiplayer design editor.
- * Browser-only and dependency-free (Web Animations + IntersectionObserver), so it can run before GSAP loads.
+ * No GSAP (Web Animations + IntersectionObserver), so it runs right after hydration instead of after load.
  * Clipped content stays in the accessibility tree and focusable; focusing it scrolls it in, which builds it.
  */
 
@@ -14,8 +16,10 @@ interface Point {
   y: number;
 }
 export interface BuildOptions {
-  /** Called once per element, the moment it is fully built (or revealed without animation). */
+  /** Called once per element, the moment its agent has built it. */
   onBuilt?: (el: HTMLElement) => void;
+  /** Build targets already on screen too (the prerendered hero); by default only content below the fold. */
+  includeVisible?: boolean;
 }
 
 const AGENTS: Agent[] = [
@@ -30,7 +34,9 @@ const IDLE_BEFORE_EXIT = 900;
 const MOVE_EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
 const DRAG_EASE = 'cubic-bezier(0.65, 0, 0.35, 1)';
 /** Also set by the inline script in index.html, so the prerendered hero starts clipped instead of flashing. */
-export const AGENTS_CLASS = 'agents';
+const AGENTS_CLASS = 'agents';
+/** Marks that the app booted: switches off the CSS failsafe that would otherwise unclip the hero. */
+const LIVE_CLASS = 'agents-live';
 
 const CURSOR_SVG =
   '<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">' +
@@ -87,11 +93,10 @@ class Crew {
     }
   }
 
-  /** Layer-relative box; the layer sits at the document origin, so this is a page position. */
+  /** Page position: the layer sits at the document origin. */
   private box(el: Element) {
-    const o = this.layer.getBoundingClientRect();
     const r = el.getBoundingClientRect();
-    return { x: r.left - o.left, y: r.top - o.top, w: r.width, h: r.height };
+    return { x: r.left + scrollX, y: r.top + scrollY, w: r.width, h: r.height };
   }
 
   private async work(agent: Agent): Promise<void> {
@@ -101,11 +106,10 @@ class Crew {
     cursor.innerHTML = `${CURSOR_SVG}<span class="agent-cursor__label">${agent.name}</span>`;
     this.layer.appendChild(cursor);
 
-    const o = this.layer.getBoundingClientRect();
     const first = this.queue[0];
     const pos: Point = {
-      x: Math.random() > 0.5 ? -o.left - 40 : -o.left + innerWidth + 20,
-      y: first ? this.box(first).y + Math.random() * 120 - 60 : -o.top + innerHeight / 2,
+      x: Math.random() > 0.5 ? scrollX - 40 : scrollX + innerWidth + 20,
+      y: first ? this.box(first).y + Math.random() * 120 - 60 : scrollY + innerHeight / 2,
     };
     cursor.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
     cursor.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 250, fill: 'forwards' });
@@ -117,7 +121,7 @@ class Crew {
       );
       // near the right edge the name tag moves to the cursor's left, so it never leaves the screen;
       // flip only while the whole move stays there, and settle on where the cursor lands
-      const edge = this.layer.clientWidth - 140;
+      const edge = document.documentElement.clientWidth - 140;
       cursor.classList.toggle('is-flipped', Math.min(pos.x, to.x) > edge);
       pos.x = to.x;
       pos.y = to.y;
@@ -145,7 +149,7 @@ class Crew {
         await this.build(target, agent, cursor, pos, moveTo);
       }
       cursor.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 380, fill: 'forwards' });
-      await moveTo({ x: pos.x + (pos.x > this.layer.clientWidth / 2 ? 80 : -80), y: pos.y - 40 }, 420);
+      await moveTo({ x: pos.x + (pos.x > document.documentElement.clientWidth / 2 ? 80 : -80), y: pos.y - 40 }, 420);
     } finally {
       this.active.delete(agent);
       cursor.remove();
@@ -194,8 +198,11 @@ class Crew {
       markBuilt(target);
       clip.cancel();
       cursor.classList.remove('is-pressing');
+      // flash, then fade out; the animation's end removes it (no timer to keep in sync with CSS)
+      frame
+        .animate([{ opacity: 1 }, { opacity: 1, offset: 0.15 }, { opacity: 0 }], { duration: 550, easing: 'ease' })
+        .finished.then(() => frame.remove(), () => frame.remove());
       frame.classList.add('is-done');
-      setTimeout(() => frame.remove(), 650);
       await wait(90);
     } catch {
       markBuilt(target);
@@ -217,8 +224,11 @@ function crewFor(el: Element): Crew {
   return crew;
 }
 
+const eager = new WeakSet<Element>();
+const seen = new WeakSet<Element>();
+
 function setup(): IntersectionObserver {
-  document.documentElement.classList.add(AGENTS_CLASS);
+  document.documentElement.classList.add(AGENTS_CLASS, LIVE_CLASS);
   layer = document.createElement('div');
   layer.className = 'agent-layer';
   layer.setAttribute('aria-hidden', 'true');
@@ -227,31 +237,48 @@ function setup(): IntersectionObserver {
   return new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
+        const el = entry.target as HTMLElement;
+        // First report for every target, with its rect measured by the browser (no forced layout):
+        // content on or above the screen is left alone, the rest is clipped until its agent arrives.
+        if (!seen.has(el)) {
+          seen.add(el);
+          if (!eager.has(el) && entry.boundingClientRect.top <= innerHeight) {
+            observer!.unobserve(el);
+            markBuilt(el);
+            continue;
+          }
+          el.setAttribute('data-build', '');
+        }
         if (!entry.isIntersecting) continue;
-        observer!.unobserve(entry.target);
-        crewFor(entry.target).enqueue(entry.target as HTMLElement);
+        observer!.unobserve(el);
+        crewFor(el).enqueue(el);
       }
     },
     { rootMargin: '0px 0px -12% 0px', threshold: 0 },
   );
 }
 
+const enabled = () =>
+  typeof Element.prototype.animate === 'function' &&
+  'IntersectionObserver' in globalThis &&
+  !matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 /**
- * Hides the targets now and lets agents build each one as it scrolls into view.
- * Returns an undo that shows whatever is still waiting (used when a matchMedia scene reverts).
+ * Lets agents build each target as it scrolls into view. Returns an undo that shows whatever is still
+ * waiting (used when a matchMedia scene reverts). With reduced motion or an old engine, shows everything now.
  */
 export function agentBuild(targets: Iterable<Element>, options: BuildOptions = {}): () => void {
   const list = Array.from(targets) as HTMLElement[];
-  const supported = typeof Element.prototype.animate === 'function' && 'IntersectionObserver' in globalThis;
-  if (!supported) {
-    list.forEach((el) => options.onBuilt?.(el));
+  if (!enabled()) {
+    document.documentElement.classList.remove(AGENTS_CLASS);
+    list.forEach((el) => el.setAttribute('data-built', ''));
     return () => {};
   }
   observer ??= setup();
   for (const el of list) {
     if (el.hasAttribute('data-built')) continue;
     if (options.onBuilt) callbacks.set(el, options.onBuilt);
-    el.setAttribute('data-build', '');
+    if (options.includeVisible) eager.add(el);
     observer.observe(el);
   }
   return () => {
@@ -260,4 +287,11 @@ export function agentBuild(targets: Iterable<Element>, options: BuildOptions = {
       markBuilt(el);
     }
   };
+}
+
+/** Component helper (call from a constructor): agents build the host's matching elements as they scroll in. */
+export function buildOnView(selector: string, options: BuildOptions = {}): void {
+  const host = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
+  const destroyRef = inject(DestroyRef);
+  afterNextRender(() => destroyRef.onDestroy(agentBuild(host.querySelectorAll(selector), options)));
 }
