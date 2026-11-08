@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { Award, GraduationCap } from 'lucide-react';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
-import { EASE_OUT } from '../constants/motion';
 import './Education.css';
 
 const Education = () => {
@@ -13,29 +12,20 @@ const Education = () => {
     <section id="formacao" className="section education-section">
       <div className="container-wide">
         <motion.p
+          data-build
           className="section-kicker"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: EASE_OUT }}
         >
           {t.kicker}
         </motion.p>
         <motion.h2
+          data-build
           className="section-title"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.08 }}
         >
           {t.title}
         </motion.h2>
         <motion.p
+          data-build
           className="section-subtitle"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.14 }}
         >
           {t.subtitle}
         </motion.p>
@@ -46,14 +36,11 @@ const Education = () => {
               <GraduationCap size={20} />
               <h3>{t.educationTitle}</h3>
             </div>
-            {t.items.map((item, i) => (
+            {t.items.map((item) => (
               <motion.article
+                data-build
                 className="education-card"
                 key={`${item.title}-${item.institution}`}
-                initial={{ opacity: 0, y: 24, scale: 0.97 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, ease: EASE_OUT, delay: 0.18 + i * 0.1 }}
                 whileHover={{ y: -4, borderColor: 'rgba(var(--color-accent-rgb), 0.22)' }}
               >
                 <span>{item.type}</span>
@@ -69,14 +56,11 @@ const Education = () => {
               <Award size={20} />
               <h3>{t.certificatesTitle}</h3>
             </div>
-            {t.certificates.map((item, i) => (
+            {t.certificates.map((item) => (
               <motion.article
+                data-build
                 className="education-card"
                 key={`${item.title}-${item.issuer}`}
-                initial={{ opacity: 0, y: 24, scale: 0.97 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, ease: EASE_OUT, delay: 0.18 + i * 0.1 }}
                 whileHover={{ y: -4, borderColor: 'rgba(var(--color-accent-rgb), 0.22)' }}
               >
                 <span>{item.issuer}</span>

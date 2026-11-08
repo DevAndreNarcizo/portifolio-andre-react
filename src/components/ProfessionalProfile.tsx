@@ -4,7 +4,6 @@ import { Code2, Rocket, ShieldCheck } from 'lucide-react';
 import { contactInfo } from '../data';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
-import { EASE_OUT } from '../constants/motion';
 import './ProfessionalProfile.css';
 
 const ProfessionalProfile = () => {
@@ -38,6 +37,7 @@ const ProfessionalProfile = () => {
       <div className="container-wide">
         <div className="profile-grid">
           <motion.div
+            data-build
             ref={panelRef}
             className="profile-photo-panel"
             onMouseMove={handleMouseMove}
@@ -47,10 +47,6 @@ const ProfessionalProfile = () => {
               rotateY: photoRotateY,
               transformPerspective: 800,
             }}
-            initial={{ opacity: 0, x: -36 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: EASE_OUT }}
           >
             <img src="/Imagens/Foto.webp" alt="André Narcizo em ambiente profissional" className="profile-photo" />
             <div className="profile-code-badge" aria-hidden="true">
@@ -69,11 +65,8 @@ const ProfessionalProfile = () => {
           </motion.div>
 
           <motion.div
+            data-build
             className="profile-content"
-            initial={{ opacity: 0, x: 36 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: EASE_OUT }}
           >
             <p className="section-kicker">{t.kicker}</p>
             <h2 className="section-title">{t.title}</h2>

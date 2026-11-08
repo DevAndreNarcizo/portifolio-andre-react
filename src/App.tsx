@@ -13,6 +13,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppFloating from './components/WhatsAppFloating';
 import CursorGlow from './components/CursorGlow';
+import AgentBuilder from './components/AgentBuilder';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <MotionConfig reducedMotion="user">
       <div className="app">
         <CursorGlow />
+        <AgentBuilder />
         <Header />
         <main>
           <Hero />

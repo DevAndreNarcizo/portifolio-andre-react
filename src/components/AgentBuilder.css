@@ -1,0 +1,157 @@
+/* Elementos aguardando um agente: ocupam espaço, mas ficam recortados. */
+.agent-build-ready [data-build]:not([data-built]) {
+  clip-path: inset(0 100% 100% 0);
+}
+
+.agent-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 900;
+}
+
+/* Cursor de agente (estilo editor multiplayer) */
+.agent-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--agent);
+  opacity: 0;
+  will-change: transform;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+}
+
+.agent-cursor svg {
+  display: block;
+  transition: transform 0.15s ease;
+  transform-origin: 4px 3px;
+}
+
+.agent-cursor.is-pressing svg {
+  transform: scale(0.86);
+}
+
+.agent-cursor__label {
+  position: absolute;
+  top: 18px;
+  left: 16px;
+  padding: 3px 9px;
+  border-radius: 999px 999px 999px 4px;
+  background: var(--agent);
+  color: #05070a;
+  font-family: var(--font-main);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.agent-cursor.is-flipped .agent-cursor__label {
+  left: auto;
+  right: 14px;
+  border-radius: 999px 999px 4px 999px;
+}
+
+.agent-cursor.is-pressing::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--agent);
+  animation: agentClick 0.5s ease-out forwards;
+}
+
+@keyframes agentClick {
+  from {
+    transform: scale(0.3);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Frame de seleção desenhado pelo agente */
+.agent-frame {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 1.5px solid var(--agent);
+  background: color-mix(in srgb, var(--agent) 7%, transparent);
+  border-radius: 4px;
+  transition: opacity 0.55s ease, background-color 0.3s ease;
+}
+
+.agent-frame.is-done {
+  opacity: 0;
+  background: color-mix(in srgb, var(--agent) 16%, transparent);
+}
+
+.agent-frame__tag,
+.agent-frame__size {
+  position: absolute;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--agent);
+  color: #05070a;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.agent-frame__tag {
+  bottom: calc(100% + 5px);
+  left: -1.5px;
+}
+
+.agent-frame__size {
+  top: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.agent-frame__handle {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: var(--color-bg);
+  border: 1.5px solid var(--agent);
+  border-radius: 1px;
+}
+
+.agent-frame__handle.is-tl { top: -4px; left: -4px; }
+.agent-frame__handle.is-tr { top: -4px; right: -4px; }
+.agent-frame__handle.is-bl { bottom: -4px; left: -4px; }
+.agent-frame__handle.is-br { bottom: -4px; right: -4px; }
+
+@media (max-width: 640px) {
+  .agent-cursor__label {
+    font-size: 10px;
+    padding: 2px 7px;
+  }
+
+  .agent-frame__size {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agent-build-ready [data-build]:not([data-built]) {
+    clip-path: none;
+  }
+
+  .agent-layer {
+    display: none;
+  }
+}

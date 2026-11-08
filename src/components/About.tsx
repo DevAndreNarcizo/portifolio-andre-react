@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
-import { EASE_OUT } from '../constants/motion';
 import './About.css';
 
 const About = () => {
@@ -13,11 +12,8 @@ const About = () => {
       <div className="container-wide">
         <div className="about-layout">
           <motion.div
+            data-build
             className="about-content"
-            initial={{ opacity: 0, x: -28 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, ease: EASE_OUT }}
           >
             <p className="section-kicker">{t.kicker}</p>
             <h2 className="section-title">{t.title}</h2>
@@ -29,14 +25,11 @@ const About = () => {
           </motion.div>
 
           <div className="about-metrics">
-            {t.metrics.map((metric, i) => (
+            {t.metrics.map((metric) => (
               <motion.div
+                data-build
                 className="about-metric-card"
                 key={metric.label}
-                initial={{ opacity: 0, y: 32, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, ease: EASE_OUT, delay: 0.1 + i * 0.1 }}
                 whileHover={{ y: -5, borderColor: 'rgba(var(--color-accent-rgb), 0.28)' }}
               >
                 <strong>{metric.value}</strong>

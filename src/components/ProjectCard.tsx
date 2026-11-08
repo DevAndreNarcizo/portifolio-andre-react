@@ -4,7 +4,6 @@ import { Code } from 'lucide-react';
 import type { Project } from '../types';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
-import { EASE_OUT } from '../constants/motion';
 import ProjectCardBadges from './ProjectCardBadges';
 import ProjectCardLinks from './ProjectCardLinks';
 import './ProjectCard.css';
@@ -52,6 +51,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 
   return (
     <motion.div
+      data-build
       ref={cardRef}
       className={`project-card ${isEnterprise ? 'project-card--enterprise' : ''}`}
       onMouseMove={handleMouseMove}
@@ -61,10 +61,6 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         rotateY,
         transformPerspective: 1200,
       }}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.7, ease: EASE_OUT, delay: index * 0.08 }}
     >
       <motion.div
         className="project-card-glow"

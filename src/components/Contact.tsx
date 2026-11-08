@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { contactInfo } from '../data';
 import { useLanguage } from '../i18n';
 import { text } from '../content';
-import { EASE_OUT } from '../constants/motion';
 import './Contact.css';
 
 const Contact = () => {
@@ -34,11 +33,8 @@ const Contact = () => {
     <section id="contato" className="section">
       <div className="container">
         <motion.div
+          data-build
           className="contact-grid"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: EASE_OUT }}
         >
           <div className="contact-info-side">
             <h2 className="section-title">{t.title}</h2>

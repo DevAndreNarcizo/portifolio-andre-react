@@ -57,6 +57,7 @@ const Hero = () => {
           animate="visible"
         >
           <motion.div
+            data-build
             className="hero-avatar-wrap"
             variants={{
               hidden: { opacity: 0, y: 28 },
@@ -72,6 +73,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.div
+            data-build
             className="hero-hello"
             variants={{
               hidden: { opacity: 0, y: 28 },
@@ -89,6 +91,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.h1
+            data-build
             className="hero-title"
             variants={{
               hidden: { opacity: 0 },
@@ -115,6 +118,7 @@ const Hero = () => {
           <HeroRoleTyper />
 
           <motion.p
+            data-build
             className="hero-description hero-description--center"
             variants={{
               hidden: { opacity: 0, y: 28 },
@@ -125,6 +129,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.p
+            data-build
             className="hero-description-secondary hero-description--center"
             variants={{
               hidden: { opacity: 0, y: 28 },
